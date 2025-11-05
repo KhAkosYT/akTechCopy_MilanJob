@@ -10,9 +10,16 @@ Feladat leiras:
 	The only difference between the 2 sites are the logo, the colors and the font you sent here
 	"
 
-
+	Új aktech oldalt kell írni. 
+	A struktúra ugyan az, mint a Computer Discover oldalé!
+	A logó és a szín marad ugyan az, mint az eredeti AK Tech oldalon.
+	A betűtípus meg ami itt van lent
+		||
+	    \/
 	Font Styles:
 		-https://fontsgeek.com/fonts/avenir-lt-std-95-black
 		-https://fontsgeek.com/fonts/avenir-lt-std-45-book
 		-https://fontsgeek.com/fonts/avenir-lt-std-65-medium
+
+		
 deadline, nov. 12
