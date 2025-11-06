@@ -1,0 +1,575 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["/scripts/app"],{
+
+/***/ "./resources/assets/scripts/app.js":
+/*!*****************************************!*\
+  !*** ./resources/assets/scripts/app.js ***!
+  \*****************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
+/* harmony import */ var swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! swiper/swiper-bundle.css */ "./node_modules/swiper/swiper-bundle.css");
+/* harmony import */ var swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! js-cookie */ "./node_modules/js-cookie/dist/js.cookie.js");
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_3__);
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+
+__webpack_require__(/*! ./bootstrap */ "./resources/assets/scripts/bootstrap.js");
+
+
+
+
+
+swiper__WEBPACK_IMPORTED_MODULE_1__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_1__["Navigation"], swiper__WEBPACK_IMPORTED_MODULE_1__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_1__["Autoplay"]]);
+//Vue.use(VueSlideoutPanel);
+
+/**
+ * The following block of code may be used to automatically register your
+ * Vue components. It will recursively scan this directory for the Vue
+ * components and automatically register them with their "basename".
+ *
+ * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+ */
+// const files = require.context('./', true, /\.vue$/i);
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+//Vue.component('example-component', require('./vue/ExampleComponent.vue').default);
+//Vue.component('evolve-panel', require('./components/EvolvePanelComponent.vue').default);
+//Vue.component('calcola-rata', require('./components/CalcolaRata.vue').default);
+
+/**
+ * Main App
+ */
+var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+  el: '#header',
+  data: function data() {
+    return {
+      menuOpen: true,
+      megaMenuOpen: false,
+      selectedMega: null
+    };
+  },
+  created: function created() {
+    console.log('webdevemilio nuovo');
+  },
+  methods: {
+    changeLabel: function changeLabel(menuid) {
+      //console.log(menuid);
+
+      //RESET
+      this.resetMegas();
+      this.selectedMega = menuid;
+      //console.log("Selected mega: ", this.selectedMega)
+
+      var isMobileDevice = navigator.userAgent.match(/iPad|iPhone|iPod/i) != null || screen.width <= 480;
+      if (isMobileDevice) {
+        //console.log("Caso  mobilexx");
+        var myDiv = document.getElementById('flyoutmenu');
+        myDiv.scrollTop = 0;
+        document.getElementById('mega-' + menuid).style.display = "block";
+        document.getElementById('mega-' + menuid).style.width = "100%";
+        this.megaMenuOpen = true;
+      } else {
+        //this.megaMenuOpen = true;
+        document.getElementById('mega-' + menuid).style.display = "block";
+        //console.log("Caso non mobile");
+      }
+    },
+    backMenu: function backMenu() {
+      this.megaMenuOpen = false;
+      //console.log("backMenu");
+    },
+    resetMegas: function resetMegas() {
+      var megas = document.querySelectorAll('.mega-menu');
+      for (var i = 0; i < megas.length; i++) {
+        megas[i].style.display = "none";
+      }
+    },
+    openMenu: function openMenu() {
+      this.menuOpen = !this.menuOpen;
+      this.resetMegas();
+      var isMobileDevice = navigator.userAgent.match(/iPad|iPhone|iPod/i) != null || screen.width <= 480;
+      if (this.menuOpen) {
+        if (isMobileDevice) {
+          document.getElementById('flyoutmenu').style.left = "-100%";
+          document.getElementById('flyoutmenu').style.top = "64px";
+          document.getElementById('nav-backdrop').style.display = "none";
+        } else {
+          document.getElementById('flyoutmenu').style.left = "-100%";
+          document.getElementById('flyoutmenu').style.top = "60px";
+          document.getElementById('nav-backdrop').style.display = "none";
+        }
+      } else {
+        if (isMobileDevice) {
+          document.getElementById('flyoutmenu').style.left = "0px";
+          document.getElementById('flyoutmenu').style.top = "64px";
+          document.getElementById('nav-backdrop').style.display = "block";
+        } else {
+          document.getElementById('flyoutmenu').style.left = "0px";
+          document.getElementById('flyoutmenu').style.top = "104px";
+          document.getElementById('nav-backdrop').style.display = "block";
+        }
+      }
+    }
+  }
+});
+
+/**
+ * Components endpoint App
+ */
+//new Vue({el: '#'});
+
+/**
+ * Slider
+ */
+var boughtTogetherSlider = new swiper__WEBPACK_IMPORTED_MODULE_1__["default"](".boughtTogetherSlider", {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  freeMode: true
+});
+var slider = new swiper__WEBPACK_IMPORTED_MODULE_1__["default"]('.slider', {
+  grabCursor: true,
+  autoplay: {
+    delay: 5000
+  },
+  loop: true,
+  resizeObserver: true,
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'bullets',
+    clickable: true
+  },
+  navigation: {
+    nextEl: '.slider .swiper-button-next',
+    prevEl: '.slider .swiper-button-prev'
+  },
+  on: {
+    init: function init() {
+      //console.log('swiper initialized');
+      var swiperLists = document.querySelectorAll(".slider");
+      //console.log("SWIPERLIST", swiperLists);
+      for (var i = 0; i < swiperLists.length; i++) {
+        //console.log(swiperLists[i]);
+        swiperLists[i].classList.remove('hidden');
+        swiperLists[i].classList.add("animate-fadeIn");
+      }
+    }
+  }
+});
+
+/**
+ * Carousels dynamic
+ */
+jQuery(".carousel").each(function (index, element) {
+  var $this = jQuery(this);
+  $this.addClass("instance-" + index);
+  $this.next(".swiper-button-prev-carousel").addClass("swiper-button-prev-carousel-" + index);
+  $this.next().next(".swiper-button-next-carousel").addClass("swiper-button-next-carousel-" + index);
+
+  //Get number slides param for desk
+  if ($this.data().slides_number) {
+    var slidesNumberDesk = $this.data().slides_number;
+  } else {
+    var slidesNumberDesk = 5;
+  }
+
+  //Get number slides param for desk2
+  if ($this.data().slides_number2) {
+    var slidesNumberDesk2 = $this.data().slides_number2;
+  } else {
+    var slidesNumberDesk2 = 4;
+  }
+
+  //Get number slides param for desk2
+  if ($this.data().slides_number3) {
+    var slidesNumberDesk3 = $this.data().slides_number3;
+  } else {
+    var slidesNumberDesk3 = 3;
+  }
+
+  //Get number slides param for tablet
+  if ($this.data().slides_number_tablet) {
+    var slidesNumberTablet = $this.data().slides_number_tablet;
+  } else {
+    var slidesNumberTablet = 2;
+  }
+
+  //Get number slides param for phone
+  if ($this.data().slides_number_phone) {
+    var slidesNumberPhone = $this.data().slides_number_phone;
+  } else {
+    var slidesNumberPhone = 1;
+  }
+
+  // Determina se attivare il loop
+  var shouldLoop = !$this.hasClass('carousel-countdown');
+  var carousel = new swiper__WEBPACK_IMPORTED_MODULE_1__["default"](".instance-" + index, {
+    observeParents: true,
+    observeSlideChildren: true,
+    observer: true,
+    autoplay: {
+      delay: 3000
+    },
+    loop: shouldLoop,
+    slidesPerView: 4,
+    spaceBetween: 5,
+    autoHeight: true,
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: slidesNumberPhone,
+        spaceBetween: 20
+      },
+      // when window width is >= 480px
+      480: {
+        slidesPerView: slidesNumberTablet,
+        spaceBetween: 20
+      },
+      // when window width is >= 1024px
+      1024: {
+        slidesPerView: slidesNumberDesk3,
+        spaceBetween: 20
+      },
+      1500: {
+        slidesPerView: slidesNumberDesk2,
+        spaceBetween: 20
+      },
+      1600: {
+        slidesPerView: slidesNumberDesk,
+        spaceBetween: 20
+      }
+    },
+    navigation: {
+      nextEl: ".swiper-button-next-carousel-" + index,
+      prevEl: ".swiper-button-prev-carousel-" + index
+    },
+    on: {
+      init: function init() {
+        //console.log('swiper initialized');
+        var swiperLists = document.querySelectorAll(".instance-" + index);
+        //console.log("SWIPERLIST", swiperLists);
+        for (var i = 0; i < swiperLists.length; i++) {
+          //console.log(swiperLists[i]);
+          swiperLists[i].classList.remove('hidden');
+          swiperLists[i].classList.add("animate-fadeIn");
+        }
+        var swiperArrowPrev = document.querySelectorAll(".swiper-button-prev");
+        for (var _i = 0; _i < swiperArrowPrev.length; _i++) {
+          swiperArrowPrev[_i].classList.remove('hidden');
+          swiperArrowPrev[_i].classList.add("animate-fadeIn");
+        }
+        var swiperArrowNext = document.querySelectorAll(".swiper-button-next");
+        for (var _i2 = 0; _i2 < swiperArrowNext.length; _i2++) {
+          swiperArrowNext[_i2].classList.remove('hidden');
+          swiperArrowNext[_i2].classList.add("animate-fadeIn");
+        }
+      }
+    }
+  });
+});
+
+/*
+* Animations on viewport
+*/
+var callback = function callback(entries) {
+  entries.forEach(function (entry) {
+    //console.log(entry);
+
+    if (entry.isIntersecting) {
+      entry.target.classList.add("animate-fadeIn");
+    } else {
+      entry.target.classList.remove("animate-fadeIn");
+    }
+  });
+};
+var observer = new IntersectionObserver(callback);
+var targets = document.querySelectorAll(".js-show-on-scroll");
+targets.forEach(function (target) {
+  target.classList.add("opacity-0");
+  observer.observe(target);
+});
+
+/*
+* Filter elements full clickable
+ */
+
+$(document).ready(function () {
+  $(".woof_container h4").css('cursor', 'pointer');
+  $(".woof_container h4").click(function () {
+    $(this).next().slideToggle("slow");
+  });
+});
+
+/**
+ * On Scroll fixed only if footer is not in viewport.
+ */
+function isMobile() {
+  var toMatch = [/Android/i, /webOS/i, /iPhone/i, /iPad/i, /iPod/i, /BlackBerry/i, /Windows Phone/i];
+  return toMatch.some(function (toMatchItem) {
+    return navigator.userAgent.match(toMatchItem);
+  });
+}
+if (isMobile() && $('#footer') || isMobile() && $('#place_order_div')) {
+  $.fn.isInViewport = function () {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+    return elementBottom > viewportTop && elementTop < viewportBottom;
+  };
+}
+
+/**
+ * Filter engine
+ */
+var mobileFilterProduct = document.getElementById('mobile-filter-open');
+var showFilter = document.getElementById('sidebar-shop');
+var closeFilter = document.getElementById('closeFilterIcon');
+var searchButton = document.getElementById('search-button');
+if (mobileFilterProduct) {
+  mobileFilterProduct.addEventListener("click", toggleFilter);
+}
+if (closeFilter || searchButton) {
+  closeFilter.addEventListener("click", closeFilterProduct);
+  searchButton.addEventListener("click", closeFilterProduct);
+}
+function toggleFilter() {
+  //console.log('Clicked toggle');
+
+  if (showFilter.classList.contains("filter-hidden")) {
+    showFilter.classList.remove("filter-hidden");
+    showFilter.classList.add("filter-show");
+    document.body.style.overflow = "hidden";
+  } else {
+    showFilter.classList.add("filter-hidden");
+    showFilter.classList.remove("filter-show");
+  }
+}
+function closeFilterProduct() {
+  //console.log('Clicked closed!')
+  showFilter.classList.add("filter-hidden");
+  showFilter.classList.remove("filter-show");
+  document.body.style.overflow = "scroll";
+}
+
+/*Flyout menu*/
+if (!isMobile()) {
+  $(".menu-link[aria-haspopup=true]").click(function () {
+    if ($('ul.mega-menu ').is(":visible")) {
+      $("#flyoutmenu").css("width", "565px");
+      $("a.menu-link-father").css("width", "50%");
+      $("a.menu-link-children").css("width", "100%");
+    }
+  });
+  $("#iconClose").click(function () {
+    $("#flyoutmenu").css("width", "300px");
+    $("a.menu-link-father").css("width", "100%");
+  });
+}
+/**
+ * Riflettori Ajax call
+ */
+jQuery(function ($) {
+  //get array from transient
+  var riflettori = transient_riflettori.riflettori;
+
+  //console.log(riflettori);
+
+  //Select two values from array
+  var riflettori_shuffled = riflettori.sort(function () {
+    return .5 - Math.random();
+  });
+  var riflettori_selected = riflettori_shuffled.slice(0, 2);
+
+  //console.log(riflettori_selected)
+
+  //mod edinet 6 feb rimossi data e trasformata funzione da POST a GET
+  //Ajax call with two random values
+  // var data = {
+  //   action: 'riflettori_call',
+  //   query: riflettori_selected,
+  // };
+
+  if ($('#riflettori-images-container').length) {
+    console.log('wrapper riflettori esiste, esegui chiamata');
+    $.get('/frontend-requests/action/riflettori_call/', '', function (res) {
+      if (res.success) {
+        //console.log(data.query)
+        $('#riflettori-images-container').append(res.data);
+        //console.log('DONE', res.success);
+      } else {
+        //console.log(res);
+      }
+    }).fail(function (xhr, textStatus, e) {
+      //console.log(xhr.responseText);
+    });
+  }
+});
+
+/*Flyout menu*/
+if (!isMobile()) {
+  $(".menu-link[aria-haspopup=true]").click(function () {
+    if ($('ul.mega-menu ').is(":visible")) {
+      $("#flyoutmenu").css("width", "565px");
+      $("a.menu-link-father").css("width", "50%");
+      $("a.menu-link-children").css("width", "100%");
+    }
+  });
+}
+
+/**
+ * Set fixed height for carousel
+ */
+if (document.getElementById("carousel-wrapper")) {
+  document.getElementById("carousel-wrapper").style.height = "340px";
+}
+
+/**
+ * Popup cookie
+ */
+document.addEventListener("DOMContentLoaded", function () {
+  if (document.getElementById("custom-ak-button")) {
+    var akPopup = document.getElementsByClassName("pum");
+    Array.from(akPopup).forEach(function (el) {
+      //Get the id of popup
+      var elementId = el.id;
+      //console.log(elementId);
+      if (js_cookie__WEBPACK_IMPORTED_MODULE_3___default.a.get('ak-' + elementId)) {
+        //The cookie are valid
+        //console.log('Recent user for '+elementId);
+        el.removeAttribute("style");
+        el.style.display = "none";
+      } else {
+        //New user or cookie was expire
+        //console.log('New user or cookie expired for '+elementId);
+        js_cookie__WEBPACK_IMPORTED_MODULE_3___default.a.set('ak-' + elementId, 'visited_' + elementId, {
+          expires: 1
+        });
+      }
+    });
+  }
+});
+
+//Back to top
+$(function () {
+  $(window).scroll(function () {
+    if ($(this).scrollTop() != 0) {
+      $('#toTop').fadeIn();
+    } else {
+      $('#toTop').fadeOut();
+    }
+  });
+  $('#toTop').click(function () {
+    $('body,html').animate({
+      scrollTop: 0
+    }, 800);
+  });
+});
+if (isMobile()) {
+  if (document.getElementById('place_order_div') || document.getElementById('place_order')) {
+    $(window).on('resize scroll', function () {
+      if ($('#place_order_div').isInViewport()) {
+        $('#cta_place').removeClass('fixed-checkout ').addClass('block-checkout z-1');
+        //console.log('in viewport')
+      } else {
+        $('#cta_place').removeClass('block-checkout').addClass('fixed-checkout');
+        //console.log('out of viewport')
+      }
+      if ($('#footer').isInViewport() && $('#place_order')) {
+        $('#place_order').removeClass('fixed-checkout').addClass('block-checkout');
+      } else {
+        $('#place_order').removeClass('block-checkout').addClass('fixed-checkout');
+      }
+    });
+  }
+}
+
+/**
+ * Countdown Sale
+ */
+jQuery(document).ready(function ($) {
+  function updateCountdownTimer() {
+    var now = new Date().getTime();
+    $('.sale-countdown').each(function () {
+      var endTime = parseInt($(this).data('endtime')) * 1000;
+      var startTime = parseInt($(this).data('starttime')) * 1000;
+      var distance;
+      if (now > startTime && now < endTime) {
+        distance = endTime - now;
+      } else if (now < startTime) {
+        $(this).hide();
+        return;
+      } else if (now >= endTime) {
+        $(this).hide();
+        return;
+      }
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+      var minutes = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60));
+      var seconds = Math.floor(distance % (1000 * 60) / 1000);
+      $(this).find('.days').text(days);
+      $(this).find('.hours').text(hours);
+      $(this).find('.minutes').text(minutes);
+      $(this).find('.seconds').text(seconds);
+    });
+  }
+  setInterval(updateCountdownTimer, 1000);
+  updateCountdownTimer();
+});
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
+/***/ "./resources/assets/scripts/bootstrap.js":
+/*!***********************************************!*\
+  !*** ./resources/assets/scripts/bootstrap.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+
+/**
+ * We'll load the axios HTTP library which allows us to easily issue requests
+ * to our Laravel back-end. This library automatically handles sending the
+ * CSRF token as a header based on the value of the "XSRF" token cookie.
+ */
+
+window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+/***/ }),
+
+/***/ "./resources/assets/styles/app.scss":
+/*!******************************************!*\
+  !*** ./resources/assets/styles/app.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 0:
+/*!**********************************************************************************!*\
+  !*** multi ./resources/assets/scripts/app.js ./resources/assets/styles/app.scss ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! C:\condivisa\siti\s\shop.akinformatica.it\wp-content\themes\ak-informatica-25\resources\assets\scripts\app.js */"./resources/assets/scripts/app.js");
+module.exports = __webpack_require__(/*! C:\condivisa\siti\s\shop.akinformatica.it\wp-content\themes\ak-informatica-25\resources\assets\styles\app.scss */"./resources/assets/styles/app.scss");
+
+
+/***/ })
+
+},[[0,"/scripts/manifest","/scripts/vendor"]]]);
+//# sourceMappingURL=app.js.map

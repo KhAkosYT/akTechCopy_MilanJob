@@ -1,0 +1,9 @@
+_iub.csRC = { consApiKey: 'HCwsBme1TK2z42sBhBoDs0ZzbraOFP2H', publicId: '3f05238d-56c5-4aba-8fc2-7cc8a80b0706', floatingGroup: false }
+_iub.csEnabled = true;
+_iub.csPurposes = [3,4,1];
+_iub.cpUpd = 1758555964;
+_iub.csFeatures = {"geolocation_setting":true,"cookie_solution_white_labeling":1,"rejection_recovery":false,"full_customization":true,"multiple_languages":true,"mobile_app_integration":false};
+_iub.csT = null;
+_iub.googleConsentModeV2 = true;
+_iub.totalNumberOfProviders = 3;
+_iub.csSiteConf = {"askConsentAtCookiePolicyUpdate":true,"countryDetection":true,"emailMarketing":{"styles":{"backgroundColor":"#2E247A","buttonsBackgroundColor":"#F59F42","buttonsTextColor":"#FFFFFF","footerBackgroundColor":"#F59F42","footerTextColor":"#FFFFFF","textColor":"#FFFFFF"},"theme":"dark"},"enableFadp":true,"floatingPreferencesButtonDisplay":"anchored-center-left","gdprAppliesGlobally":false,"perPurposeConsent":true,"siteId":4175113,"storage":{"useSiteId":true},"whitelabel":false,"cookiePolicyId":72864609,"lang":"it","banner":{"acceptButtonColor":"#F59F42","acceptButtonDisplay":true,"backgroundColor":"#2E247A","closeButtonRejects":true,"customizeButtonColor":"#F59F42","customizeButtonDisplay":true,"explicitWithdrawal":true,"fontSizeBody":"17px","listPurposes":true,"logo":null,"position":"bottom"}};

@@ -1,0 +1,890 @@
+(function() {
+  "use strict";
+  try {
+    if (typeof document != "undefined") {
+      var elementStyle = document.createElement("style");
+      elementStyle.appendChild(document.createTextNode('.container_jL {\n  display: flex;\n  flex-direction: row;\n  width: 620px;\n  align-items: center;\n}\n@media (max-width: 1024px) {\n  .container_jL {\n    flex-direction: column;\n  }\n}\n.carousel_gq {\n  width: 100%;\n  overflow: hidden;\n}\n.containerInactive_G2 {\n  display: flex;\n  flex-direction: row;\n  max-width: 620px;\n  align-items: center;\n  padding: 56px;\n}.main-container_uL {\n  display: inline-flex;\n  flex-direction: column;\n  align-items: center;\n}\n.main-container_uL .btn-container-full-width_FM {\n  padding-top: 48px;\n  padding-right: 48px;\n  padding-left: 48px;\n}\n.main-container_uL .btn-container-small_L4 {\n  padding-top: 20px;\n  padding-right: 20px;\n  padding-left: 20px;\n}\n.main-container_uL .gap-full-width_GC {\n  gap: 16px;\n}\n.main-container_uL .gap-small_qa {\n  gap: 6px;\n}\n.main-container_uL .link-container_-F {\n  margin-top: 16px;\n}\n.main-container_uL .rating_21 {\n  display: flex;\n  flex-direction: column;\n  flex: 0 0 30%;\n  justify-content: center;\n  align-items: center;\n}\n.main-container_uL .rating_21 .top-container_51 {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  margin-bottom: 16px;\n  align-items: center;\n  justify-content: center;\n}\n.main-container_uL .rating_21 .text-container-gap_oG {\n  gap: 4px;\n}\n.main-container_uL .rating_21 .text-container-gap-small_GC {\n  gap: 4px;\n}\n.main-container_uL .rating_21 .texts-container_y5 {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.main-container_uL .rating_21 .texts-container_y5 .group_OR {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.main-container_uL .rating_21 .texts-container_y5 .group_OR .avatar-group_Bw {\n  display: flex;\n  position: relative;\n}\n.main-container_uL .rating_21 .texts-container_y5 .group_OR .avatar-group_Bw .avatar_Gr {\n  border-radius: 50%;\n  border: 1px solid var(--neutral-200, #E5E9F0);\n  position: relative;\n}\n.main-container_uL .rating_21 .texts-container_y5 .group_OR .avatar-group_Bw .avatar_Gr:nth-child(1) {\n  z-index: 6;\n}\n.main-container_uL .rating_21 .texts-container_y5 .group_OR .avatar-group_Bw .avatar_Gr:nth-child(2) {\n  z-index: 5;\n}\n.main-container_uL .rating_21 .texts-container_y5 .group_OR .avatar-group_Bw .avatar_Gr:nth-child(3) {\n  z-index: 4;\n}\n.main-container_uL .rating_21 .texts-container_y5 .group_OR .avatar-group_Bw .avatar_Gr:nth-child(4) {\n  z-index: 3;\n}\n.main-container_uL .rating_21 .texts-container_y5 .group_OR .avatar-group_Bw .avatar_Gr:nth-child(5) {\n  z-index: 2;\n}\n.main-container_uL .rating_21 .texts-container_y5 .group_OR .avatar-group_Bw .avatar_Gr:nth-child(6) {\n  z-index: 1;\n}\n.main-container_uL .rating_21 .texts-container_y5 .group_OR .avatar-group_Bw .avatar_Gr + .avatar_Gr {\n  margin-left: -12px;\n}.reviewCard_Vl {\n  border: 1px solid #ddd;\n  border-radius: 8px;\n  padding: 16px 24px;\n  background-color: #fff;\n  width: 100%;\n  max-width: 400px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  font-family: Arial, sans-serif;\n  color: #333;\n  box-sizing: border-box;\n}\n\n.header_GD {\n  display: flex;\n  align-items: center;\n  margin-bottom: 16px;\n  gap: 8px;\n}\n\n.header_GD .texts_MT {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n\n.profileImage_Wx {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  margin-right: 8px;\n}\n\n.name_7z {\n  font-weight: bold;\n  font-size: 16px;\n}\n\n.platform_qC {\n  font-size: 14px;\n  color: #888;\n}\n\n.reviewText_2B {\n  font-size: 14px;\n  line-height: 1.5;\n  margin-bottom: 8px;\n}\n\n.footer_fq {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-top: 24px;\n}\n\n.rating_iA {\n  font-size: 14px;\n  align-items: center;\n  justify-content: center;\n  display: flex;\n  color: #333;\n}\n\n.stars_do {\n  color: #ffcc00;\n}\n\n.date_c3 {\n  font-size: 14px;\n  color: #888;\n}.carousel_wg {\n  position: relative;\n  width: 100%;\n}\n\n.scroll-container_dA {\n  display: flex;\n  width: 100%;\n  overflow-x: hidden;\n  padding-left: 4px;\n}\n\n.carouselItem_wD {\n  flex: 0 0 auto;\n  height: 100%;\n  transition: transform 0.3s ease-in-out;\n  z-index: 3;\n}\n\n.carouselItem_wD:hover {\n  transform: scale(1.02);\n}\n\n@keyframes scrollLeft_y- {\n  from {\n    transform: translateX(0);\n  }\n  to {\n    transform: translateX(-50%);\n  }\n}:root {\n  --0: calc(8px * 0);\n  --0_125: calc(8px * 0.125);\n  --0_25: calc(8px * 0.25);\n  --0_5: calc(8px * 0.5);\n  --1: calc(8px * 1);\n  --1_5: calc(8px * 1.5);\n  --1_75: calc(8px * 1.75);\n  --2: calc(8px * 2);\n  --2_5: calc(8px * 2.5);\n  --3: calc(8px * 3);\n  --4: calc(8px * 4);\n  --5: calc(8px * 5);\n  --6: calc(8px * 6);\n  --7: calc(8px * 7);\n  --8: calc(8px * 8);\n  --9: calc(8px * 9);\n}\n\n.align-items-baseline_id {\n  align-items: baseline;\n}\n\n.align-items-center_vy {\n  align-items: center;\n}\n\n.align-items-end_vG {\n  align-items: flex-end;\n}\n\n.align-items-start_YQ {\n  align-items: flex-start;\n}\n\n.align-items-stretch_zq {\n  align-items: stretch;\n}\n\n.align-content-center_Ko {\n  align-content: center;\n}\n\n.align-content-end_Df {\n  align-content: flex-end;\n}\n\n.align-content-start_Vg {\n  align-content: flex-start;\n}\n\n.align-content-around_zs {\n  align-content: space-around;\n}\n\n.align-content-between_J7 {\n  align-content: space-between;\n}\n\n.align-content-stretch_-O {\n  align-content: stretch;\n}\n\n.align-self-baseline_GM {\n  align-self: baseline;\n}\n\n.align-self-center_ZC {\n  align-self: center;\n}\n\n.align-self-end_pJ {\n  align-self: flex-end;\n}\n\n.align-self-start_FR {\n  align-self: flex-start;\n}\n\n.align-self-stretch_Xf {\n  align-self: stretch;\n}\n\n.justify-content-start_OQ {\n  justify-content: flex-start;\n}\n\n.justify-content-end_5e {\n  justify-content: flex-end;\n}\n\n.justify-content-center_zU {\n  justify-content: center;\n}\n\n.justify-content-between_cV {\n  justify-content: space-between;\n}\n\n.justify-content-around_NJ {\n  justify-content: space-around;\n}\n\n.justify-content-evenly_Tn {\n  justify-content: space-evenly;\n}\n\n.text-align-start_oP {\n  text-align: start;\n}\n\n.text-align-end_JX {\n  text-align: end;\n}\n\n.text-align-center_t9 {\n  text-align: center;\n}\n\n.text-align-justify_6O {\n  text-align: justify;\n}\n\n.col-auto_hu {\n  flex: 0 0 auto;\n  width: auto;\n}\n\n.col-1_6S {\n  flex: 0 0 auto;\n  width: 8.33333333%;\n}\n\n.col-2_Ev {\n  flex: 0 0 auto;\n  width: 16.66666667%;\n}\n\n.col-3_Xf {\n  flex: 0 0 auto;\n  width: 25%;\n}\n\n.col-4_AY {\n  flex: 0 0 auto;\n  width: 33.33333333%;\n}\n\n.col-5_qC {\n  flex: 0 0 auto;\n  width: 41.66666667%;\n}\n\n.col-6_qP {\n  flex: 0 0 auto;\n  width: 50%;\n}\n\n.col-7_hX {\n  flex: 0 0 auto;\n  width: 58.33333333%;\n}\n\n.col-8_eI {\n  flex: 0 0 auto;\n  width: 66.66666667%;\n}\n\n.col-9_aK {\n  flex: 0 0 auto;\n  width: 75%;\n}\n\n.col-10_-G {\n  flex: 0 0 auto;\n  width: 83.33333333%;\n}\n\n.col-11_N0 {\n  flex: 0 0 auto;\n  width: 91.66666667%;\n}\n\n.col-12_M2 {\n  flex: 0 0 auto;\n  width: 100%;\n}\n\n.d-flex_LP {\n  display: flex;\n}\n\n.d-block_jm {\n  display: block;\n}\n\n.d-grid_Rn {\n  display: grid;\n}\n\n.d-inline_tb {\n  display: inline;\n}\n\n.d-inline-block_8P {\n  display: inline-block;\n}\n\n.d-inline-flex_GI {\n  display: inline-flex;\n}\n\n.d-inline-grid_IQ {\n  display: inline-grid;\n}\n\n.d-flex-column_eP {\n  flex-direction: column;\n  display: flex;\n}\n\n.d-flex-column-reverse_HN {\n  flex-direction: column-reverse;\n  display: flex;\n}\n\n.d-flex-row_b9 {\n  flex-direction: row;\n  display: flex;\n}\n\n.d-flex-row-reverse_Qx {\n  flex-direction: row-reverse;\n  display: flex;\n}\n\n.flex-grow-1_So {\n  flex-grow: 1;\n}\n\n.flex-grow-2_SA {\n  flex-grow: 2;\n}\n\n.flex-grow-3_dW {\n  flex-grow: 3;\n}\n\n.flex-grow-4_kP {\n  flex-grow: 4;\n}\n\n.flex-grow-5_Wq {\n  flex-grow: 5;\n}\n\n.flex-nowrap_Cv {\n  flex-wrap: nowrap;\n}\n\n.flex-wrap_F- {\n  flex-wrap: wrap;\n}\n\n.flex-wrap-reverse_ds {\n  flex-wrap: wrap-reverse;\n}\n\n.flex-shrink-1_KR {\n  flex-shrink: 1;\n}\n\n.flex-shrink-2_sH {\n  flex-shrink: 2;\n}\n\n.flex-shrink-3_xS {\n  flex-shrink: 3;\n}\n\n.flex-shrink-4_G9 {\n  flex-shrink: 4;\n}\n\n.flex-shrink-5_yo {\n  flex-shrink: 5;\n}\n\n.offset-auto_3K {\n  margin-left: auto;\n}\n\n.offset-1_zp {\n  margin-left: 8.33333333%;\n}\n\n.offset-2_gv {\n  margin-left: 16.66666667%;\n}\n\n.offset-3_zC {\n  margin-left: 25%;\n}\n\n.offset-4_Ny {\n  margin-left: 33.33333333%;\n}\n\n.offset-5_zt {\n  margin-left: 41.66666667%;\n}\n\n.offset-6_S2 {\n  margin-left: 50%;\n}\n\n.offset-7_h9 {\n  margin-left: 58.33333333%;\n}\n\n.offset-8_QS {\n  margin-left: 66.66666667%;\n}\n\n.offset-9_xQ {\n  margin-left: 75%;\n}\n\n.offset-10_8W {\n  margin-left: 83.33333333%;\n}\n\n.offset-11_YX {\n  margin-left: 91.66666667%;\n}\n\n.offset-12_9H {\n  margin-left: 100%;\n}\n\n.position-absolute_yo {\n  position: absolute;\n}\n\n.position-fixed_cs {\n  position: fixed;\n}\n\n.position-relative_gN {\n  position: relative;\n}\n\n.position-static_NR {\n  position: static;\n}\n\n.position-sticky_Iv {\n  position: sticky;\n}\n\n.m-0_PN {\n  margin: calc(0 * 8px);\n}\n\n.m-0_125_3k {\n  margin: calc(0.125 * 8px);\n}\n\n.m-0_25_sU {\n  margin: calc(0.25 * 8px);\n}\n\n.m-0_5_2P {\n  margin: calc(0.5 * 8px);\n}\n\n.m-1_-B {\n  margin: calc(1 * 8px);\n}\n\n.m-1_5_nu {\n  margin: calc(1.5 * 8px);\n}\n\n.m-1_75_98 {\n  margin: calc(1.75 * 8px);\n}\n\n.m-2_Sk {\n  margin: calc(2 * 8px);\n}\n\n.m-2_5_Q0 {\n  margin: calc(2.5 * 8px);\n}\n\n.m-3_tT {\n  margin: calc(3 * 8px);\n}\n\n.m-4_Q0 {\n  margin: calc(4 * 8px);\n}\n\n.m-5_we {\n  margin: calc(5 * 8px);\n}\n\n.m-6_V4 {\n  margin: calc(6 * 8px);\n}\n\n.m-7_5s {\n  margin: calc(7 * 8px);\n}\n\n.m-8_fw {\n  margin: calc(8 * 8px);\n}\n\n.m-9_Ml {\n  margin: calc(9 * 8px);\n}\n\n.p-0_tA {\n  padding: calc(0 * 8px);\n}\n\n.p-0_125_-9 {\n  padding: calc(0.125 * 8px);\n}\n\n.p-0_25_dY {\n  padding: calc(0.25 * 8px);\n}\n\n.p-0_5_7E {\n  padding: calc(0.5 * 8px);\n}\n\n.p-1_nR {\n  padding: calc(1 * 8px);\n}\n\n.p-1_5_8D {\n  padding: calc(1.5 * 8px);\n}\n\n.p-1_75_V9 {\n  padding: calc(1.75 * 8px);\n}\n\n.p-2_40 {\n  padding: calc(2 * 8px);\n}\n\n.p-2_5_KA {\n  padding: calc(2.5 * 8px);\n}\n\n.p-3_4Y {\n  padding: calc(3 * 8px);\n}\n\n.p-4_Ql {\n  padding: calc(4 * 8px);\n}\n\n.p-5_-D {\n  padding: calc(5 * 8px);\n}\n\n.p-6_uV {\n  padding: calc(6 * 8px);\n}\n\n.p-7_tw {\n  padding: calc(7 * 8px);\n}\n\n.p-8_Nu {\n  padding: calc(8 * 8px);\n}\n\n.p-9_bY {\n  padding: calc(9 * 8px);\n}\n\n.gap-0_3j {\n  gap: calc(0 * 8px);\n}\n\n.gap-0_125_hB {\n  gap: calc(0.125 * 8px);\n}\n\n.gap-0_25_S- {\n  gap: calc(0.25 * 8px);\n}\n\n.gap-0_5_GE {\n  gap: calc(0.5 * 8px);\n}\n\n.gap-1_fd {\n  gap: calc(1 * 8px);\n}\n\n.gap-1_5_QL {\n  gap: calc(1.5 * 8px);\n}\n\n.gap-1_75_ol {\n  gap: calc(1.75 * 8px);\n}\n\n.gap-2_Wy {\n  gap: calc(2 * 8px);\n}\n\n.gap-2_5_ry {\n  gap: calc(2.5 * 8px);\n}\n\n.gap-3_8t {\n  gap: calc(3 * 8px);\n}\n\n.gap-4_sr {\n  gap: calc(4 * 8px);\n}\n\n.gap-5_x- {\n  gap: calc(5 * 8px);\n}\n\n.gap-6_mL {\n  gap: calc(6 * 8px);\n}\n\n.gap-7_t3 {\n  gap: calc(7 * 8px);\n}\n\n.gap-8_pF {\n  gap: calc(8 * 8px);\n}\n\n.gap-9_4U {\n  gap: calc(9 * 8px);\n}\n\n.mt-0_6x {\n  margin-top: calc(0 * 8px);\n}\n\n.mr-0_3g {\n  margin-right: calc(0 * 8px);\n}\n\n.mb-0_xG {\n  margin-bottom: calc(0 * 8px);\n}\n\n.ml-0_XH {\n  margin-left: calc(0 * 8px);\n}\n\n.mt-0_125_3O {\n  margin-top: calc(0.125 * 8px);\n}\n\n.mr-0_125_NK {\n  margin-right: calc(0.125 * 8px);\n}\n\n.mb-0_125_Hl {\n  margin-bottom: calc(0.125 * 8px);\n}\n\n.ml-0_125_AF {\n  margin-left: calc(0.125 * 8px);\n}\n\n.mt-0_25_yG {\n  margin-top: calc(0.25 * 8px);\n}\n\n.mr-0_25_-n {\n  margin-right: calc(0.25 * 8px);\n}\n\n.mb-0_25_VI {\n  margin-bottom: calc(0.25 * 8px);\n}\n\n.ml-0_25_xR {\n  margin-left: calc(0.25 * 8px);\n}\n\n.mt-0_5_WM {\n  margin-top: calc(0.5 * 8px);\n}\n\n.mr-0_5_ZM {\n  margin-right: calc(0.5 * 8px);\n}\n\n.mb-0_5_3L {\n  margin-bottom: calc(0.5 * 8px);\n}\n\n.ml-0_5_ve {\n  margin-left: calc(0.5 * 8px);\n}\n\n.mt-1_Yq {\n  margin-top: calc(1 * 8px);\n}\n\n.mr-1_N8 {\n  margin-right: calc(1 * 8px);\n}\n\n.mb-1_61 {\n  margin-bottom: calc(1 * 8px);\n}\n\n.ml-1_AP {\n  margin-left: calc(1 * 8px);\n}\n\n.mt-1_5_Eo {\n  margin-top: calc(1.5 * 8px);\n}\n\n.mr-1_5_cX {\n  margin-right: calc(1.5 * 8px);\n}\n\n.mb-1_5_8e {\n  margin-bottom: calc(1.5 * 8px);\n}\n\n.ml-1_5_6W {\n  margin-left: calc(1.5 * 8px);\n}\n\n.mt-1_75_3g {\n  margin-top: calc(1.75 * 8px);\n}\n\n.mr-1_75_2J {\n  margin-right: calc(1.75 * 8px);\n}\n\n.mb-1_75_CK {\n  margin-bottom: calc(1.75 * 8px);\n}\n\n.ml-1_75_cB {\n  margin-left: calc(1.75 * 8px);\n}\n\n.mt-2_a8 {\n  margin-top: calc(2 * 8px);\n}\n\n.mr-2_tD {\n  margin-right: calc(2 * 8px);\n}\n\n.mb-2_BS {\n  margin-bottom: calc(2 * 8px);\n}\n\n.ml-2_E7 {\n  margin-left: calc(2 * 8px);\n}\n\n.mt-2_5_bZ {\n  margin-top: calc(2.5 * 8px);\n}\n\n.mr-2_5_fc {\n  margin-right: calc(2.5 * 8px);\n}\n\n.mb-2_5_Fy {\n  margin-bottom: calc(2.5 * 8px);\n}\n\n.ml-2_5_vI {\n  margin-left: calc(2.5 * 8px);\n}\n\n.mt-3_0E {\n  margin-top: calc(3 * 8px);\n}\n\n.mr-3_7H {\n  margin-right: calc(3 * 8px);\n}\n\n.mb-3_uF {\n  margin-bottom: calc(3 * 8px);\n}\n\n.ml-3_3k {\n  margin-left: calc(3 * 8px);\n}\n\n.mt-4_ff {\n  margin-top: calc(4 * 8px);\n}\n\n.mr-4_XE {\n  margin-right: calc(4 * 8px);\n}\n\n.mb-4_DE {\n  margin-bottom: calc(4 * 8px);\n}\n\n.ml-4_GR {\n  margin-left: calc(4 * 8px);\n}\n\n.mt-5_Cl {\n  margin-top: calc(5 * 8px);\n}\n\n.mr-5_aa {\n  margin-right: calc(5 * 8px);\n}\n\n.mb-5_0l {\n  margin-bottom: calc(5 * 8px);\n}\n\n.ml-5_2R {\n  margin-left: calc(5 * 8px);\n}\n\n.mt-6_8b {\n  margin-top: calc(6 * 8px);\n}\n\n.mr-6_U1 {\n  margin-right: calc(6 * 8px);\n}\n\n.mb-6_GN {\n  margin-bottom: calc(6 * 8px);\n}\n\n.ml-6_2i {\n  margin-left: calc(6 * 8px);\n}\n\n.mt-7_uK {\n  margin-top: calc(7 * 8px);\n}\n\n.mr-7_7b {\n  margin-right: calc(7 * 8px);\n}\n\n.mb-7_qc {\n  margin-bottom: calc(7 * 8px);\n}\n\n.ml-7_QN {\n  margin-left: calc(7 * 8px);\n}\n\n.mt-8_vp {\n  margin-top: calc(8 * 8px);\n}\n\n.mr-8_M6 {\n  margin-right: calc(8 * 8px);\n}\n\n.mb-8_2U {\n  margin-bottom: calc(8 * 8px);\n}\n\n.ml-8_9- {\n  margin-left: calc(8 * 8px);\n}\n\n.mt-9_3B {\n  margin-top: calc(9 * 8px);\n}\n\n.mr-9_mb {\n  margin-right: calc(9 * 8px);\n}\n\n.mb-9_bW {\n  margin-bottom: calc(9 * 8px);\n}\n\n.ml-9_uz {\n  margin-left: calc(9 * 8px);\n}\n\n.pt-0_Sz {\n  padding-top: calc(0 * 8px);\n}\n\n.pr-0_wS {\n  padding-right: calc(0 * 8px);\n}\n\n.pb-0_HE {\n  padding-bottom: calc(0 * 8px);\n}\n\n.pl-0_sQ {\n  padding-left: calc(0 * 8px);\n}\n\n.pt-0_125_c0 {\n  padding-top: calc(0.125 * 8px);\n}\n\n.pr-0_125_A8 {\n  padding-right: calc(0.125 * 8px);\n}\n\n.pb-0_125_7k {\n  padding-bottom: calc(0.125 * 8px);\n}\n\n.pl-0_125_y3 {\n  padding-left: calc(0.125 * 8px);\n}\n\n.pt-0_25_ZT {\n  padding-top: calc(0.25 * 8px);\n}\n\n.pr-0_25_Xt {\n  padding-right: calc(0.25 * 8px);\n}\n\n.pb-0_25_Vp {\n  padding-bottom: calc(0.25 * 8px);\n}\n\n.pl-0_25_Qy {\n  padding-left: calc(0.25 * 8px);\n}\n\n.pt-0_5_R1 {\n  padding-top: calc(0.5 * 8px);\n}\n\n.pr-0_5_JZ {\n  padding-right: calc(0.5 * 8px);\n}\n\n.pb-0_5_wp {\n  padding-bottom: calc(0.5 * 8px);\n}\n\n.pl-0_5_aN {\n  padding-left: calc(0.5 * 8px);\n}\n\n.pt-1_Do {\n  padding-top: calc(1 * 8px);\n}\n\n.pr-1_sf {\n  padding-right: calc(1 * 8px);\n}\n\n.pb-1_kn {\n  padding-bottom: calc(1 * 8px);\n}\n\n.pl-1_LY {\n  padding-left: calc(1 * 8px);\n}\n\n.pt-1_5_ek {\n  padding-top: calc(1.5 * 8px);\n}\n\n.pr-1_5_1r {\n  padding-right: calc(1.5 * 8px);\n}\n\n.pb-1_5_eU {\n  padding-bottom: calc(1.5 * 8px);\n}\n\n.pl-1_5_br {\n  padding-left: calc(1.5 * 8px);\n}\n\n.pt-1_75_yt {\n  padding-top: calc(1.75 * 8px);\n}\n\n.pr-1_75_rI {\n  padding-right: calc(1.75 * 8px);\n}\n\n.pb-1_75_-a {\n  padding-bottom: calc(1.75 * 8px);\n}\n\n.pl-1_75_a8 {\n  padding-left: calc(1.75 * 8px);\n}\n\n.pt-2_6R {\n  padding-top: calc(2 * 8px);\n}\n\n.pr-2_PY {\n  padding-right: calc(2 * 8px);\n}\n\n.pb-2_bK {\n  padding-bottom: calc(2 * 8px);\n}\n\n.pl-2_4f {\n  padding-left: calc(2 * 8px);\n}\n\n.pt-2_5_Sy {\n  padding-top: calc(2.5 * 8px);\n}\n\n.pr-2_5_RN {\n  padding-right: calc(2.5 * 8px);\n}\n\n.pb-2_5_lN {\n  padding-bottom: calc(2.5 * 8px);\n}\n\n.pl-2_5_q8 {\n  padding-left: calc(2.5 * 8px);\n}\n\n.pt-3_DH {\n  padding-top: calc(3 * 8px);\n}\n\n.pr-3_PY {\n  padding-right: calc(3 * 8px);\n}\n\n.pb-3_w- {\n  padding-bottom: calc(3 * 8px);\n}\n\n.pl-3_1j {\n  padding-left: calc(3 * 8px);\n}\n\n.pt-4_OL {\n  padding-top: calc(4 * 8px);\n}\n\n.pr-4_81 {\n  padding-right: calc(4 * 8px);\n}\n\n.pb-4_59 {\n  padding-bottom: calc(4 * 8px);\n}\n\n.pl-4_2p {\n  padding-left: calc(4 * 8px);\n}\n\n.pt-5_Yx {\n  padding-top: calc(5 * 8px);\n}\n\n.pr-5_ju {\n  padding-right: calc(5 * 8px);\n}\n\n.pb-5_j1 {\n  padding-bottom: calc(5 * 8px);\n}\n\n.pl-5_cy {\n  padding-left: calc(5 * 8px);\n}\n\n.pt-6_HZ {\n  padding-top: calc(6 * 8px);\n}\n\n.pr-6_w4 {\n  padding-right: calc(6 * 8px);\n}\n\n.pb-6_05 {\n  padding-bottom: calc(6 * 8px);\n}\n\n.pl-6_a- {\n  padding-left: calc(6 * 8px);\n}\n\n.pt-7_1q {\n  padding-top: calc(7 * 8px);\n}\n\n.pr-7_G4 {\n  padding-right: calc(7 * 8px);\n}\n\n.pb-7_U7 {\n  padding-bottom: calc(7 * 8px);\n}\n\n.pl-7_R5 {\n  padding-left: calc(7 * 8px);\n}\n\n.pt-8_3v {\n  padding-top: calc(8 * 8px);\n}\n\n.pr-8_fK {\n  padding-right: calc(8 * 8px);\n}\n\n.pb-8_Tw {\n  padding-bottom: calc(8 * 8px);\n}\n\n.pl-8_-3 {\n  padding-left: calc(8 * 8px);\n}\n\n.pt-9_B0 {\n  padding-top: calc(9 * 8px);\n}\n\n.pr-9_t0 {\n  padding-right: calc(9 * 8px);\n}\n\n.pb-9_jS {\n  padding-bottom: calc(9 * 8px);\n}\n\n.pl-9_zW {\n  padding-left: calc(9 * 8px);\n}\n\n.w-0_nt {\n  width: "0%";\n}\n\n.w-25_JH {\n  width: "25%";\n}\n\n.w-50_DD {\n  width: "50%";\n}\n\n.w-75_H6 {\n  width: "75%";\n}\n\n.w-100_g2 {\n  width: 100%;\n}\n\n.vw-0_Fo {\n  width: 0vw;\n}\n\n.vw-25_dZ {\n  width: 25vw;\n}\n\n.vw-50_is {\n  width: 50vw;\n}\n\n.vw-75_p7 {\n  width: 75vw;\n}\n\n.vw-100_2C {\n  width: 100vw;\n}\n\n.h-0_kq {\n  height: "0%";\n}\n\n.h-25_0E {\n  height: "25%";\n}\n\n.h-50_Cy {\n  height: "50%";\n}\n\n.h-75_XR {\n  height: "75%";\n}\n\n.h-100_wc {\n  height: 100%;\n}\n\n.vh-0_PO {\n  height: 0vh;\n}\n\n.vh-25_i1 {\n  height: 25vh;\n}\n\n.vh-50_YX {\n  height: 50vh;\n}\n\n.vh-75_Yr {\n  height: 75vh;\n}\n\n.vh-100_eL {\n  height: 100vh;\n}\n\n.mx-0_ui {\n  margin-left: calc(0 * 8px);\n  margin-right: calc(0 * 8px);\n}\n\n.mx-0_125_ZC {\n  margin-left: calc(0.125 * 8px);\n  margin-right: calc(0.125 * 8px);\n}\n\n.mx-0_25_6r {\n  margin-left: calc(0.25 * 8px);\n  margin-right: calc(0.25 * 8px);\n}\n\n.mx-0_5_5i {\n  margin-left: calc(0.5 * 8px);\n  margin-right: calc(0.5 * 8px);\n}\n\n.mx-1_Ln {\n  margin-left: calc(1 * 8px);\n  margin-right: calc(1 * 8px);\n}\n\n.mx-1_5_ZM {\n  margin-left: calc(1.5 * 8px);\n  margin-right: calc(1.5 * 8px);\n}\n\n.mx-1_75_Up {\n  margin-left: calc(1.75 * 8px);\n  margin-right: calc(1.75 * 8px);\n}\n\n.mx-2_m7 {\n  margin-left: calc(2 * 8px);\n  margin-right: calc(2 * 8px);\n}\n\n.mx-2_5_PT {\n  margin-left: calc(2.5 * 8px);\n  margin-right: calc(2.5 * 8px);\n}\n\n.mx-3_8P {\n  margin-left: calc(3 * 8px);\n  margin-right: calc(3 * 8px);\n}\n\n.mx-4_u0 {\n  margin-left: calc(4 * 8px);\n  margin-right: calc(4 * 8px);\n}\n\n.mx-5_XL {\n  margin-left: calc(5 * 8px);\n  margin-right: calc(5 * 8px);\n}\n\n.mx-6_vl {\n  margin-left: calc(6 * 8px);\n  margin-right: calc(6 * 8px);\n}\n\n.mx-7_i- {\n  margin-left: calc(7 * 8px);\n  margin-right: calc(7 * 8px);\n}\n\n.mx-8_At {\n  margin-left: calc(8 * 8px);\n  margin-right: calc(8 * 8px);\n}\n\n.mx-9_xk {\n  margin-left: calc(9 * 8px);\n  margin-right: calc(9 * 8px);\n}\n\n.my-0_fj {\n  margin-top: calc(0 * 8px);\n  margin-bottom: calc(0 * 8px);\n}\n\n.my-0_125_Qx {\n  margin-top: calc(0.125 * 8px);\n  margin-bottom: calc(0.125 * 8px);\n}\n\n.my-0_25_l8 {\n  margin-top: calc(0.25 * 8px);\n  margin-bottom: calc(0.25 * 8px);\n}\n\n.my-0_5_UK {\n  margin-top: calc(0.5 * 8px);\n  margin-bottom: calc(0.5 * 8px);\n}\n\n.my-1_9J {\n  margin-top: calc(1 * 8px);\n  margin-bottom: calc(1 * 8px);\n}\n\n.my-1_5_1I {\n  margin-top: calc(1.5 * 8px);\n  margin-bottom: calc(1.5 * 8px);\n}\n\n.my-1_75_md {\n  margin-top: calc(1.75 * 8px);\n  margin-bottom: calc(1.75 * 8px);\n}\n\n.my-2_Oa {\n  margin-top: calc(2 * 8px);\n  margin-bottom: calc(2 * 8px);\n}\n\n.my-2_5_2D {\n  margin-top: calc(2.5 * 8px);\n  margin-bottom: calc(2.5 * 8px);\n}\n\n.my-3_Wb {\n  margin-top: calc(3 * 8px);\n  margin-bottom: calc(3 * 8px);\n}\n\n.my-4_Xl {\n  margin-top: calc(4 * 8px);\n  margin-bottom: calc(4 * 8px);\n}\n\n.my-5_Iq {\n  margin-top: calc(5 * 8px);\n  margin-bottom: calc(5 * 8px);\n}\n\n.my-6_Nx {\n  margin-top: calc(6 * 8px);\n  margin-bottom: calc(6 * 8px);\n}\n\n.my-7_AS {\n  margin-top: calc(7 * 8px);\n  margin-bottom: calc(7 * 8px);\n}\n\n.my-8_FY {\n  margin-top: calc(8 * 8px);\n  margin-bottom: calc(8 * 8px);\n}\n\n.my-9_0q {\n  margin-top: calc(9 * 8px);\n  margin-bottom: calc(9 * 8px);\n}\n\n.px-0_PA {\n  padding-left: calc(0 * 8px);\n  padding-right: calc(0 * 8px);\n}\n\n.px-0_125_Tb {\n  padding-left: calc(0.125 * 8px);\n  padding-right: calc(0.125 * 8px);\n}\n\n.px-0_25_ST {\n  padding-left: calc(0.25 * 8px);\n  padding-right: calc(0.25 * 8px);\n}\n\n.px-0_5_lm {\n  padding-left: calc(0.5 * 8px);\n  padding-right: calc(0.5 * 8px);\n}\n\n.px-1_bP {\n  padding-left: calc(1 * 8px);\n  padding-right: calc(1 * 8px);\n}\n\n.px-1_5_8G {\n  padding-left: calc(1.5 * 8px);\n  padding-right: calc(1.5 * 8px);\n}\n\n.px-1_75_MD {\n  padding-left: calc(1.75 * 8px);\n  padding-right: calc(1.75 * 8px);\n}\n\n.px-2_88 {\n  padding-left: calc(2 * 8px);\n  padding-right: calc(2 * 8px);\n}\n\n.px-2_5_V4 {\n  padding-left: calc(2.5 * 8px);\n  padding-right: calc(2.5 * 8px);\n}\n\n.px-3_aX {\n  padding-left: calc(3 * 8px);\n  padding-right: calc(3 * 8px);\n}\n\n.px-4_1V {\n  padding-left: calc(4 * 8px);\n  padding-right: calc(4 * 8px);\n}\n\n.px-5_yB {\n  padding-left: calc(5 * 8px);\n  padding-right: calc(5 * 8px);\n}\n\n.px-6_d2 {\n  padding-left: calc(6 * 8px);\n  padding-right: calc(6 * 8px);\n}\n\n.px-7_sK {\n  padding-left: calc(7 * 8px);\n  padding-right: calc(7 * 8px);\n}\n\n.px-8_ta {\n  padding-left: calc(8 * 8px);\n  padding-right: calc(8 * 8px);\n}\n\n.px-9_N1 {\n  padding-left: calc(9 * 8px);\n  padding-right: calc(9 * 8px);\n}\n\n.py-0_TB {\n  padding-top: calc(0 * 8px);\n  padding-bottom: calc(0 * 8px);\n}\n\n.py-0_125_E3 {\n  padding-top: calc(0.125 * 8px);\n  padding-bottom: calc(0.125 * 8px);\n}\n\n.py-0_25_I3 {\n  padding-top: calc(0.25 * 8px);\n  padding-bottom: calc(0.25 * 8px);\n}\n\n.py-0_5_xl {\n  padding-top: calc(0.5 * 8px);\n  padding-bottom: calc(0.5 * 8px);\n}\n\n.py-1_U4 {\n  padding-top: calc(1 * 8px);\n  padding-bottom: calc(1 * 8px);\n}\n\n.py-1_5_UU {\n  padding-top: calc(1.5 * 8px);\n  padding-bottom: calc(1.5 * 8px);\n}\n\n.py-1_75_u2 {\n  padding-top: calc(1.75 * 8px);\n  padding-bottom: calc(1.75 * 8px);\n}\n\n.py-2_eV {\n  padding-top: calc(2 * 8px);\n  padding-bottom: calc(2 * 8px);\n}\n\n.py-2_5_rz {\n  padding-top: calc(2.5 * 8px);\n  padding-bottom: calc(2.5 * 8px);\n}\n\n.py-3_Ow {\n  padding-top: calc(3 * 8px);\n  padding-bottom: calc(3 * 8px);\n}\n\n.py-4_XX {\n  padding-top: calc(4 * 8px);\n  padding-bottom: calc(4 * 8px);\n}\n\n.py-5_p3 {\n  padding-top: calc(5 * 8px);\n  padding-bottom: calc(5 * 8px);\n}\n\n.py-6_cs {\n  padding-top: calc(6 * 8px);\n  padding-bottom: calc(6 * 8px);\n}\n\n.py-7_RF {\n  padding-top: calc(7 * 8px);\n  padding-bottom: calc(7 * 8px);\n}\n\n.py-8_cJ {\n  padding-top: calc(8 * 8px);\n  padding-bottom: calc(8 * 8px);\n}\n\n.py-9_XQ {\n  padding-top: calc(9 * 8px);\n  padding-bottom: calc(9 * 8px);\n}\n\n@media (max-width: 324px) {\n  .align-items-phone-baseline_rM {\n    align-items: baseline;\n  }\n\n  .align-items-phone-center_M3 {\n    align-items: center;\n  }\n\n  .align-items-phone-end_Pz {\n    align-items: flex-end;\n  }\n\n  .align-items-phone-start_ew {\n    align-items: flex-start;\n  }\n\n  .align-items-phone-stretch_6E {\n    align-items: stretch;\n  }\n\n  .align-content-phone-center_GS {\n    align-content: center;\n  }\n\n  .align-content-phone-end_JO {\n    align-content: flex-end;\n  }\n\n  .align-content-phone-start_sf {\n    align-content: flex-start;\n  }\n\n  .align-content-phone-around_RZ {\n    align-content: space-around;\n  }\n\n  .align-content-phone-between_Xi {\n    align-content: space-between;\n  }\n\n  .align-content-phone-stretch_I5 {\n    align-content: stretch;\n  }\n\n  .align-self-phone-baseline_Bm {\n    align-self: baseline;\n  }\n\n  .align-self-phone-center_AS {\n    align-self: center;\n  }\n\n  .align-self-phone-end_75 {\n    align-self: flex-end;\n  }\n\n  .align-self-phone-start_uZ {\n    align-self: flex-start;\n  }\n\n  .align-self-phone-stretch_eG {\n    align-self: stretch;\n  }\n\n  .justify-content-phone-start_yC {\n    justify-content: flex-start;\n  }\n\n  .justify-content-phone-end_gK {\n    justify-content: flex-end;\n  }\n\n  .justify-content-phone-center_tx {\n    justify-content: center;\n  }\n\n  .justify-content-phone-between_EX {\n    justify-content: space-between;\n  }\n\n  .justify-content-phone-around_Rs {\n    justify-content: space-around;\n  }\n\n  .justify-content-phone-evenly_Rt {\n    justify-content: space-evenly;\n  }\n\n  .text-align-phone-start_v7 {\n    text-align: start;\n  }\n\n  .text-align-phone-end_tv {\n    text-align: end;\n  }\n\n  .text-align-phone-center_kF {\n    text-align: center;\n  }\n\n  .text-align-phone-justify_4l {\n    text-align: justify;\n  }\n\n  .col-phone-auto_-Z {\n    flex: 0 0 auto;\n    width: auto;\n  }\n\n  .col-phone-1_rc {\n    flex: 0 0 auto;\n    width: 8.33333333%;\n  }\n\n  .col-phone-2_Ky {\n    flex: 0 0 auto;\n    width: 16.66666667%;\n  }\n\n  .col-phone-3_5W {\n    flex: 0 0 auto;\n    width: 25%;\n  }\n\n  .col-phone-4_0A {\n    flex: 0 0 auto;\n    width: 33.33333333%;\n  }\n\n  .col-phone-5_Ku {\n    flex: 0 0 auto;\n    width: 41.66666667%;\n  }\n\n  .col-phone-6_vV {\n    flex: 0 0 auto;\n    width: 50%;\n  }\n\n  .col-phone-7_ly {\n    flex: 0 0 auto;\n    width: 58.33333333%;\n  }\n\n  .col-phone-8_sg {\n    flex: 0 0 auto;\n    width: 66.66666667%;\n  }\n\n  .col-phone-9_-D {\n    flex: 0 0 auto;\n    width: 75%;\n  }\n\n  .col-phone-10_Df {\n    flex: 0 0 auto;\n    width: 83.33333333%;\n  }\n\n  .col-phone-11_Mj {\n    flex: 0 0 auto;\n    width: 91.66666667%;\n  }\n\n  .col-phone-12_f- {\n    flex: 0 0 auto;\n    width: 100%;\n  }\n\n  .d-phone-flex_tr {\n    display: flex;\n  }\n\n  .d-phone-block_Fw {\n    display: block;\n  }\n\n  .d-phone-grid_Qm {\n    display: grid;\n  }\n\n  .d-phone-inline_JI {\n    display: inline;\n  }\n\n  .d-phone-inline-block_AB {\n    display: inline-block;\n  }\n\n  .d-phone-inline-flex_SP {\n    display: inline-flex;\n  }\n\n  .d-phone-inline-grid_Ey {\n    display: inline-grid;\n  }\n\n  .d-flex-phone-column_yh {\n    flex-direction: column;\n    display: flex;\n  }\n\n  .d-flex-phone-column-reverse_dP {\n    flex-direction: column-reverse;\n    display: flex;\n  }\n\n  .d-flex-phone-row_SX {\n    flex-direction: row;\n    display: flex;\n  }\n\n  .d-flex-phone-row-reverse_wg {\n    flex-direction: row-reverse;\n    display: flex;\n  }\n\n  .flex-phone-grow-1_mh {\n    flex-grow: 1;\n  }\n\n  .flex-phone-grow-2_Pj {\n    flex-grow: 2;\n  }\n\n  .flex-phone-grow-3_T6 {\n    flex-grow: 3;\n  }\n\n  .flex-phone-grow-4_5M {\n    flex-grow: 4;\n  }\n\n  .flex-phone-grow-5_W3 {\n    flex-grow: 5;\n  }\n\n  .flex-phone-nowrap_-I {\n    flex-wrap: nowrap;\n  }\n\n  .flex-phone-wrap_ua {\n    flex-wrap: wrap;\n  }\n\n  .flex-phone-wrap-reverse_Ji {\n    flex-wrap: wrap-reverse;\n  }\n\n  .flex-phone-shrink-1_3q {\n    flex-shrink: 1;\n  }\n\n  .flex-phone-shrink-2_jr {\n    flex-shrink: 2;\n  }\n\n  .flex-phone-shrink-3_m- {\n    flex-shrink: 3;\n  }\n\n  .flex-phone-shrink-4_Px {\n    flex-shrink: 4;\n  }\n\n  .flex-phone-shrink-5_f2 {\n    flex-shrink: 5;\n  }\n\n  .offset-phone-auto_hW {\n    margin-left: auto;\n  }\n\n  .offset-phone-1_1E {\n    margin-left: 8.33333333%;\n  }\n\n  .offset-phone-2_0K {\n    margin-left: 16.66666667%;\n  }\n\n  .offset-phone-3_A2 {\n    margin-left: 25%;\n  }\n\n  .offset-phone-4_KQ {\n    margin-left: 33.33333333%;\n  }\n\n  .offset-phone-5_A- {\n    margin-left: 41.66666667%;\n  }\n\n  .offset-phone-6_zy {\n    margin-left: 50%;\n  }\n\n  .offset-phone-7_cM {\n    margin-left: 58.33333333%;\n  }\n\n  .offset-phone-8_PY {\n    margin-left: 66.66666667%;\n  }\n\n  .offset-phone-9_Al {\n    margin-left: 75%;\n  }\n\n  .offset-phone-10_Mr {\n    margin-left: 83.33333333%;\n  }\n\n  .offset-phone-11_YY {\n    margin-left: 91.66666667%;\n  }\n\n  .offset-phone-12_Aw {\n    margin-left: 100%;\n  }\n\n  .position-phone-absolute_Xe {\n    position: absolute;\n  }\n\n  .position-phone-fixed_Rb {\n    position: fixed;\n  }\n\n  .position-phone-relative_Ht {\n    position: relative;\n  }\n\n  .position-phone-static_2r {\n    position: static;\n  }\n\n  .position-phone-sticky_wo {\n    position: sticky;\n  }\n\n  .m-phone-0_T9 {\n    margin: calc(0 * 8px);\n  }\n\n  .m-phone-0_125_AT {\n    margin: calc(0.125 * 8px);\n  }\n\n  .m-phone-0_25_x- {\n    margin: calc(0.25 * 8px);\n  }\n\n  .m-phone-0_5_I9 {\n    margin: calc(0.5 * 8px);\n  }\n\n  .m-phone-1_WP {\n    margin: calc(1 * 8px);\n  }\n\n  .m-phone-1_5_tz {\n    margin: calc(1.5 * 8px);\n  }\n\n  .m-phone-1_75_iC {\n    margin: calc(1.75 * 8px);\n  }\n\n  .m-phone-2_PP {\n    margin: calc(2 * 8px);\n  }\n\n  .m-phone-2_5_VI {\n    margin: calc(2.5 * 8px);\n  }\n\n  .m-phone-3_yI {\n    margin: calc(3 * 8px);\n  }\n\n  .m-phone-4_CC {\n    margin: calc(4 * 8px);\n  }\n\n  .m-phone-5_Yk {\n    margin: calc(5 * 8px);\n  }\n\n  .m-phone-6_n- {\n    margin: calc(6 * 8px);\n  }\n\n  .m-phone-7_aW {\n    margin: calc(7 * 8px);\n  }\n\n  .m-phone-8_tH {\n    margin: calc(8 * 8px);\n  }\n\n  .m-phone-9_25 {\n    margin: calc(9 * 8px);\n  }\n\n  .p-phone-0_X5 {\n    padding: calc(0 * 8px);\n  }\n\n  .p-phone-0_125_ho {\n    padding: calc(0.125 * 8px);\n  }\n\n  .p-phone-0_25_g7 {\n    padding: calc(0.25 * 8px);\n  }\n\n  .p-phone-0_5_LY {\n    padding: calc(0.5 * 8px);\n  }\n\n  .p-phone-1_fy {\n    padding: calc(1 * 8px);\n  }\n\n  .p-phone-1_5_sA {\n    padding: calc(1.5 * 8px);\n  }\n\n  .p-phone-1_75_P2 {\n    padding: calc(1.75 * 8px);\n  }\n\n  .p-phone-2_-W {\n    padding: calc(2 * 8px);\n  }\n\n  .p-phone-2_5_oB {\n    padding: calc(2.5 * 8px);\n  }\n\n  .p-phone-3_Gr {\n    padding: calc(3 * 8px);\n  }\n\n  .p-phone-4_V4 {\n    padding: calc(4 * 8px);\n  }\n\n  .p-phone-5_eL {\n    padding: calc(5 * 8px);\n  }\n\n  .p-phone-6_Cg {\n    padding: calc(6 * 8px);\n  }\n\n  .p-phone-7_Sp {\n    padding: calc(7 * 8px);\n  }\n\n  .p-phone-8_Pc {\n    padding: calc(8 * 8px);\n  }\n\n  .p-phone-9_Q7 {\n    padding: calc(9 * 8px);\n  }\n\n  .gap-phone-0_hx {\n    gap: calc(0 * 8px);\n  }\n\n  .gap-phone-0_125_-D {\n    gap: calc(0.125 * 8px);\n  }\n\n  .gap-phone-0_25_vQ {\n    gap: calc(0.25 * 8px);\n  }\n\n  .gap-phone-0_5_PR {\n    gap: calc(0.5 * 8px);\n  }\n\n  .gap-phone-1_m8 {\n    gap: calc(1 * 8px);\n  }\n\n  .gap-phone-1_5_52 {\n    gap: calc(1.5 * 8px);\n  }\n\n  .gap-phone-1_75_aA {\n    gap: calc(1.75 * 8px);\n  }\n\n  .gap-phone-2_We {\n    gap: calc(2 * 8px);\n  }\n\n  .gap-phone-2_5_FP {\n    gap: calc(2.5 * 8px);\n  }\n\n  .gap-phone-3_Lq {\n    gap: calc(3 * 8px);\n  }\n\n  .gap-phone-4_0G {\n    gap: calc(4 * 8px);\n  }\n\n  .gap-phone-5_C2 {\n    gap: calc(5 * 8px);\n  }\n\n  .gap-phone-6_Eu {\n    gap: calc(6 * 8px);\n  }\n\n  .gap-phone-7_e0 {\n    gap: calc(7 * 8px);\n  }\n\n  .gap-phone-8_Le {\n    gap: calc(8 * 8px);\n  }\n\n  .gap-phone-9_hJ {\n    gap: calc(9 * 8px);\n  }\n\n  .mt-phone-0_7T {\n    margin-top: calc(0 * 8px);\n  }\n\n  .mr-phone-0_Bi {\n    margin-right: calc(0 * 8px);\n  }\n\n  .mb-phone-0_Lx {\n    margin-bottom: calc(0 * 8px);\n  }\n\n  .ml-phone-0_9j {\n    margin-left: calc(0 * 8px);\n  }\n\n  .mt-phone-0_125_H8 {\n    margin-top: calc(0.125 * 8px);\n  }\n\n  .mr-phone-0_125_Cz {\n    margin-right: calc(0.125 * 8px);\n  }\n\n  .mb-phone-0_125_Ze {\n    margin-bottom: calc(0.125 * 8px);\n  }\n\n  .ml-phone-0_125_76 {\n    margin-left: calc(0.125 * 8px);\n  }\n\n  .mt-phone-0_25_iD {\n    margin-top: calc(0.25 * 8px);\n  }\n\n  .mr-phone-0_25_Lz {\n    margin-right: calc(0.25 * 8px);\n  }\n\n  .mb-phone-0_25_5u {\n    margin-bottom: calc(0.25 * 8px);\n  }\n\n  .ml-phone-0_25_u0 {\n    margin-left: calc(0.25 * 8px);\n  }\n\n  .mt-phone-0_5_2K {\n    margin-top: calc(0.5 * 8px);\n  }\n\n  .mr-phone-0_5_2R {\n    margin-right: calc(0.5 * 8px);\n  }\n\n  .mb-phone-0_5_Vb {\n    margin-bottom: calc(0.5 * 8px);\n  }\n\n  .ml-phone-0_5_TX {\n    margin-left: calc(0.5 * 8px);\n  }\n\n  .mt-phone-1_lu {\n    margin-top: calc(1 * 8px);\n  }\n\n  .mr-phone-1_FT {\n    margin-right: calc(1 * 8px);\n  }\n\n  .mb-phone-1_cJ {\n    margin-bottom: calc(1 * 8px);\n  }\n\n  .ml-phone-1_ud {\n    margin-left: calc(1 * 8px);\n  }\n\n  .mt-phone-1_5_fF {\n    margin-top: calc(1.5 * 8px);\n  }\n\n  .mr-phone-1_5_Qj {\n    margin-right: calc(1.5 * 8px);\n  }\n\n  .mb-phone-1_5_02 {\n    margin-bottom: calc(1.5 * 8px);\n  }\n\n  .ml-phone-1_5_5t {\n    margin-left: calc(1.5 * 8px);\n  }\n\n  .mt-phone-1_75_o5 {\n    margin-top: calc(1.75 * 8px);\n  }\n\n  .mr-phone-1_75_5U {\n    margin-right: calc(1.75 * 8px);\n  }\n\n  .mb-phone-1_75_dy {\n    margin-bottom: calc(1.75 * 8px);\n  }\n\n  .ml-phone-1_75_0r {\n    margin-left: calc(1.75 * 8px);\n  }\n\n  .mt-phone-2_MD {\n    margin-top: calc(2 * 8px);\n  }\n\n  .mr-phone-2_ev {\n    margin-right: calc(2 * 8px);\n  }\n\n  .mb-phone-2_3j {\n    margin-bottom: calc(2 * 8px);\n  }\n\n  .ml-phone-2_44 {\n    margin-left: calc(2 * 8px);\n  }\n\n  .mt-phone-2_5_UA {\n    margin-top: calc(2.5 * 8px);\n  }\n\n  .mr-phone-2_5_oZ {\n    margin-right: calc(2.5 * 8px);\n  }\n\n  .mb-phone-2_5_IP {\n    margin-bottom: calc(2.5 * 8px);\n  }\n\n  .ml-phone-2_5_V9 {\n    margin-left: calc(2.5 * 8px);\n  }\n\n  .mt-phone-3_BU {\n    margin-top: calc(3 * 8px);\n  }\n\n  .mr-phone-3_9c {\n    margin-right: calc(3 * 8px);\n  }\n\n  .mb-phone-3_G9 {\n    margin-bottom: calc(3 * 8px);\n  }\n\n  .ml-phone-3_Mh {\n    margin-left: calc(3 * 8px);\n  }\n\n  .mt-phone-4_Pq {\n    margin-top: calc(4 * 8px);\n  }\n\n  .mr-phone-4_Kd {\n    margin-right: calc(4 * 8px);\n  }\n\n  .mb-phone-4_xu {\n    margin-bottom: calc(4 * 8px);\n  }\n\n  .ml-phone-4_-e {\n    margin-left: calc(4 * 8px);\n  }\n\n  .mt-phone-5_jw {\n    margin-top: calc(5 * 8px);\n  }\n\n  .mr-phone-5_uS {\n    margin-right: calc(5 * 8px);\n  }\n\n  .mb-phone-5_xn {\n    margin-bottom: calc(5 * 8px);\n  }\n\n  .ml-phone-5_Xb {\n    margin-left: calc(5 * 8px);\n  }\n\n  .mt-phone-6_gu {\n    margin-top: calc(6 * 8px);\n  }\n\n  .mr-phone-6_8B {\n    margin-right: calc(6 * 8px);\n  }\n\n  .mb-phone-6_Oo {\n    margin-bottom: calc(6 * 8px);\n  }\n\n  .ml-phone-6_LQ {\n    margin-left: calc(6 * 8px);\n  }\n\n  .mt-phone-7_W1 {\n    margin-top: calc(7 * 8px);\n  }\n\n  .mr-phone-7_HU {\n    margin-right: calc(7 * 8px);\n  }\n\n  .mb-phone-7_2O {\n    margin-bottom: calc(7 * 8px);\n  }\n\n  .ml-phone-7_UY {\n    margin-left: calc(7 * 8px);\n  }\n\n  .mt-phone-8_tl {\n    margin-top: calc(8 * 8px);\n  }\n\n  .mr-phone-8_A8 {\n    margin-right: calc(8 * 8px);\n  }\n\n  .mb-phone-8_y4 {\n    margin-bottom: calc(8 * 8px);\n  }\n\n  .ml-phone-8_05 {\n    margin-left: calc(8 * 8px);\n  }\n\n  .mt-phone-9_HI {\n    margin-top: calc(9 * 8px);\n  }\n\n  .mr-phone-9_Nm {\n    margin-right: calc(9 * 8px);\n  }\n\n  .mb-phone-9_T5 {\n    margin-bottom: calc(9 * 8px);\n  }\n\n  .ml-phone-9_b4 {\n    margin-left: calc(9 * 8px);\n  }\n\n  .pt-phone-0_vo {\n    padding-top: calc(0 * 8px);\n  }\n\n  .pr-phone-0_Ug {\n    padding-right: calc(0 * 8px);\n  }\n\n  .pb-phone-0_VY {\n    padding-bottom: calc(0 * 8px);\n  }\n\n  .pl-phone-0_c9 {\n    padding-left: calc(0 * 8px);\n  }\n\n  .pt-phone-0_125_nV {\n    padding-top: calc(0.125 * 8px);\n  }\n\n  .pr-phone-0_125_b6 {\n    padding-right: calc(0.125 * 8px);\n  }\n\n  .pb-phone-0_125_8f {\n    padding-bottom: calc(0.125 * 8px);\n  }\n\n  .pl-phone-0_125_BE {\n    padding-left: calc(0.125 * 8px);\n  }\n\n  .pt-phone-0_25_TA {\n    padding-top: calc(0.25 * 8px);\n  }\n\n  .pr-phone-0_25_wl {\n    padding-right: calc(0.25 * 8px);\n  }\n\n  .pb-phone-0_25_Hw {\n    padding-bottom: calc(0.25 * 8px);\n  }\n\n  .pl-phone-0_25_0k {\n    padding-left: calc(0.25 * 8px);\n  }\n\n  .pt-phone-0_5_sC {\n    padding-top: calc(0.5 * 8px);\n  }\n\n  .pr-phone-0_5_Ex {\n    padding-right: calc(0.5 * 8px);\n  }\n\n  .pb-phone-0_5_qS {\n    padding-bottom: calc(0.5 * 8px);\n  }\n\n  .pl-phone-0_5_Hp {\n    padding-left: calc(0.5 * 8px);\n  }\n\n  .pt-phone-1_uH {\n    padding-top: calc(1 * 8px);\n  }\n\n  .pr-phone-1_Km {\n    padding-right: calc(1 * 8px);\n  }\n\n  .pb-phone-1_Ht {\n    padding-bottom: calc(1 * 8px);\n  }\n\n  .pl-phone-1_pY {\n    padding-left: calc(1 * 8px);\n  }\n\n  .pt-phone-1_5_fY {\n    padding-top: calc(1.5 * 8px);\n  }\n\n  .pr-phone-1_5_ST {\n    padding-right: calc(1.5 * 8px);\n  }\n\n  .pb-phone-1_5_2- {\n    padding-bottom: calc(1.5 * 8px);\n  }\n\n  .pl-phone-1_5_71 {\n    padding-left: calc(1.5 * 8px);\n  }\n\n  .pt-phone-1_75_sq {\n    padding-top: calc(1.75 * 8px);\n  }\n\n  .pr-phone-1_75_iq {\n    padding-right: calc(1.75 * 8px);\n  }\n\n  .pb-phone-1_75_X8 {\n    padding-bottom: calc(1.75 * 8px);\n  }\n\n  .pl-phone-1_75_7Q {\n    padding-left: calc(1.75 * 8px);\n  }\n\n  .pt-phone-2_Dq {\n    padding-top: calc(2 * 8px);\n  }\n\n  .pr-phone-2_d- {\n    padding-right: calc(2 * 8px);\n  }\n\n  .pb-phone-2_cI {\n    padding-bottom: calc(2 * 8px);\n  }\n\n  .pl-phone-2_-t {\n    padding-left: calc(2 * 8px);\n  }\n\n  .pt-phone-2_5_-B {\n    padding-top: calc(2.5 * 8px);\n  }\n\n  .pr-phone-2_5_BX {\n    padding-right: calc(2.5 * 8px);\n  }\n\n  .pb-phone-2_5_d9 {\n    padding-bottom: calc(2.5 * 8px);\n  }\n\n  .pl-phone-2_5_Oh {\n    padding-left: calc(2.5 * 8px);\n  }\n\n  .pt-phone-3_xj {\n    padding-top: calc(3 * 8px);\n  }\n\n  .pr-phone-3_TQ {\n    padding-right: calc(3 * 8px);\n  }\n\n  .pb-phone-3_jX {\n    padding-bottom: calc(3 * 8px);\n  }\n\n  .pl-phone-3_ZO {\n    padding-left: calc(3 * 8px);\n  }\n\n  .pt-phone-4_Tl {\n    padding-top: calc(4 * 8px);\n  }\n\n  .pr-phone-4_-G {\n    padding-right: calc(4 * 8px);\n  }\n\n  .pb-phone-4_1C {\n    padding-bottom: calc(4 * 8px);\n  }\n\n  .pl-phone-4_YH {\n    padding-left: calc(4 * 8px);\n  }\n\n  .pt-phone-5_wI {\n    padding-top: calc(5 * 8px);\n  }\n\n  .pr-phone-5_F6 {\n    padding-right: calc(5 * 8px);\n  }\n\n  .pb-phone-5_gR {\n    padding-bottom: calc(5 * 8px);\n  }\n\n  .pl-phone-5_sA {\n    padding-left: calc(5 * 8px);\n  }\n\n  .pt-phone-6_R9 {\n    padding-top: calc(6 * 8px);\n  }\n\n  .pr-phone-6_x5 {\n    padding-right: calc(6 * 8px);\n  }\n\n  .pb-phone-6_Pr {\n    padding-bottom: calc(6 * 8px);\n  }\n\n  .pl-phone-6_x5 {\n    padding-left: calc(6 * 8px);\n  }\n\n  .pt-phone-7_2c {\n    padding-top: calc(7 * 8px);\n  }\n\n  .pr-phone-7_Rc {\n    padding-right: calc(7 * 8px);\n  }\n\n  .pb-phone-7_da {\n    padding-bottom: calc(7 * 8px);\n  }\n\n  .pl-phone-7_cc {\n    padding-left: calc(7 * 8px);\n  }\n\n  .pt-phone-8_AX {\n    padding-top: calc(8 * 8px);\n  }\n\n  .pr-phone-8_bb {\n    padding-right: calc(8 * 8px);\n  }\n\n  .pb-phone-8_2D {\n    padding-bottom: calc(8 * 8px);\n  }\n\n  .pl-phone-8_sc {\n    padding-left: calc(8 * 8px);\n  }\n\n  .pt-phone-9_tE {\n    padding-top: calc(9 * 8px);\n  }\n\n  .pr-phone-9_1t {\n    padding-right: calc(9 * 8px);\n  }\n\n  .pb-phone-9_hE {\n    padding-bottom: calc(9 * 8px);\n  }\n\n  .pl-phone-9_kk {\n    padding-left: calc(9 * 8px);\n  }\n\n  .w-phone-0_eQ {\n    width: "0%";\n  }\n\n  .w-phone-25_pl {\n    width: "25%";\n  }\n\n  .w-phone-50_I0 {\n    width: "50%";\n  }\n\n  .w-phone-75_5b {\n    width: "75%";\n  }\n\n  .w-phone-100_MJ {\n    width: "100%";\n  }\n\n  .vw-phone-0_mx {\n    width: 0vw;\n  }\n\n  .vw-phone-25_hx {\n    width: 25vw;\n  }\n\n  .vw-phone-50_T8 {\n    width: 50vw;\n  }\n\n  .vw-phone-75_Nc {\n    width: 75vw;\n  }\n\n  .vw-phone-100_d7 {\n    width: 100vw;\n  }\n\n  .h-phone-0_wO {\n    height: "0%";\n  }\n\n  .h-phone-25_5v {\n    height: "25%";\n  }\n\n  .h-phone-50_d3 {\n    height: "50%";\n  }\n\n  .h-phone-75_El {\n    height: "75%";\n  }\n\n  .h-phone-100_Ld {\n    height: "100%";\n  }\n\n  .vh-phone-0_XS {\n    height: 0vh;\n  }\n\n  .vh-phone-25_Nn {\n    height: 25vh;\n  }\n\n  .vh-phone-50_bD {\n    height: 50vh;\n  }\n\n  .vh-phone-75_sj {\n    height: 75vh;\n  }\n\n  .vh-phone-100_kp {\n    height: 100vh;\n  }\n\n  .mx-phone-0_wK {\n    margin-left: calc(0 * 8px);\n    margin-right: calc(0 * 8px);\n  }\n\n  .mx-phone-0_125_zK {\n    margin-left: calc(0.125 * 8px);\n    margin-right: calc(0.125 * 8px);\n  }\n\n  .mx-phone-0_25_86 {\n    margin-left: calc(0.25 * 8px);\n    margin-right: calc(0.25 * 8px);\n  }\n\n  .mx-phone-0_5_kU {\n    margin-left: calc(0.5 * 8px);\n    margin-right: calc(0.5 * 8px);\n  }\n\n  .mx-phone-1_x8 {\n    margin-left: calc(1 * 8px);\n    margin-right: calc(1 * 8px);\n  }\n\n  .mx-phone-1_5_-C {\n    margin-left: calc(1.5 * 8px);\n    margin-right: calc(1.5 * 8px);\n  }\n\n  .mx-phone-1_75_Ob {\n    margin-left: calc(1.75 * 8px);\n    margin-right: calc(1.75 * 8px);\n  }\n\n  .mx-phone-2_-z {\n    margin-left: calc(2 * 8px);\n    margin-right: calc(2 * 8px);\n  }\n\n  .mx-phone-2_5_Kw {\n    margin-left: calc(2.5 * 8px);\n    margin-right: calc(2.5 * 8px);\n  }\n\n  .mx-phone-3_Zh {\n    margin-left: calc(3 * 8px);\n    margin-right: calc(3 * 8px);\n  }\n\n  .mx-phone-4_Zw {\n    margin-left: calc(4 * 8px);\n    margin-right: calc(4 * 8px);\n  }\n\n  .mx-phone-5_S6 {\n    margin-left: calc(5 * 8px);\n    margin-right: calc(5 * 8px);\n  }\n\n  .mx-phone-6_9F {\n    margin-left: calc(6 * 8px);\n    margin-right: calc(6 * 8px);\n  }\n\n  .mx-phone-7_6f {\n    margin-left: calc(7 * 8px);\n    margin-right: calc(7 * 8px);\n  }\n\n  .mx-phone-8_PE {\n    margin-left: calc(8 * 8px);\n    margin-right: calc(8 * 8px);\n  }\n\n  .mx-phone-9_vj {\n    margin-left: calc(9 * 8px);\n    margin-right: calc(9 * 8px);\n  }\n\n  .my-phone-0_3v {\n    margin-top: calc(0 * 8px);\n    margin-bottom: calc(0 * 8px);\n  }\n\n  .my-phone-0_125_c0 {\n    margin-top: calc(0.125 * 8px);\n    margin-bottom: calc(0.125 * 8px);\n  }\n\n  .my-phone-0_25_RV {\n    margin-top: calc(0.25 * 8px);\n    margin-bottom: calc(0.25 * 8px);\n  }\n\n  .my-phone-0_5_-8 {\n    margin-top: calc(0.5 * 8px);\n    margin-bottom: calc(0.5 * 8px);\n  }\n\n  .my-phone-1_Lr {\n    margin-top: calc(1 * 8px);\n    margin-bottom: calc(1 * 8px);\n  }\n\n  .my-phone-1_5_M2 {\n    margin-top: calc(1.5 * 8px);\n    margin-bottom: calc(1.5 * 8px);\n  }\n\n  .my-phone-1_75_DG {\n    margin-top: calc(1.75 * 8px);\n    margin-bottom: calc(1.75 * 8px);\n  }\n\n  .my-phone-2_xg {\n    margin-top: calc(2 * 8px);\n    margin-bottom: calc(2 * 8px);\n  }\n\n  .my-phone-2_5_H2 {\n    margin-top: calc(2.5 * 8px);\n    margin-bottom: calc(2.5 * 8px);\n  }\n\n  .my-phone-3_If {\n    margin-top: calc(3 * 8px);\n    margin-bottom: calc(3 * 8px);\n  }\n\n  .my-phone-4_fy {\n    margin-top: calc(4 * 8px);\n    margin-bottom: calc(4 * 8px);\n  }\n\n  .my-phone-5_lJ {\n    margin-top: calc(5 * 8px);\n    margin-bottom: calc(5 * 8px);\n  }\n\n  .my-phone-6_sr {\n    margin-top: calc(6 * 8px);\n    margin-bottom: calc(6 * 8px);\n  }\n\n  .my-phone-7_Qz {\n    margin-top: calc(7 * 8px);\n    margin-bottom: calc(7 * 8px);\n  }\n\n  .my-phone-8_-G {\n    margin-top: calc(8 * 8px);\n    margin-bottom: calc(8 * 8px);\n  }\n\n  .my-phone-9_hh {\n    margin-top: calc(9 * 8px);\n    margin-bottom: calc(9 * 8px);\n  }\n\n  .px-phone-0_uv {\n    padding-left: calc(0 * 8px);\n    padding-right: calc(0 * 8px);\n  }\n\n  .px-phone-0_125_fo {\n    padding-left: calc(0.125 * 8px);\n    padding-right: calc(0.125 * 8px);\n  }\n\n  .px-phone-0_25_XP {\n    padding-left: calc(0.25 * 8px);\n    padding-right: calc(0.25 * 8px);\n  }\n\n  .px-phone-0_5_5I {\n    padding-left: calc(0.5 * 8px);\n    padding-right: calc(0.5 * 8px);\n  }\n\n  .px-phone-1_ZK {\n    padding-left: calc(1 * 8px);\n    padding-right: calc(1 * 8px);\n  }\n\n  .px-phone-1_5_5o {\n    padding-left: calc(1.5 * 8px);\n    padding-right: calc(1.5 * 8px);\n  }\n\n  .px-phone-1_75_I4 {\n    padding-left: calc(1.75 * 8px);\n    padding-right: calc(1.75 * 8px);\n  }\n\n  .px-phone-2_Nn {\n    padding-left: calc(2 * 8px);\n    padding-right: calc(2 * 8px);\n  }\n\n  .px-phone-2_5_4Y {\n    padding-left: calc(2.5 * 8px);\n    padding-right: calc(2.5 * 8px);\n  }\n\n  .px-phone-3_cM {\n    padding-left: calc(3 * 8px);\n    padding-right: calc(3 * 8px);\n  }\n\n  .px-phone-4_yI {\n    padding-left: calc(4 * 8px);\n    padding-right: calc(4 * 8px);\n  }\n\n  .px-phone-5_rr {\n    padding-left: calc(5 * 8px);\n    padding-right: calc(5 * 8px);\n  }\n\n  .px-phone-6_h7 {\n    padding-left: calc(6 * 8px);\n    padding-right: calc(6 * 8px);\n  }\n\n  .px-phone-7_qY {\n    padding-left: calc(7 * 8px);\n    padding-right: calc(7 * 8px);\n  }\n\n  .px-phone-8_Tx {\n    padding-left: calc(8 * 8px);\n    padding-right: calc(8 * 8px);\n  }\n\n  .px-phone-9_Oz {\n    padding-left: calc(9 * 8px);\n    padding-right: calc(9 * 8px);\n  }\n\n  .py-phone-0_Fd {\n    padding-top: calc(0 * 8px);\n    padding-bottom: calc(0 * 8px);\n  }\n\n  .py-phone-0_125_mq {\n    padding-top: calc(0.125 * 8px);\n    padding-bottom: calc(0.125 * 8px);\n  }\n\n  .py-phone-0_25_Vt {\n    padding-top: calc(0.25 * 8px);\n    padding-bottom: calc(0.25 * 8px);\n  }\n\n  .py-phone-0_5_Mz {\n    padding-top: calc(0.5 * 8px);\n    padding-bottom: calc(0.5 * 8px);\n  }\n\n  .py-phone-1_tq {\n    padding-top: calc(1 * 8px);\n    padding-bottom: calc(1 * 8px);\n  }\n\n  .py-phone-1_5_zo {\n    padding-top: calc(1.5 * 8px);\n    padding-bottom: calc(1.5 * 8px);\n  }\n\n  .py-phone-1_75_uL {\n    padding-top: calc(1.75 * 8px);\n    padding-bottom: calc(1.75 * 8px);\n  }\n\n  .py-phone-2_P- {\n    padding-top: calc(2 * 8px);\n    padding-bottom: calc(2 * 8px);\n  }\n\n  .py-phone-2_5_j1 {\n    padding-top: calc(2.5 * 8px);\n    padding-bottom: calc(2.5 * 8px);\n  }\n\n  .py-phone-3_Go {\n    padding-top: calc(3 * 8px);\n    padding-bottom: calc(3 * 8px);\n  }\n\n  .py-phone-4_et {\n    padding-top: calc(4 * 8px);\n    padding-bottom: calc(4 * 8px);\n  }\n\n  .py-phone-5_6m {\n    padding-top: calc(5 * 8px);\n    padding-bottom: calc(5 * 8px);\n  }\n\n  .py-phone-6_-C {\n    padding-top: calc(6 * 8px);\n    padding-bottom: calc(6 * 8px);\n  }\n\n  .py-phone-7_1R {\n    padding-top: calc(7 * 8px);\n    padding-bottom: calc(7 * 8px);\n  }\n\n  .py-phone-8_01 {\n    padding-top: calc(8 * 8px);\n    padding-bottom: calc(8 * 8px);\n  }\n\n  .py-phone-9_i4 {\n    padding-top: calc(9 * 8px);\n    padding-bottom: calc(9 * 8px);\n  }\n}\n@media (max-width: 766px) {\n  .align-items-mobile-baseline_A7 {\n    align-items: baseline;\n  }\n\n  .align-items-mobile-center_ou {\n    align-items: center;\n  }\n\n  .align-items-mobile-end_9e {\n    align-items: flex-end;\n  }\n\n  .align-items-mobile-start_If {\n    align-items: flex-start;\n  }\n\n  .align-items-mobile-stretch_zm {\n    align-items: stretch;\n  }\n\n  .align-content-mobile-center_he {\n    align-content: center;\n  }\n\n  .align-content-mobile-end_N7 {\n    align-content: flex-end;\n  }\n\n  .align-content-mobile-start_Uw {\n    align-content: flex-start;\n  }\n\n  .align-content-mobile-around_Xd {\n    align-content: space-around;\n  }\n\n  .align-content-mobile-between_w3 {\n    align-content: space-between;\n  }\n\n  .align-content-mobile-stretch_2y {\n    align-content: stretch;\n  }\n\n  .align-self-mobile-baseline_Da {\n    align-self: baseline;\n  }\n\n  .align-self-mobile-center_Wx {\n    align-self: center;\n  }\n\n  .align-self-mobile-end_3n {\n    align-self: flex-end;\n  }\n\n  .align-self-mobile-start_OE {\n    align-self: flex-start;\n  }\n\n  .align-self-mobile-stretch_MF {\n    align-self: stretch;\n  }\n\n  .justify-content-mobile-start_XS {\n    justify-content: flex-start;\n  }\n\n  .justify-content-mobile-end_bs {\n    justify-content: flex-end;\n  }\n\n  .justify-content-mobile-center_ZR {\n    justify-content: center;\n  }\n\n  .justify-content-mobile-between_vv {\n    justify-content: space-between;\n  }\n\n  .justify-content-mobile-around_lw {\n    justify-content: space-around;\n  }\n\n  .justify-content-mobile-evenly_r9 {\n    justify-content: space-evenly;\n  }\n\n  .text-align-mobile-start_0s {\n    text-align: start;\n  }\n\n  .text-align-mobile-end_wG {\n    text-align: end;\n  }\n\n  .text-align-mobile-center_nw {\n    text-align: center;\n  }\n\n  .text-align-mobile-justify_E5 {\n    text-align: justify;\n  }\n\n  .col-mobile-auto_bi {\n    flex: 0 0 auto;\n    width: auto;\n  }\n\n  .col-mobile-1_nX {\n    flex: 0 0 auto;\n    width: 8.33333333%;\n  }\n\n  .col-mobile-2_Br {\n    flex: 0 0 auto;\n    width: 16.66666667%;\n  }\n\n  .col-mobile-3_oT {\n    flex: 0 0 auto;\n    width: 25%;\n  }\n\n  .col-mobile-4_8e {\n    flex: 0 0 auto;\n    width: 33.33333333%;\n  }\n\n  .col-mobile-5_W- {\n    flex: 0 0 auto;\n    width: 41.66666667%;\n  }\n\n  .col-mobile-6_dN {\n    flex: 0 0 auto;\n    width: 50%;\n  }\n\n  .col-mobile-7_Ft {\n    flex: 0 0 auto;\n    width: 58.33333333%;\n  }\n\n  .col-mobile-8_ZV {\n    flex: 0 0 auto;\n    width: 66.66666667%;\n  }\n\n  .col-mobile-9_qw {\n    flex: 0 0 auto;\n    width: 75%;\n  }\n\n  .col-mobile-10_eG {\n    flex: 0 0 auto;\n    width: 83.33333333%;\n  }\n\n  .col-mobile-11_yE {\n    flex: 0 0 auto;\n    width: 91.66666667%;\n  }\n\n  .col-mobile-12_3f {\n    flex: 0 0 auto;\n    width: 100%;\n  }\n\n  .d-mobile-flex_QK {\n    display: flex;\n  }\n\n  .d-mobile-block_Je {\n    display: block;\n  }\n\n  .d-mobile-grid_kE {\n    display: grid;\n  }\n\n  .d-mobile-inline_ZO {\n    display: inline;\n  }\n\n  .d-mobile-inline-block_X1 {\n    display: inline-block;\n  }\n\n  .d-mobile-inline-flex_OI {\n    display: inline-flex;\n  }\n\n  .d-mobile-inline-grid_pE {\n    display: inline-grid;\n  }\n\n  .d-flex-mobile-column_Vl {\n    flex-direction: column;\n    display: flex;\n  }\n\n  .d-flex-mobile-column-reverse_gx {\n    flex-direction: column-reverse;\n    display: flex;\n  }\n\n  .d-flex-mobile-row_Y0 {\n    flex-direction: row;\n    display: flex;\n  }\n\n  .d-flex-mobile-row-reverse_HP {\n    flex-direction: row-reverse;\n    display: flex;\n  }\n\n  .flex-mobile-grow-1_Hb {\n    flex-grow: 1;\n  }\n\n  .flex-mobile-grow-2_Yb {\n    flex-grow: 2;\n  }\n\n  .flex-mobile-grow-3_aK {\n    flex-grow: 3;\n  }\n\n  .flex-mobile-grow-4_fI {\n    flex-grow: 4;\n  }\n\n  .flex-mobile-grow-5_ge {\n    flex-grow: 5;\n  }\n\n  .flex-mobile-nowrap_yU {\n    flex-wrap: nowrap;\n  }\n\n  .flex-mobile-wrap_Kn {\n    flex-wrap: wrap;\n  }\n\n  .flex-mobile-wrap-reverse_Dw {\n    flex-wrap: wrap-reverse;\n  }\n\n  .flex-mobile-shrink-1_Jj {\n    flex-shrink: 1;\n  }\n\n  .flex-mobile-shrink-2_9h {\n    flex-shrink: 2;\n  }\n\n  .flex-mobile-shrink-3_GF {\n    flex-shrink: 3;\n  }\n\n  .flex-mobile-shrink-4_1S {\n    flex-shrink: 4;\n  }\n\n  .flex-mobile-shrink-5_tH {\n    flex-shrink: 5;\n  }\n\n  .offset-mobile-auto_2M {\n    margin-left: auto;\n  }\n\n  .offset-mobile-1_Pr {\n    margin-left: 8.33333333%;\n  }\n\n  .offset-mobile-2_rq {\n    margin-left: 16.66666667%;\n  }\n\n  .offset-mobile-3_No {\n    margin-left: 25%;\n  }\n\n  .offset-mobile-4_6N {\n    margin-left: 33.33333333%;\n  }\n\n  .offset-mobile-5_MI {\n    margin-left: 41.66666667%;\n  }\n\n  .offset-mobile-6_ai {\n    margin-left: 50%;\n  }\n\n  .offset-mobile-7_Fr {\n    margin-left: 58.33333333%;\n  }\n\n  .offset-mobile-8_93 {\n    margin-left: 66.66666667%;\n  }\n\n  .offset-mobile-9_DL {\n    margin-left: 75%;\n  }\n\n  .offset-mobile-10_64 {\n    margin-left: 83.33333333%;\n  }\n\n  .offset-mobile-11_Gj {\n    margin-left: 91.66666667%;\n  }\n\n  .offset-mobile-12_rx {\n    margin-left: 100%;\n  }\n\n  .position-mobile-absolute_Me {\n    position: absolute;\n  }\n\n  .position-mobile-fixed_7J {\n    position: fixed;\n  }\n\n  .position-mobile-relative_0O {\n    position: relative;\n  }\n\n  .position-mobile-static_ih {\n    position: static;\n  }\n\n  .position-mobile-sticky_Lc {\n    position: sticky;\n  }\n\n  .m-mobile-0_KW {\n    margin: calc(0 * 8px);\n  }\n\n  .m-mobile-0_125_S1 {\n    margin: calc(0.125 * 8px);\n  }\n\n  .m-mobile-0_25_tP {\n    margin: calc(0.25 * 8px);\n  }\n\n  .m-mobile-0_5_ur {\n    margin: calc(0.5 * 8px);\n  }\n\n  .m-mobile-1_Xu {\n    margin: calc(1 * 8px);\n  }\n\n  .m-mobile-1_5_ts {\n    margin: calc(1.5 * 8px);\n  }\n\n  .m-mobile-1_75_nH {\n    margin: calc(1.75 * 8px);\n  }\n\n  .m-mobile-2_9a {\n    margin: calc(2 * 8px);\n  }\n\n  .m-mobile-2_5_oY {\n    margin: calc(2.5 * 8px);\n  }\n\n  .m-mobile-3_aa {\n    margin: calc(3 * 8px);\n  }\n\n  .m-mobile-4_tK {\n    margin: calc(4 * 8px);\n  }\n\n  .m-mobile-5_H8 {\n    margin: calc(5 * 8px);\n  }\n\n  .m-mobile-6_fx {\n    margin: calc(6 * 8px);\n  }\n\n  .m-mobile-7_tC {\n    margin: calc(7 * 8px);\n  }\n\n  .m-mobile-8_5S {\n    margin: calc(8 * 8px);\n  }\n\n  .m-mobile-9_XK {\n    margin: calc(9 * 8px);\n  }\n\n  .p-mobile-0_gj {\n    padding: calc(0 * 8px);\n  }\n\n  .p-mobile-0_125_fy {\n    padding: calc(0.125 * 8px);\n  }\n\n  .p-mobile-0_25_-C {\n    padding: calc(0.25 * 8px);\n  }\n\n  .p-mobile-0_5_hf {\n    padding: calc(0.5 * 8px);\n  }\n\n  .p-mobile-1_XR {\n    padding: calc(1 * 8px);\n  }\n\n  .p-mobile-1_5_U- {\n    padding: calc(1.5 * 8px);\n  }\n\n  .p-mobile-1_75_Vn {\n    padding: calc(1.75 * 8px);\n  }\n\n  .p-mobile-2_CC {\n    padding: calc(2 * 8px);\n  }\n\n  .p-mobile-2_5_dE {\n    padding: calc(2.5 * 8px);\n  }\n\n  .p-mobile-3_1H {\n    padding: calc(3 * 8px);\n  }\n\n  .p-mobile-4_Bs {\n    padding: calc(4 * 8px);\n  }\n\n  .p-mobile-5_Zi {\n    padding: calc(5 * 8px);\n  }\n\n  .p-mobile-6_3X {\n    padding: calc(6 * 8px);\n  }\n\n  .p-mobile-7_Vk {\n    padding: calc(7 * 8px);\n  }\n\n  .p-mobile-8_Ly {\n    padding: calc(8 * 8px);\n  }\n\n  .p-mobile-9_4Z {\n    padding: calc(9 * 8px);\n  }\n\n  .gap-mobile-0_5o {\n    gap: calc(0 * 8px);\n  }\n\n  .gap-mobile-0_125_7I {\n    gap: calc(0.125 * 8px);\n  }\n\n  .gap-mobile-0_25_Ea {\n    gap: calc(0.25 * 8px);\n  }\n\n  .gap-mobile-0_5_Io {\n    gap: calc(0.5 * 8px);\n  }\n\n  .gap-mobile-1_yn {\n    gap: calc(1 * 8px);\n  }\n\n  .gap-mobile-1_5_v4 {\n    gap: calc(1.5 * 8px);\n  }\n\n  .gap-mobile-1_75_ct {\n    gap: calc(1.75 * 8px);\n  }\n\n  .gap-mobile-2_j0 {\n    gap: calc(2 * 8px);\n  }\n\n  .gap-mobile-2_5_6A {\n    gap: calc(2.5 * 8px);\n  }\n\n  .gap-mobile-3_hU {\n    gap: calc(3 * 8px);\n  }\n\n  .gap-mobile-4_Ff {\n    gap: calc(4 * 8px);\n  }\n\n  .gap-mobile-5_Mr {\n    gap: calc(5 * 8px);\n  }\n\n  .gap-mobile-6_RS {\n    gap: calc(6 * 8px);\n  }\n\n  .gap-mobile-7_P6 {\n    gap: calc(7 * 8px);\n  }\n\n  .gap-mobile-8_Zk {\n    gap: calc(8 * 8px);\n  }\n\n  .gap-mobile-9_Vy {\n    gap: calc(9 * 8px);\n  }\n\n  .mt-mobile-0_Mk {\n    margin-top: calc(0 * 8px);\n  }\n\n  .mr-mobile-0_rn {\n    margin-right: calc(0 * 8px);\n  }\n\n  .mb-mobile-0_wF {\n    margin-bottom: calc(0 * 8px);\n  }\n\n  .ml-mobile-0_4m {\n    margin-left: calc(0 * 8px);\n  }\n\n  .mt-mobile-0_125_cJ {\n    margin-top: calc(0.125 * 8px);\n  }\n\n  .mr-mobile-0_125_Ty {\n    margin-right: calc(0.125 * 8px);\n  }\n\n  .mb-mobile-0_125_5K {\n    margin-bottom: calc(0.125 * 8px);\n  }\n\n  .ml-mobile-0_125_F2 {\n    margin-left: calc(0.125 * 8px);\n  }\n\n  .mt-mobile-0_25_7L {\n    margin-top: calc(0.25 * 8px);\n  }\n\n  .mr-mobile-0_25_OQ {\n    margin-right: calc(0.25 * 8px);\n  }\n\n  .mb-mobile-0_25_YP {\n    margin-bottom: calc(0.25 * 8px);\n  }\n\n  .ml-mobile-0_25_Rb {\n    margin-left: calc(0.25 * 8px);\n  }\n\n  .mt-mobile-0_5_tb {\n    margin-top: calc(0.5 * 8px);\n  }\n\n  .mr-mobile-0_5_Xn {\n    margin-right: calc(0.5 * 8px);\n  }\n\n  .mb-mobile-0_5_Tp {\n    margin-bottom: calc(0.5 * 8px);\n  }\n\n  .ml-mobile-0_5_Qv {\n    margin-left: calc(0.5 * 8px);\n  }\n\n  .mt-mobile-1_Au {\n    margin-top: calc(1 * 8px);\n  }\n\n  .mr-mobile-1_69 {\n    margin-right: calc(1 * 8px);\n  }\n\n  .mb-mobile-1_F9 {\n    margin-bottom: calc(1 * 8px);\n  }\n\n  .ml-mobile-1_Fj {\n    margin-left: calc(1 * 8px);\n  }\n\n  .mt-mobile-1_5_2G {\n    margin-top: calc(1.5 * 8px);\n  }\n\n  .mr-mobile-1_5_Lp {\n    margin-right: calc(1.5 * 8px);\n  }\n\n  .mb-mobile-1_5_ni {\n    margin-bottom: calc(1.5 * 8px);\n  }\n\n  .ml-mobile-1_5_Pu {\n    margin-left: calc(1.5 * 8px);\n  }\n\n  .mt-mobile-1_75_sX {\n    margin-top: calc(1.75 * 8px);\n  }\n\n  .mr-mobile-1_75_Sw {\n    margin-right: calc(1.75 * 8px);\n  }\n\n  .mb-mobile-1_75_P9 {\n    margin-bottom: calc(1.75 * 8px);\n  }\n\n  .ml-mobile-1_75_Rl {\n    margin-left: calc(1.75 * 8px);\n  }\n\n  .mt-mobile-2_sj {\n    margin-top: calc(2 * 8px);\n  }\n\n  .mr-mobile-2_Az {\n    margin-right: calc(2 * 8px);\n  }\n\n  .mb-mobile-2_XN {\n    margin-bottom: calc(2 * 8px);\n  }\n\n  .ml-mobile-2_eM {\n    margin-left: calc(2 * 8px);\n  }\n\n  .mt-mobile-2_5_F4 {\n    margin-top: calc(2.5 * 8px);\n  }\n\n  .mr-mobile-2_5_JQ {\n    margin-right: calc(2.5 * 8px);\n  }\n\n  .mb-mobile-2_5_-V {\n    margin-bottom: calc(2.5 * 8px);\n  }\n\n  .ml-mobile-2_5_4o {\n    margin-left: calc(2.5 * 8px);\n  }\n\n  .mt-mobile-3_-n {\n    margin-top: calc(3 * 8px);\n  }\n\n  .mr-mobile-3_5o {\n    margin-right: calc(3 * 8px);\n  }\n\n  .mb-mobile-3_BU {\n    margin-bottom: calc(3 * 8px);\n  }\n\n  .ml-mobile-3_K8 {\n    margin-left: calc(3 * 8px);\n  }\n\n  .mt-mobile-4_py {\n    margin-top: calc(4 * 8px);\n  }\n\n  .mr-mobile-4_jH {\n    margin-right: calc(4 * 8px);\n  }\n\n  .mb-mobile-4_YV {\n    margin-bottom: calc(4 * 8px);\n  }\n\n  .ml-mobile-4_jz {\n    margin-left: calc(4 * 8px);\n  }\n\n  .mt-mobile-5_Fp {\n    margin-top: calc(5 * 8px);\n  }\n\n  .mr-mobile-5_d4 {\n    margin-right: calc(5 * 8px);\n  }\n\n  .mb-mobile-5_cy {\n    margin-bottom: calc(5 * 8px);\n  }\n\n  .ml-mobile-5_Vm {\n    margin-left: calc(5 * 8px);\n  }\n\n  .mt-mobile-6_c1 {\n    margin-top: calc(6 * 8px);\n  }\n\n  .mr-mobile-6_HM {\n    margin-right: calc(6 * 8px);\n  }\n\n  .mb-mobile-6_WI {\n    margin-bottom: calc(6 * 8px);\n  }\n\n  .ml-mobile-6_xu {\n    margin-left: calc(6 * 8px);\n  }\n\n  .mt-mobile-7_Z4 {\n    margin-top: calc(7 * 8px);\n  }\n\n  .mr-mobile-7_oW {\n    margin-right: calc(7 * 8px);\n  }\n\n  .mb-mobile-7_TE {\n    margin-bottom: calc(7 * 8px);\n  }\n\n  .ml-mobile-7_NU {\n    margin-left: calc(7 * 8px);\n  }\n\n  .mt-mobile-8_TL {\n    margin-top: calc(8 * 8px);\n  }\n\n  .mr-mobile-8_yj {\n    margin-right: calc(8 * 8px);\n  }\n\n  .mb-mobile-8_Bt {\n    margin-bottom: calc(8 * 8px);\n  }\n\n  .ml-mobile-8_ut {\n    margin-left: calc(8 * 8px);\n  }\n\n  .mt-mobile-9_eq {\n    margin-top: calc(9 * 8px);\n  }\n\n  .mr-mobile-9_hI {\n    margin-right: calc(9 * 8px);\n  }\n\n  .mb-mobile-9_UU {\n    margin-bottom: calc(9 * 8px);\n  }\n\n  .ml-mobile-9_hS {\n    margin-left: calc(9 * 8px);\n  }\n\n  .pt-mobile-0_RJ {\n    padding-top: calc(0 * 8px);\n  }\n\n  .pr-mobile-0_N- {\n    padding-right: calc(0 * 8px);\n  }\n\n  .pb-mobile-0_Mv {\n    padding-bottom: calc(0 * 8px);\n  }\n\n  .pl-mobile-0_o3 {\n    padding-left: calc(0 * 8px);\n  }\n\n  .pt-mobile-0_125_3l {\n    padding-top: calc(0.125 * 8px);\n  }\n\n  .pr-mobile-0_125_to {\n    padding-right: calc(0.125 * 8px);\n  }\n\n  .pb-mobile-0_125_by {\n    padding-bottom: calc(0.125 * 8px);\n  }\n\n  .pl-mobile-0_125_DE {\n    padding-left: calc(0.125 * 8px);\n  }\n\n  .pt-mobile-0_25_-t {\n    padding-top: calc(0.25 * 8px);\n  }\n\n  .pr-mobile-0_25_qC {\n    padding-right: calc(0.25 * 8px);\n  }\n\n  .pb-mobile-0_25_z6 {\n    padding-bottom: calc(0.25 * 8px);\n  }\n\n  .pl-mobile-0_25_XI {\n    padding-left: calc(0.25 * 8px);\n  }\n\n  .pt-mobile-0_5_X7 {\n    padding-top: calc(0.5 * 8px);\n  }\n\n  .pr-mobile-0_5_kA {\n    padding-right: calc(0.5 * 8px);\n  }\n\n  .pb-mobile-0_5_Qi {\n    padding-bottom: calc(0.5 * 8px);\n  }\n\n  .pl-mobile-0_5_B3 {\n    padding-left: calc(0.5 * 8px);\n  }\n\n  .pt-mobile-1_rS {\n    padding-top: calc(1 * 8px);\n  }\n\n  .pr-mobile-1_MB {\n    padding-right: calc(1 * 8px);\n  }\n\n  .pb-mobile-1_yG {\n    padding-bottom: calc(1 * 8px);\n  }\n\n  .pl-mobile-1_LW {\n    padding-left: calc(1 * 8px);\n  }\n\n  .pt-mobile-1_5_U4 {\n    padding-top: calc(1.5 * 8px);\n  }\n\n  .pr-mobile-1_5_p6 {\n    padding-right: calc(1.5 * 8px);\n  }\n\n  .pb-mobile-1_5_NG {\n    padding-bottom: calc(1.5 * 8px);\n  }\n\n  .pl-mobile-1_5_iF {\n    padding-left: calc(1.5 * 8px);\n  }\n\n  .pt-mobile-1_75_-U {\n    padding-top: calc(1.75 * 8px);\n  }\n\n  .pr-mobile-1_75_Uj {\n    padding-right: calc(1.75 * 8px);\n  }\n\n  .pb-mobile-1_75_TI {\n    padding-bottom: calc(1.75 * 8px);\n  }\n\n  .pl-mobile-1_75_M9 {\n    padding-left: calc(1.75 * 8px);\n  }\n\n  .pt-mobile-2_Hp {\n    padding-top: calc(2 * 8px);\n  }\n\n  .pr-mobile-2_6A {\n    padding-right: calc(2 * 8px);\n  }\n\n  .pb-mobile-2_fX {\n    padding-bottom: calc(2 * 8px);\n  }\n\n  .pl-mobile-2_zZ {\n    padding-left: calc(2 * 8px);\n  }\n\n  .pt-mobile-2_5_WJ {\n    padding-top: calc(2.5 * 8px);\n  }\n\n  .pr-mobile-2_5_6d {\n    padding-right: calc(2.5 * 8px);\n  }\n\n  .pb-mobile-2_5_9N {\n    padding-bottom: calc(2.5 * 8px);\n  }\n\n  .pl-mobile-2_5_1a {\n    padding-left: calc(2.5 * 8px);\n  }\n\n  .pt-mobile-3_1q {\n    padding-top: calc(3 * 8px);\n  }\n\n  .pr-mobile-3_Jf {\n    padding-right: calc(3 * 8px);\n  }\n\n  .pb-mobile-3_r- {\n    padding-bottom: calc(3 * 8px);\n  }\n\n  .pl-mobile-3_LT {\n    padding-left: calc(3 * 8px);\n  }\n\n  .pt-mobile-4_zp {\n    padding-top: calc(4 * 8px);\n  }\n\n  .pr-mobile-4_N4 {\n    padding-right: calc(4 * 8px);\n  }\n\n  .pb-mobile-4_BR {\n    padding-bottom: calc(4 * 8px);\n  }\n\n  .pl-mobile-4_x0 {\n    padding-left: calc(4 * 8px);\n  }\n\n  .pt-mobile-5_KA {\n    padding-top: calc(5 * 8px);\n  }\n\n  .pr-mobile-5_fb {\n    padding-right: calc(5 * 8px);\n  }\n\n  .pb-mobile-5_oH {\n    padding-bottom: calc(5 * 8px);\n  }\n\n  .pl-mobile-5_NR {\n    padding-left: calc(5 * 8px);\n  }\n\n  .pt-mobile-6_6u {\n    padding-top: calc(6 * 8px);\n  }\n\n  .pr-mobile-6_Kp {\n    padding-right: calc(6 * 8px);\n  }\n\n  .pb-mobile-6_9W {\n    padding-bottom: calc(6 * 8px);\n  }\n\n  .pl-mobile-6_Uy {\n    padding-left: calc(6 * 8px);\n  }\n\n  .pt-mobile-7_TN {\n    padding-top: calc(7 * 8px);\n  }\n\n  .pr-mobile-7_Hf {\n    padding-right: calc(7 * 8px);\n  }\n\n  .pb-mobile-7_S1 {\n    padding-bottom: calc(7 * 8px);\n  }\n\n  .pl-mobile-7_Of {\n    padding-left: calc(7 * 8px);\n  }\n\n  .pt-mobile-8_6Z {\n    padding-top: calc(8 * 8px);\n  }\n\n  .pr-mobile-8_Yl {\n    padding-right: calc(8 * 8px);\n  }\n\n  .pb-mobile-8_Xv {\n    padding-bottom: calc(8 * 8px);\n  }\n\n  .pl-mobile-8_n0 {\n    padding-left: calc(8 * 8px);\n  }\n\n  .pt-mobile-9_ej {\n    padding-top: calc(9 * 8px);\n  }\n\n  .pr-mobile-9_RI {\n    padding-right: calc(9 * 8px);\n  }\n\n  .pb-mobile-9_oD {\n    padding-bottom: calc(9 * 8px);\n  }\n\n  .pl-mobile-9_vF {\n    padding-left: calc(9 * 8px);\n  }\n\n  .w-mobile-0_zL {\n    width: "0%";\n  }\n\n  .w-mobile-25_7R {\n    width: "25%";\n  }\n\n  .w-mobile-50_zP {\n    width: "50%";\n  }\n\n  .w-mobile-75_EL {\n    width: "75%";\n  }\n\n  .w-mobile-100_P7 {\n    width: "100%";\n  }\n\n  .vw-mobile-0_HN {\n    width: 0vw;\n  }\n\n  .vw-mobile-25_Ul {\n    width: 25vw;\n  }\n\n  .vw-mobile-50_k5 {\n    width: 50vw;\n  }\n\n  .vw-mobile-75_HK {\n    width: 75vw;\n  }\n\n  .vw-mobile-100_Vg {\n    width: 100vw;\n  }\n\n  .h-mobile-0_4u {\n    height: "0%";\n  }\n\n  .h-mobile-25_-C {\n    height: "25%";\n  }\n\n  .h-mobile-50_ug {\n    height: "50%";\n  }\n\n  .h-mobile-75_ZF {\n    height: "75%";\n  }\n\n  .h-mobile-100_nK {\n    height: "100%";\n  }\n\n  .vh-mobile-0_Vs {\n    height: 0vh;\n  }\n\n  .vh-mobile-25_9O {\n    height: 25vh;\n  }\n\n  .vh-mobile-50_nO {\n    height: 50vh;\n  }\n\n  .vh-mobile-75_rC {\n    height: 75vh;\n  }\n\n  .vh-mobile-100_Vy {\n    height: 100vh;\n  }\n\n  .mx-mobile-0_o- {\n    margin-left: calc(0 * 8px);\n    margin-right: calc(0 * 8px);\n  }\n\n  .mx-mobile-0_125_ZN {\n    margin-left: calc(0.125 * 8px);\n    margin-right: calc(0.125 * 8px);\n  }\n\n  .mx-mobile-0_25_lC {\n    margin-left: calc(0.25 * 8px);\n    margin-right: calc(0.25 * 8px);\n  }\n\n  .mx-mobile-0_5_VQ {\n    margin-left: calc(0.5 * 8px);\n    margin-right: calc(0.5 * 8px);\n  }\n\n  .mx-mobile-1_Mi {\n    margin-left: calc(1 * 8px);\n    margin-right: calc(1 * 8px);\n  }\n\n  .mx-mobile-1_5_EV {\n    margin-left: calc(1.5 * 8px);\n    margin-right: calc(1.5 * 8px);\n  }\n\n  .mx-mobile-1_75_1g {\n    margin-left: calc(1.75 * 8px);\n    margin-right: calc(1.75 * 8px);\n  }\n\n  .mx-mobile-2_PJ {\n    margin-left: calc(2 * 8px);\n    margin-right: calc(2 * 8px);\n  }\n\n  .mx-mobile-2_5_ou {\n    margin-left: calc(2.5 * 8px);\n    margin-right: calc(2.5 * 8px);\n  }\n\n  .mx-mobile-3_SE {\n    margin-left: calc(3 * 8px);\n    margin-right: calc(3 * 8px);\n  }\n\n  .mx-mobile-4_zC {\n    margin-left: calc(4 * 8px);\n    margin-right: calc(4 * 8px);\n  }\n\n  .mx-mobile-5_2L {\n    margin-left: calc(5 * 8px);\n    margin-right: calc(5 * 8px);\n  }\n\n  .mx-mobile-6_NO {\n    margin-left: calc(6 * 8px);\n    margin-right: calc(6 * 8px);\n  }\n\n  .mx-mobile-7_c- {\n    margin-left: calc(7 * 8px);\n    margin-right: calc(7 * 8px);\n  }\n\n  .mx-mobile-8_gI {\n    margin-left: calc(8 * 8px);\n    margin-right: calc(8 * 8px);\n  }\n\n  .mx-mobile-9_GI {\n    margin-left: calc(9 * 8px);\n    margin-right: calc(9 * 8px);\n  }\n\n  .my-mobile-0_2o {\n    margin-top: calc(0 * 8px);\n    margin-bottom: calc(0 * 8px);\n  }\n\n  .my-mobile-0_125_Pw {\n    margin-top: calc(0.125 * 8px);\n    margin-bottom: calc(0.125 * 8px);\n  }\n\n  .my-mobile-0_25_d4 {\n    margin-top: calc(0.25 * 8px);\n    margin-bottom: calc(0.25 * 8px);\n  }\n\n  .my-mobile-0_5_-Z {\n    margin-top: calc(0.5 * 8px);\n    margin-bottom: calc(0.5 * 8px);\n  }\n\n  .my-mobile-1_Hx {\n    margin-top: calc(1 * 8px);\n    margin-bottom: calc(1 * 8px);\n  }\n\n  .my-mobile-1_5_u9 {\n    margin-top: calc(1.5 * 8px);\n    margin-bottom: calc(1.5 * 8px);\n  }\n\n  .my-mobile-1_75_Xi {\n    margin-top: calc(1.75 * 8px);\n    margin-bottom: calc(1.75 * 8px);\n  }\n\n  .my-mobile-2_M- {\n    margin-top: calc(2 * 8px);\n    margin-bottom: calc(2 * 8px);\n  }\n\n  .my-mobile-2_5_DS {\n    margin-top: calc(2.5 * 8px);\n    margin-bottom: calc(2.5 * 8px);\n  }\n\n  .my-mobile-3_Lw {\n    margin-top: calc(3 * 8px);\n    margin-bottom: calc(3 * 8px);\n  }\n\n  .my-mobile-4_90 {\n    margin-top: calc(4 * 8px);\n    margin-bottom: calc(4 * 8px);\n  }\n\n  .my-mobile-5_pZ {\n    margin-top: calc(5 * 8px);\n    margin-bottom: calc(5 * 8px);\n  }\n\n  .my-mobile-6_TK {\n    margin-top: calc(6 * 8px);\n    margin-bottom: calc(6 * 8px);\n  }\n\n  .my-mobile-7_EF {\n    margin-top: calc(7 * 8px);\n    margin-bottom: calc(7 * 8px);\n  }\n\n  .my-mobile-8_VZ {\n    margin-top: calc(8 * 8px);\n    margin-bottom: calc(8 * 8px);\n  }\n\n  .my-mobile-9_rU {\n    margin-top: calc(9 * 8px);\n    margin-bottom: calc(9 * 8px);\n  }\n\n  .px-mobile-0_74 {\n    padding-left: calc(0 * 8px);\n    padding-right: calc(0 * 8px);\n  }\n\n  .px-mobile-0_125_TI {\n    padding-left: calc(0.125 * 8px);\n    padding-right: calc(0.125 * 8px);\n  }\n\n  .px-mobile-0_25_VE {\n    padding-left: calc(0.25 * 8px);\n    padding-right: calc(0.25 * 8px);\n  }\n\n  .px-mobile-0_5_jV {\n    padding-left: calc(0.5 * 8px);\n    padding-right: calc(0.5 * 8px);\n  }\n\n  .px-mobile-1_53 {\n    padding-left: calc(1 * 8px);\n    padding-right: calc(1 * 8px);\n  }\n\n  .px-mobile-1_5_LF {\n    padding-left: calc(1.5 * 8px);\n    padding-right: calc(1.5 * 8px);\n  }\n\n  .px-mobile-1_75_6E {\n    padding-left: calc(1.75 * 8px);\n    padding-right: calc(1.75 * 8px);\n  }\n\n  .px-mobile-2_1U {\n    padding-left: calc(2 * 8px);\n    padding-right: calc(2 * 8px);\n  }\n\n  .px-mobile-2_5_zP {\n    padding-left: calc(2.5 * 8px);\n    padding-right: calc(2.5 * 8px);\n  }\n\n  .px-mobile-3_HP {\n    padding-left: calc(3 * 8px);\n    padding-right: calc(3 * 8px);\n  }\n\n  .px-mobile-4_sN {\n    padding-left: calc(4 * 8px);\n    padding-right: calc(4 * 8px);\n  }\n\n  .px-mobile-5_hx {\n    padding-left: calc(5 * 8px);\n    padding-right: calc(5 * 8px);\n  }\n\n  .px-mobile-6_ns {\n    padding-left: calc(6 * 8px);\n    padding-right: calc(6 * 8px);\n  }\n\n  .px-mobile-7_WZ {\n    padding-left: calc(7 * 8px);\n    padding-right: calc(7 * 8px);\n  }\n\n  .px-mobile-8_sY {\n    padding-left: calc(8 * 8px);\n    padding-right: calc(8 * 8px);\n  }\n\n  .px-mobile-9_-8 {\n    padding-left: calc(9 * 8px);\n    padding-right: calc(9 * 8px);\n  }\n\n  .py-mobile-0_1O {\n    padding-top: calc(0 * 8px);\n    padding-bottom: calc(0 * 8px);\n  }\n\n  .py-mobile-0_125_TC {\n    padding-top: calc(0.125 * 8px);\n    padding-bottom: calc(0.125 * 8px);\n  }\n\n  .py-mobile-0_25_lc {\n    padding-top: calc(0.25 * 8px);\n    padding-bottom: calc(0.25 * 8px);\n  }\n\n  .py-mobile-0_5_ct {\n    padding-top: calc(0.5 * 8px);\n    padding-bottom: calc(0.5 * 8px);\n  }\n\n  .py-mobile-1_Oo {\n    padding-top: calc(1 * 8px);\n    padding-bottom: calc(1 * 8px);\n  }\n\n  .py-mobile-1_5_3R {\n    padding-top: calc(1.5 * 8px);\n    padding-bottom: calc(1.5 * 8px);\n  }\n\n  .py-mobile-1_75_Uq {\n    padding-top: calc(1.75 * 8px);\n    padding-bottom: calc(1.75 * 8px);\n  }\n\n  .py-mobile-2_FT {\n    padding-top: calc(2 * 8px);\n    padding-bottom: calc(2 * 8px);\n  }\n\n  .py-mobile-2_5_zW {\n    padding-top: calc(2.5 * 8px);\n    padding-bottom: calc(2.5 * 8px);\n  }\n\n  .py-mobile-3_Jv {\n    padding-top: calc(3 * 8px);\n    padding-bottom: calc(3 * 8px);\n  }\n\n  .py-mobile-4_XJ {\n    padding-top: calc(4 * 8px);\n    padding-bottom: calc(4 * 8px);\n  }\n\n  .py-mobile-5_yN {\n    padding-top: calc(5 * 8px);\n    padding-bottom: calc(5 * 8px);\n  }\n\n  .py-mobile-6_kD {\n    padding-top: calc(6 * 8px);\n    padding-bottom: calc(6 * 8px);\n  }\n\n  .py-mobile-7_mk {\n    padding-top: calc(7 * 8px);\n    padding-bottom: calc(7 * 8px);\n  }\n\n  .py-mobile-8_ET {\n    padding-top: calc(8 * 8px);\n    padding-bottom: calc(8 * 8px);\n  }\n\n  .py-mobile-9_06 {\n    padding-top: calc(9 * 8px);\n    padding-bottom: calc(9 * 8px);\n  }\n}\n@media (max-width: 1024px) {\n  .align-items-tablet-baseline_2Z {\n    align-items: baseline;\n  }\n\n  .align-items-tablet-center_1p {\n    align-items: center;\n  }\n\n  .align-items-tablet-end_FM {\n    align-items: flex-end;\n  }\n\n  .align-items-tablet-start_18 {\n    align-items: flex-start;\n  }\n\n  .align-items-tablet-stretch_5C {\n    align-items: stretch;\n  }\n\n  .align-content-tablet-center_-A {\n    align-content: center;\n  }\n\n  .align-content-tablet-end_GG {\n    align-content: flex-end;\n  }\n\n  .align-content-tablet-start_NZ {\n    align-content: flex-start;\n  }\n\n  .align-content-tablet-around_-o {\n    align-content: space-around;\n  }\n\n  .align-content-tablet-between_R8 {\n    align-content: space-between;\n  }\n\n  .align-content-tablet-stretch_gV {\n    align-content: stretch;\n  }\n\n  .align-self-tablet-baseline_jQ {\n    align-self: baseline;\n  }\n\n  .align-self-tablet-center_IM {\n    align-self: center;\n  }\n\n  .align-self-tablet-end_1d {\n    align-self: flex-end;\n  }\n\n  .align-self-tablet-start_Ko {\n    align-self: flex-start;\n  }\n\n  .align-self-tablet-stretch_9C {\n    align-self: stretch;\n  }\n\n  .justify-content-tablet-start_5Y {\n    justify-content: flex-start;\n  }\n\n  .justify-content-tablet-end_aA {\n    justify-content: flex-end;\n  }\n\n  .justify-content-tablet-center_rZ {\n    justify-content: center;\n  }\n\n  .justify-content-tablet-between_xz {\n    justify-content: space-between;\n  }\n\n  .justify-content-tablet-around_ji {\n    justify-content: space-around;\n  }\n\n  .justify-content-tablet-evenly_xp {\n    justify-content: space-evenly;\n  }\n\n  .text-align-tablet-start_gw {\n    text-align: start;\n  }\n\n  .text-align-tablet-end_rY {\n    text-align: end;\n  }\n\n  .text-align-tablet-center_Ry {\n    text-align: center;\n  }\n\n  .text-align-tablet-justify_VQ {\n    text-align: justify;\n  }\n\n  .col-tablet-auto_KO {\n    flex: 0 0 auto;\n    width: auto;\n  }\n\n  .col-tablet-1_9o {\n    flex: 0 0 auto;\n    width: 8.33333333%;\n  }\n\n  .col-tablet-2_f- {\n    flex: 0 0 auto;\n    width: 16.66666667%;\n  }\n\n  .col-tablet-3_EU {\n    flex: 0 0 auto;\n    width: 25%;\n  }\n\n  .col-tablet-4_bw {\n    flex: 0 0 auto;\n    width: 33.33333333%;\n  }\n\n  .col-tablet-5_gG {\n    flex: 0 0 auto;\n    width: 41.66666667%;\n  }\n\n  .col-tablet-6_bw {\n    flex: 0 0 auto;\n    width: 50%;\n  }\n\n  .col-tablet-7_h- {\n    flex: 0 0 auto;\n    width: 58.33333333%;\n  }\n\n  .col-tablet-8_yX {\n    flex: 0 0 auto;\n    width: 66.66666667%;\n  }\n\n  .col-tablet-9_Jl {\n    flex: 0 0 auto;\n    width: 75%;\n  }\n\n  .col-tablet-10_Qy {\n    flex: 0 0 auto;\n    width: 83.33333333%;\n  }\n\n  .col-tablet-11_4j {\n    flex: 0 0 auto;\n    width: 91.66666667%;\n  }\n\n  .col-tablet-12_AQ {\n    flex: 0 0 auto;\n    width: 100%;\n  }\n\n  .d-tablet-flex_aw {\n    display: flex;\n  }\n\n  .d-tablet-block_6q {\n    display: block;\n  }\n\n  .d-tablet-grid_qG {\n    display: grid;\n  }\n\n  .d-tablet-inline_Lf {\n    display: inline;\n  }\n\n  .d-tablet-inline-block_KD {\n    display: inline-block;\n  }\n\n  .d-tablet-inline-flex_G7 {\n    display: inline-flex;\n  }\n\n  .d-tablet-inline-grid_XP {\n    display: inline-grid;\n  }\n\n  .d-flex-tablet-column_BF {\n    flex-direction: column;\n    display: flex;\n  }\n\n  .d-flex-tablet-column-reverse_FJ {\n    flex-direction: column-reverse;\n    display: flex;\n  }\n\n  .d-flex-tablet-row_fC {\n    flex-direction: row;\n    display: flex;\n  }\n\n  .d-flex-tablet-row-reverse_-- {\n    flex-direction: row-reverse;\n    display: flex;\n  }\n\n  .flex-tablet-grow-1_7Q {\n    flex-grow: 1;\n  }\n\n  .flex-tablet-grow-2_vG {\n    flex-grow: 2;\n  }\n\n  .flex-tablet-grow-3_JC {\n    flex-grow: 3;\n  }\n\n  .flex-tablet-grow-4_bR {\n    flex-grow: 4;\n  }\n\n  .flex-tablet-grow-5_y7 {\n    flex-grow: 5;\n  }\n\n  .flex-tablet-nowrap_gf {\n    flex-wrap: nowrap;\n  }\n\n  .flex-tablet-wrap_HG {\n    flex-wrap: wrap;\n  }\n\n  .flex-tablet-wrap-reverse_dj {\n    flex-wrap: wrap-reverse;\n  }\n\n  .flex-tablet-shrink-1_vM {\n    flex-shrink: 1;\n  }\n\n  .flex-tablet-shrink-2_tY {\n    flex-shrink: 2;\n  }\n\n  .flex-tablet-shrink-3_bl {\n    flex-shrink: 3;\n  }\n\n  .flex-tablet-shrink-4_ny {\n    flex-shrink: 4;\n  }\n\n  .flex-tablet-shrink-5_ND {\n    flex-shrink: 5;\n  }\n\n  .offset-tablet-auto_LD {\n    margin-left: auto;\n  }\n\n  .offset-tablet-1_xX {\n    margin-left: 8.33333333%;\n  }\n\n  .offset-tablet-2_4D {\n    margin-left: 16.66666667%;\n  }\n\n  .offset-tablet-3_Dv {\n    margin-left: 25%;\n  }\n\n  .offset-tablet-4_kT {\n    margin-left: 33.33333333%;\n  }\n\n  .offset-tablet-5_1h {\n    margin-left: 41.66666667%;\n  }\n\n  .offset-tablet-6_CY {\n    margin-left: 50%;\n  }\n\n  .offset-tablet-7_OE {\n    margin-left: 58.33333333%;\n  }\n\n  .offset-tablet-8_KW {\n    margin-left: 66.66666667%;\n  }\n\n  .offset-tablet-9_BF {\n    margin-left: 75%;\n  }\n\n  .offset-tablet-10_iZ {\n    margin-left: 83.33333333%;\n  }\n\n  .offset-tablet-11_o7 {\n    margin-left: 91.66666667%;\n  }\n\n  .offset-tablet-12_1w {\n    margin-left: 100%;\n  }\n\n  .position-tablet-absolute_FS {\n    position: absolute;\n  }\n\n  .position-tablet-fixed_u1 {\n    position: fixed;\n  }\n\n  .position-tablet-relative_-n {\n    position: relative;\n  }\n\n  .position-tablet-static_ZP {\n    position: static;\n  }\n\n  .position-tablet-sticky_WO {\n    position: sticky;\n  }\n\n  .m-tablet-0_Eg {\n    margin: calc(0 * 8px);\n  }\n\n  .m-tablet-0_125_Qx {\n    margin: calc(0.125 * 8px);\n  }\n\n  .m-tablet-0_25_Q5 {\n    margin: calc(0.25 * 8px);\n  }\n\n  .m-tablet-0_5_-1 {\n    margin: calc(0.5 * 8px);\n  }\n\n  .m-tablet-1_oq {\n    margin: calc(1 * 8px);\n  }\n\n  .m-tablet-1_5_hE {\n    margin: calc(1.5 * 8px);\n  }\n\n  .m-tablet-1_75_ae {\n    margin: calc(1.75 * 8px);\n  }\n\n  .m-tablet-2_fG {\n    margin: calc(2 * 8px);\n  }\n\n  .m-tablet-2_5_Tv {\n    margin: calc(2.5 * 8px);\n  }\n\n  .m-tablet-3_Qy {\n    margin: calc(3 * 8px);\n  }\n\n  .m-tablet-4_d6 {\n    margin: calc(4 * 8px);\n  }\n\n  .m-tablet-5_cq {\n    margin: calc(5 * 8px);\n  }\n\n  .m-tablet-6_kp {\n    margin: calc(6 * 8px);\n  }\n\n  .m-tablet-7_2Y {\n    margin: calc(7 * 8px);\n  }\n\n  .m-tablet-8_D- {\n    margin: calc(8 * 8px);\n  }\n\n  .m-tablet-9_1n {\n    margin: calc(9 * 8px);\n  }\n\n  .p-tablet-0_gH {\n    padding: calc(0 * 8px);\n  }\n\n  .p-tablet-0_125_VA {\n    padding: calc(0.125 * 8px);\n  }\n\n  .p-tablet-0_25_Gh {\n    padding: calc(0.25 * 8px);\n  }\n\n  .p-tablet-0_5_Y5 {\n    padding: calc(0.5 * 8px);\n  }\n\n  .p-tablet-1_wK {\n    padding: calc(1 * 8px);\n  }\n\n  .p-tablet-1_5_fD {\n    padding: calc(1.5 * 8px);\n  }\n\n  .p-tablet-1_75_yq {\n    padding: calc(1.75 * 8px);\n  }\n\n  .p-tablet-2_9H {\n    padding: calc(2 * 8px);\n  }\n\n  .p-tablet-2_5_6z {\n    padding: calc(2.5 * 8px);\n  }\n\n  .p-tablet-3_yN {\n    padding: calc(3 * 8px);\n  }\n\n  .p-tablet-4_Ng {\n    padding: calc(4 * 8px);\n  }\n\n  .p-tablet-5_Za {\n    padding: calc(5 * 8px);\n  }\n\n  .p-tablet-6_Fr {\n    padding: calc(6 * 8px);\n  }\n\n  .p-tablet-7_Yt {\n    padding: calc(7 * 8px);\n  }\n\n  .p-tablet-8_UM {\n    padding: calc(8 * 8px);\n  }\n\n  .p-tablet-9_WZ {\n    padding: calc(9 * 8px);\n  }\n\n  .gap-tablet-0_r9 {\n    gap: calc(0 * 8px);\n  }\n\n  .gap-tablet-0_125_RY {\n    gap: calc(0.125 * 8px);\n  }\n\n  .gap-tablet-0_25_mE {\n    gap: calc(0.25 * 8px);\n  }\n\n  .gap-tablet-0_5_Vu {\n    gap: calc(0.5 * 8px);\n  }\n\n  .gap-tablet-1_ID {\n    gap: calc(1 * 8px);\n  }\n\n  .gap-tablet-1_5_90 {\n    gap: calc(1.5 * 8px);\n  }\n\n  .gap-tablet-1_75_EJ {\n    gap: calc(1.75 * 8px);\n  }\n\n  .gap-tablet-2_t- {\n    gap: calc(2 * 8px);\n  }\n\n  .gap-tablet-2_5_eU {\n    gap: calc(2.5 * 8px);\n  }\n\n  .gap-tablet-3_DC {\n    gap: calc(3 * 8px);\n  }\n\n  .gap-tablet-4_N2 {\n    gap: calc(4 * 8px);\n  }\n\n  .gap-tablet-5_n4 {\n    gap: calc(5 * 8px);\n  }\n\n  .gap-tablet-6_5n {\n    gap: calc(6 * 8px);\n  }\n\n  .gap-tablet-7_eb {\n    gap: calc(7 * 8px);\n  }\n\n  .gap-tablet-8_20 {\n    gap: calc(8 * 8px);\n  }\n\n  .gap-tablet-9_ZG {\n    gap: calc(9 * 8px);\n  }\n\n  .mt-tablet-0_P- {\n    margin-top: calc(0 * 8px);\n  }\n\n  .mr-tablet-0_G- {\n    margin-right: calc(0 * 8px);\n  }\n\n  .mb-tablet-0_pp {\n    margin-bottom: calc(0 * 8px);\n  }\n\n  .ml-tablet-0_9H {\n    margin-left: calc(0 * 8px);\n  }\n\n  .mt-tablet-0_125_1u {\n    margin-top: calc(0.125 * 8px);\n  }\n\n  .mr-tablet-0_125_NR {\n    margin-right: calc(0.125 * 8px);\n  }\n\n  .mb-tablet-0_125_gQ {\n    margin-bottom: calc(0.125 * 8px);\n  }\n\n  .ml-tablet-0_125_qW {\n    margin-left: calc(0.125 * 8px);\n  }\n\n  .mt-tablet-0_25_iA {\n    margin-top: calc(0.25 * 8px);\n  }\n\n  .mr-tablet-0_25_CH {\n    margin-right: calc(0.25 * 8px);\n  }\n\n  .mb-tablet-0_25_6e {\n    margin-bottom: calc(0.25 * 8px);\n  }\n\n  .ml-tablet-0_25_Jf {\n    margin-left: calc(0.25 * 8px);\n  }\n\n  .mt-tablet-0_5_-n {\n    margin-top: calc(0.5 * 8px);\n  }\n\n  .mr-tablet-0_5_5L {\n    margin-right: calc(0.5 * 8px);\n  }\n\n  .mb-tablet-0_5_X3 {\n    margin-bottom: calc(0.5 * 8px);\n  }\n\n  .ml-tablet-0_5_ly {\n    margin-left: calc(0.5 * 8px);\n  }\n\n  .mt-tablet-1_S7 {\n    margin-top: calc(1 * 8px);\n  }\n\n  .mr-tablet-1_P5 {\n    margin-right: calc(1 * 8px);\n  }\n\n  .mb-tablet-1_Er {\n    margin-bottom: calc(1 * 8px);\n  }\n\n  .ml-tablet-1_BV {\n    margin-left: calc(1 * 8px);\n  }\n\n  .mt-tablet-1_5_7d {\n    margin-top: calc(1.5 * 8px);\n  }\n\n  .mr-tablet-1_5_3Q {\n    margin-right: calc(1.5 * 8px);\n  }\n\n  .mb-tablet-1_5_tV {\n    margin-bottom: calc(1.5 * 8px);\n  }\n\n  .ml-tablet-1_5_pM {\n    margin-left: calc(1.5 * 8px);\n  }\n\n  .mt-tablet-1_75_Ge {\n    margin-top: calc(1.75 * 8px);\n  }\n\n  .mr-tablet-1_75_Y9 {\n    margin-right: calc(1.75 * 8px);\n  }\n\n  .mb-tablet-1_75_xF {\n    margin-bottom: calc(1.75 * 8px);\n  }\n\n  .ml-tablet-1_75_iq {\n    margin-left: calc(1.75 * 8px);\n  }\n\n  .mt-tablet-2_Rj {\n    margin-top: calc(2 * 8px);\n  }\n\n  .mr-tablet-2_S3 {\n    margin-right: calc(2 * 8px);\n  }\n\n  .mb-tablet-2_q- {\n    margin-bottom: calc(2 * 8px);\n  }\n\n  .ml-tablet-2_k3 {\n    margin-left: calc(2 * 8px);\n  }\n\n  .mt-tablet-2_5_Y3 {\n    margin-top: calc(2.5 * 8px);\n  }\n\n  .mr-tablet-2_5_hJ {\n    margin-right: calc(2.5 * 8px);\n  }\n\n  .mb-tablet-2_5_yC {\n    margin-bottom: calc(2.5 * 8px);\n  }\n\n  .ml-tablet-2_5_ZK {\n    margin-left: calc(2.5 * 8px);\n  }\n\n  .mt-tablet-3_vZ {\n    margin-top: calc(3 * 8px);\n  }\n\n  .mr-tablet-3_5Y {\n    margin-right: calc(3 * 8px);\n  }\n\n  .mb-tablet-3_Bn {\n    margin-bottom: calc(3 * 8px);\n  }\n\n  .ml-tablet-3_UC {\n    margin-left: calc(3 * 8px);\n  }\n\n  .mt-tablet-4_23 {\n    margin-top: calc(4 * 8px);\n  }\n\n  .mr-tablet-4_lQ {\n    margin-right: calc(4 * 8px);\n  }\n\n  .mb-tablet-4_s2 {\n    margin-bottom: calc(4 * 8px);\n  }\n\n  .ml-tablet-4_9E {\n    margin-left: calc(4 * 8px);\n  }\n\n  .mt-tablet-5_mz {\n    margin-top: calc(5 * 8px);\n  }\n\n  .mr-tablet-5_W4 {\n    margin-right: calc(5 * 8px);\n  }\n\n  .mb-tablet-5_iH {\n    margin-bottom: calc(5 * 8px);\n  }\n\n  .ml-tablet-5_De {\n    margin-left: calc(5 * 8px);\n  }\n\n  .mt-tablet-6_iC {\n    margin-top: calc(6 * 8px);\n  }\n\n  .mr-tablet-6_Vy {\n    margin-right: calc(6 * 8px);\n  }\n\n  .mb-tablet-6_Tm {\n    margin-bottom: calc(6 * 8px);\n  }\n\n  .ml-tablet-6_z9 {\n    margin-left: calc(6 * 8px);\n  }\n\n  .mt-tablet-7_C1 {\n    margin-top: calc(7 * 8px);\n  }\n\n  .mr-tablet-7_8X {\n    margin-right: calc(7 * 8px);\n  }\n\n  .mb-tablet-7_b6 {\n    margin-bottom: calc(7 * 8px);\n  }\n\n  .ml-tablet-7_XQ {\n    margin-left: calc(7 * 8px);\n  }\n\n  .mt-tablet-8_fu {\n    margin-top: calc(8 * 8px);\n  }\n\n  .mr-tablet-8_cq {\n    margin-right: calc(8 * 8px);\n  }\n\n  .mb-tablet-8_qY {\n    margin-bottom: calc(8 * 8px);\n  }\n\n  .ml-tablet-8_df {\n    margin-left: calc(8 * 8px);\n  }\n\n  .mt-tablet-9_4B {\n    margin-top: calc(9 * 8px);\n  }\n\n  .mr-tablet-9_6T {\n    margin-right: calc(9 * 8px);\n  }\n\n  .mb-tablet-9_68 {\n    margin-bottom: calc(9 * 8px);\n  }\n\n  .ml-tablet-9_wS {\n    margin-left: calc(9 * 8px);\n  }\n\n  .pt-tablet-0_50 {\n    padding-top: calc(0 * 8px);\n  }\n\n  .pr-tablet-0_6f {\n    padding-right: calc(0 * 8px);\n  }\n\n  .pb-tablet-0_-B {\n    padding-bottom: calc(0 * 8px);\n  }\n\n  .pl-tablet-0_7Q {\n    padding-left: calc(0 * 8px);\n  }\n\n  .pt-tablet-0_125_ug {\n    padding-top: calc(0.125 * 8px);\n  }\n\n  .pr-tablet-0_125_H- {\n    padding-right: calc(0.125 * 8px);\n  }\n\n  .pb-tablet-0_125_Ib {\n    padding-bottom: calc(0.125 * 8px);\n  }\n\n  .pl-tablet-0_125_In {\n    padding-left: calc(0.125 * 8px);\n  }\n\n  .pt-tablet-0_25_ci {\n    padding-top: calc(0.25 * 8px);\n  }\n\n  .pr-tablet-0_25_bg {\n    padding-right: calc(0.25 * 8px);\n  }\n\n  .pb-tablet-0_25_92 {\n    padding-bottom: calc(0.25 * 8px);\n  }\n\n  .pl-tablet-0_25_-k {\n    padding-left: calc(0.25 * 8px);\n  }\n\n  .pt-tablet-0_5_n5 {\n    padding-top: calc(0.5 * 8px);\n  }\n\n  .pr-tablet-0_5_IV {\n    padding-right: calc(0.5 * 8px);\n  }\n\n  .pb-tablet-0_5_y8 {\n    padding-bottom: calc(0.5 * 8px);\n  }\n\n  .pl-tablet-0_5_9O {\n    padding-left: calc(0.5 * 8px);\n  }\n\n  .pt-tablet-1_Vg {\n    padding-top: calc(1 * 8px);\n  }\n\n  .pr-tablet-1_Wx {\n    padding-right: calc(1 * 8px);\n  }\n\n  .pb-tablet-1_zb {\n    padding-bottom: calc(1 * 8px);\n  }\n\n  .pl-tablet-1_e8 {\n    padding-left: calc(1 * 8px);\n  }\n\n  .pt-tablet-1_5_SB {\n    padding-top: calc(1.5 * 8px);\n  }\n\n  .pr-tablet-1_5_4N {\n    padding-right: calc(1.5 * 8px);\n  }\n\n  .pb-tablet-1_5_YK {\n    padding-bottom: calc(1.5 * 8px);\n  }\n\n  .pl-tablet-1_5_YV {\n    padding-left: calc(1.5 * 8px);\n  }\n\n  .pt-tablet-1_75_q8 {\n    padding-top: calc(1.75 * 8px);\n  }\n\n  .pr-tablet-1_75_f6 {\n    padding-right: calc(1.75 * 8px);\n  }\n\n  .pb-tablet-1_75_-D {\n    padding-bottom: calc(1.75 * 8px);\n  }\n\n  .pl-tablet-1_75_JR {\n    padding-left: calc(1.75 * 8px);\n  }\n\n  .pt-tablet-2_if {\n    padding-top: calc(2 * 8px);\n  }\n\n  .pr-tablet-2_kh {\n    padding-right: calc(2 * 8px);\n  }\n\n  .pb-tablet-2_VX {\n    padding-bottom: calc(2 * 8px);\n  }\n\n  .pl-tablet-2_Fr {\n    padding-left: calc(2 * 8px);\n  }\n\n  .pt-tablet-2_5_Ja {\n    padding-top: calc(2.5 * 8px);\n  }\n\n  .pr-tablet-2_5_s6 {\n    padding-right: calc(2.5 * 8px);\n  }\n\n  .pb-tablet-2_5_Bd {\n    padding-bottom: calc(2.5 * 8px);\n  }\n\n  .pl-tablet-2_5_rG {\n    padding-left: calc(2.5 * 8px);\n  }\n\n  .pt-tablet-3_tT {\n    padding-top: calc(3 * 8px);\n  }\n\n  .pr-tablet-3_rv {\n    padding-right: calc(3 * 8px);\n  }\n\n  .pb-tablet-3_g7 {\n    padding-bottom: calc(3 * 8px);\n  }\n\n  .pl-tablet-3_Vd {\n    padding-left: calc(3 * 8px);\n  }\n\n  .pt-tablet-4_-4 {\n    padding-top: calc(4 * 8px);\n  }\n\n  .pr-tablet-4_2y {\n    padding-right: calc(4 * 8px);\n  }\n\n  .pb-tablet-4_XT {\n    padding-bottom: calc(4 * 8px);\n  }\n\n  .pl-tablet-4_gD {\n    padding-left: calc(4 * 8px);\n  }\n\n  .pt-tablet-5_h2 {\n    padding-top: calc(5 * 8px);\n  }\n\n  .pr-tablet-5_tE {\n    padding-right: calc(5 * 8px);\n  }\n\n  .pb-tablet-5_38 {\n    padding-bottom: calc(5 * 8px);\n  }\n\n  .pl-tablet-5_ls {\n    padding-left: calc(5 * 8px);\n  }\n\n  .pt-tablet-6_Yx {\n    padding-top: calc(6 * 8px);\n  }\n\n  .pr-tablet-6_OO {\n    padding-right: calc(6 * 8px);\n  }\n\n  .pb-tablet-6_8o {\n    padding-bottom: calc(6 * 8px);\n  }\n\n  .pl-tablet-6_nY {\n    padding-left: calc(6 * 8px);\n  }\n\n  .pt-tablet-7_D- {\n    padding-top: calc(7 * 8px);\n  }\n\n  .pr-tablet-7_dr {\n    padding-right: calc(7 * 8px);\n  }\n\n  .pb-tablet-7_ry {\n    padding-bottom: calc(7 * 8px);\n  }\n\n  .pl-tablet-7_L3 {\n    padding-left: calc(7 * 8px);\n  }\n\n  .pt-tablet-8_Rq {\n    padding-top: calc(8 * 8px);\n  }\n\n  .pr-tablet-8_JR {\n    padding-right: calc(8 * 8px);\n  }\n\n  .pb-tablet-8_Oe {\n    padding-bottom: calc(8 * 8px);\n  }\n\n  .pl-tablet-8_mt {\n    padding-left: calc(8 * 8px);\n  }\n\n  .pt-tablet-9_Eb {\n    padding-top: calc(9 * 8px);\n  }\n\n  .pr-tablet-9_As {\n    padding-right: calc(9 * 8px);\n  }\n\n  .pb-tablet-9_Og {\n    padding-bottom: calc(9 * 8px);\n  }\n\n  .pl-tablet-9_ZX {\n    padding-left: calc(9 * 8px);\n  }\n\n  .w-tablet-0_gV {\n    width: "0%";\n  }\n\n  .w-tablet-25_tF {\n    width: "25%";\n  }\n\n  .w-tablet-50_Z6 {\n    width: "50%";\n  }\n\n  .w-tablet-75_g4 {\n    width: "75%";\n  }\n\n  .w-tablet-100_FP {\n    width: "100%";\n  }\n\n  .vw-tablet-0_zF {\n    width: 0vw;\n  }\n\n  .vw-tablet-25_-D {\n    width: 25vw;\n  }\n\n  .vw-tablet-50_0c {\n    width: 50vw;\n  }\n\n  .vw-tablet-75_-g {\n    width: 75vw;\n  }\n\n  .vw-tablet-100_wK {\n    width: 100vw;\n  }\n\n  .h-tablet-0_UV {\n    height: "0%";\n  }\n\n  .h-tablet-25_Da {\n    height: "25%";\n  }\n\n  .h-tablet-50_d2 {\n    height: "50%";\n  }\n\n  .h-tablet-75_ad {\n    height: "75%";\n  }\n\n  .h-tablet-100_u2 {\n    height: "100%";\n  }\n\n  .vh-tablet-0_ku {\n    height: 0vh;\n  }\n\n  .vh-tablet-25_Th {\n    height: 25vh;\n  }\n\n  .vh-tablet-50_A3 {\n    height: 50vh;\n  }\n\n  .vh-tablet-75_V4 {\n    height: 75vh;\n  }\n\n  .vh-tablet-100_pK {\n    height: 100vh;\n  }\n\n  .mx-tablet-0_OJ {\n    margin-left: calc(0 * 8px);\n    margin-right: calc(0 * 8px);\n  }\n\n  .mx-tablet-0_125_hv {\n    margin-left: calc(0.125 * 8px);\n    margin-right: calc(0.125 * 8px);\n  }\n\n  .mx-tablet-0_25_Sv {\n    margin-left: calc(0.25 * 8px);\n    margin-right: calc(0.25 * 8px);\n  }\n\n  .mx-tablet-0_5_7L {\n    margin-left: calc(0.5 * 8px);\n    margin-right: calc(0.5 * 8px);\n  }\n\n  .mx-tablet-1_Yw {\n    margin-left: calc(1 * 8px);\n    margin-right: calc(1 * 8px);\n  }\n\n  .mx-tablet-1_5_Sp {\n    margin-left: calc(1.5 * 8px);\n    margin-right: calc(1.5 * 8px);\n  }\n\n  .mx-tablet-1_75_1P {\n    margin-left: calc(1.75 * 8px);\n    margin-right: calc(1.75 * 8px);\n  }\n\n  .mx-tablet-2_Ob {\n    margin-left: calc(2 * 8px);\n    margin-right: calc(2 * 8px);\n  }\n\n  .mx-tablet-2_5_rg {\n    margin-left: calc(2.5 * 8px);\n    margin-right: calc(2.5 * 8px);\n  }\n\n  .mx-tablet-3_08 {\n    margin-left: calc(3 * 8px);\n    margin-right: calc(3 * 8px);\n  }\n\n  .mx-tablet-4_78 {\n    margin-left: calc(4 * 8px);\n    margin-right: calc(4 * 8px);\n  }\n\n  .mx-tablet-5_X7 {\n    margin-left: calc(5 * 8px);\n    margin-right: calc(5 * 8px);\n  }\n\n  .mx-tablet-6_Bo {\n    margin-left: calc(6 * 8px);\n    margin-right: calc(6 * 8px);\n  }\n\n  .mx-tablet-7_72 {\n    margin-left: calc(7 * 8px);\n    margin-right: calc(7 * 8px);\n  }\n\n  .mx-tablet-8_-q {\n    margin-left: calc(8 * 8px);\n    margin-right: calc(8 * 8px);\n  }\n\n  .mx-tablet-9_nA {\n    margin-left: calc(9 * 8px);\n    margin-right: calc(9 * 8px);\n  }\n\n  .my-tablet-0_os {\n    margin-top: calc(0 * 8px);\n    margin-bottom: calc(0 * 8px);\n  }\n\n  .my-tablet-0_125_Ql {\n    margin-top: calc(0.125 * 8px);\n    margin-bottom: calc(0.125 * 8px);\n  }\n\n  .my-tablet-0_25_VW {\n    margin-top: calc(0.25 * 8px);\n    margin-bottom: calc(0.25 * 8px);\n  }\n\n  .my-tablet-0_5_Z- {\n    margin-top: calc(0.5 * 8px);\n    margin-bottom: calc(0.5 * 8px);\n  }\n\n  .my-tablet-1_cq {\n    margin-top: calc(1 * 8px);\n    margin-bottom: calc(1 * 8px);\n  }\n\n  .my-tablet-1_5_Ia {\n    margin-top: calc(1.5 * 8px);\n    margin-bottom: calc(1.5 * 8px);\n  }\n\n  .my-tablet-1_75_sx {\n    margin-top: calc(1.75 * 8px);\n    margin-bottom: calc(1.75 * 8px);\n  }\n\n  .my-tablet-2_6N {\n    margin-top: calc(2 * 8px);\n    margin-bottom: calc(2 * 8px);\n  }\n\n  .my-tablet-2_5_Si {\n    margin-top: calc(2.5 * 8px);\n    margin-bottom: calc(2.5 * 8px);\n  }\n\n  .my-tablet-3_o9 {\n    margin-top: calc(3 * 8px);\n    margin-bottom: calc(3 * 8px);\n  }\n\n  .my-tablet-4_Rf {\n    margin-top: calc(4 * 8px);\n    margin-bottom: calc(4 * 8px);\n  }\n\n  .my-tablet-5_hD {\n    margin-top: calc(5 * 8px);\n    margin-bottom: calc(5 * 8px);\n  }\n\n  .my-tablet-6_MN {\n    margin-top: calc(6 * 8px);\n    margin-bottom: calc(6 * 8px);\n  }\n\n  .my-tablet-7_7v {\n    margin-top: calc(7 * 8px);\n    margin-bottom: calc(7 * 8px);\n  }\n\n  .my-tablet-8_qD {\n    margin-top: calc(8 * 8px);\n    margin-bottom: calc(8 * 8px);\n  }\n\n  .my-tablet-9_3J {\n    margin-top: calc(9 * 8px);\n    margin-bottom: calc(9 * 8px);\n  }\n\n  .px-tablet-0_tg {\n    padding-left: calc(0 * 8px);\n    padding-right: calc(0 * 8px);\n  }\n\n  .px-tablet-0_125_jC {\n    padding-left: calc(0.125 * 8px);\n    padding-right: calc(0.125 * 8px);\n  }\n\n  .px-tablet-0_25_Na {\n    padding-left: calc(0.25 * 8px);\n    padding-right: calc(0.25 * 8px);\n  }\n\n  .px-tablet-0_5_-a {\n    padding-left: calc(0.5 * 8px);\n    padding-right: calc(0.5 * 8px);\n  }\n\n  .px-tablet-1_-q {\n    padding-left: calc(1 * 8px);\n    padding-right: calc(1 * 8px);\n  }\n\n  .px-tablet-1_5_l3 {\n    padding-left: calc(1.5 * 8px);\n    padding-right: calc(1.5 * 8px);\n  }\n\n  .px-tablet-1_75_b9 {\n    padding-left: calc(1.75 * 8px);\n    padding-right: calc(1.75 * 8px);\n  }\n\n  .px-tablet-2_-I {\n    padding-left: calc(2 * 8px);\n    padding-right: calc(2 * 8px);\n  }\n\n  .px-tablet-2_5_Tc {\n    padding-left: calc(2.5 * 8px);\n    padding-right: calc(2.5 * 8px);\n  }\n\n  .px-tablet-3_0k {\n    padding-left: calc(3 * 8px);\n    padding-right: calc(3 * 8px);\n  }\n\n  .px-tablet-4_87 {\n    padding-left: calc(4 * 8px);\n    padding-right: calc(4 * 8px);\n  }\n\n  .px-tablet-5_Vc {\n    padding-left: calc(5 * 8px);\n    padding-right: calc(5 * 8px);\n  }\n\n  .px-tablet-6_LF {\n    padding-left: calc(6 * 8px);\n    padding-right: calc(6 * 8px);\n  }\n\n  .px-tablet-7_8f {\n    padding-left: calc(7 * 8px);\n    padding-right: calc(7 * 8px);\n  }\n\n  .px-tablet-8_39 {\n    padding-left: calc(8 * 8px);\n    padding-right: calc(8 * 8px);\n  }\n\n  .px-tablet-9_kz {\n    padding-left: calc(9 * 8px);\n    padding-right: calc(9 * 8px);\n  }\n\n  .py-tablet-0_gs {\n    padding-top: calc(0 * 8px);\n    padding-bottom: calc(0 * 8px);\n  }\n\n  .py-tablet-0_125_me {\n    padding-top: calc(0.125 * 8px);\n    padding-bottom: calc(0.125 * 8px);\n  }\n\n  .py-tablet-0_25_v3 {\n    padding-top: calc(0.25 * 8px);\n    padding-bottom: calc(0.25 * 8px);\n  }\n\n  .py-tablet-0_5_JN {\n    padding-top: calc(0.5 * 8px);\n    padding-bottom: calc(0.5 * 8px);\n  }\n\n  .py-tablet-1_nM {\n    padding-top: calc(1 * 8px);\n    padding-bottom: calc(1 * 8px);\n  }\n\n  .py-tablet-1_5_wl {\n    padding-top: calc(1.5 * 8px);\n    padding-bottom: calc(1.5 * 8px);\n  }\n\n  .py-tablet-1_75_KZ {\n    padding-top: calc(1.75 * 8px);\n    padding-bottom: calc(1.75 * 8px);\n  }\n\n  .py-tablet-2_sd {\n    padding-top: calc(2 * 8px);\n    padding-bottom: calc(2 * 8px);\n  }\n\n  .py-tablet-2_5_38 {\n    padding-top: calc(2.5 * 8px);\n    padding-bottom: calc(2.5 * 8px);\n  }\n\n  .py-tablet-3_QK {\n    padding-top: calc(3 * 8px);\n    padding-bottom: calc(3 * 8px);\n  }\n\n  .py-tablet-4_Gp {\n    padding-top: calc(4 * 8px);\n    padding-bottom: calc(4 * 8px);\n  }\n\n  .py-tablet-5_Ki {\n    padding-top: calc(5 * 8px);\n    padding-bottom: calc(5 * 8px);\n  }\n\n  .py-tablet-6_X9 {\n    padding-top: calc(6 * 8px);\n    padding-bottom: calc(6 * 8px);\n  }\n\n  .py-tablet-7_9x {\n    padding-top: calc(7 * 8px);\n    padding-bottom: calc(7 * 8px);\n  }\n\n  .py-tablet-8_lR {\n    padding-top: calc(8 * 8px);\n    padding-bottom: calc(8 * 8px);\n  }\n\n  .py-tablet-9_qq {\n    padding-top: calc(9 * 8px);\n    padding-bottom: calc(9 * 8px);\n  }\n}\n@media (max-width: 1199px) {\n  .align-items-desktop-baseline_29 {\n    align-items: baseline;\n  }\n\n  .align-items-desktop-center_61 {\n    align-items: center;\n  }\n\n  .align-items-desktop-end_oR {\n    align-items: flex-end;\n  }\n\n  .align-items-desktop-start_1N {\n    align-items: flex-start;\n  }\n\n  .align-items-desktop-stretch_X1 {\n    align-items: stretch;\n  }\n\n  .align-content-desktop-center_3s {\n    align-content: center;\n  }\n\n  .align-content-desktop-end_wd {\n    align-content: flex-end;\n  }\n\n  .align-content-desktop-start_1c {\n    align-content: flex-start;\n  }\n\n  .align-content-desktop-around_oC {\n    align-content: space-around;\n  }\n\n  .align-content-desktop-between_LH {\n    align-content: space-between;\n  }\n\n  .align-content-desktop-stretch_9n {\n    align-content: stretch;\n  }\n\n  .align-self-desktop-baseline_Y- {\n    align-self: baseline;\n  }\n\n  .align-self-desktop-center_Dq {\n    align-self: center;\n  }\n\n  .align-self-desktop-end_1m {\n    align-self: flex-end;\n  }\n\n  .align-self-desktop-start_cn {\n    align-self: flex-start;\n  }\n\n  .align-self-desktop-stretch_Eh {\n    align-self: stretch;\n  }\n\n  .justify-content-desktop-start_ku {\n    justify-content: flex-start;\n  }\n\n  .justify-content-desktop-end_aq {\n    justify-content: flex-end;\n  }\n\n  .justify-content-desktop-center_-3 {\n    justify-content: center;\n  }\n\n  .justify-content-desktop-between_O7 {\n    justify-content: space-between;\n  }\n\n  .justify-content-desktop-around_t1 {\n    justify-content: space-around;\n  }\n\n  .justify-content-desktop-evenly_iS {\n    justify-content: space-evenly;\n  }\n\n  .text-align-desktop-start_Q6 {\n    text-align: start;\n  }\n\n  .text-align-desktop-end_B1 {\n    text-align: end;\n  }\n\n  .text-align-desktop-center_X6 {\n    text-align: center;\n  }\n\n  .text-align-desktop-justify_6a {\n    text-align: justify;\n  }\n\n  .col-desktop-auto_Ax {\n    flex: 0 0 auto;\n    width: auto;\n  }\n\n  .col-desktop-1_Of {\n    flex: 0 0 auto;\n    width: 8.33333333%;\n  }\n\n  .col-desktop-2_4q {\n    flex: 0 0 auto;\n    width: 16.66666667%;\n  }\n\n  .col-desktop-3_No {\n    flex: 0 0 auto;\n    width: 25%;\n  }\n\n  .col-desktop-4_Kf {\n    flex: 0 0 auto;\n    width: 33.33333333%;\n  }\n\n  .col-desktop-5_zS {\n    flex: 0 0 auto;\n    width: 41.66666667%;\n  }\n\n  .col-desktop-6_42 {\n    flex: 0 0 auto;\n    width: 50%;\n  }\n\n  .col-desktop-7_IF {\n    flex: 0 0 auto;\n    width: 58.33333333%;\n  }\n\n  .col-desktop-8_6F {\n    flex: 0 0 auto;\n    width: 66.66666667%;\n  }\n\n  .col-desktop-9_xp {\n    flex: 0 0 auto;\n    width: 75%;\n  }\n\n  .col-desktop-10_yG {\n    flex: 0 0 auto;\n    width: 83.33333333%;\n  }\n\n  .col-desktop-11_y7 {\n    flex: 0 0 auto;\n    width: 91.66666667%;\n  }\n\n  .col-desktop-12_kf {\n    flex: 0 0 auto;\n    width: 100%;\n  }\n\n  .d-desktop-flex_eR {\n    display: flex;\n  }\n\n  .d-desktop-block_qZ {\n    display: block;\n  }\n\n  .d-desktop-grid_9h {\n    display: grid;\n  }\n\n  .d-desktop-inline_ro {\n    display: inline;\n  }\n\n  .d-desktop-inline-block_cb {\n    display: inline-block;\n  }\n\n  .d-desktop-inline-flex_4I {\n    display: inline-flex;\n  }\n\n  .d-desktop-inline-grid_NK {\n    display: inline-grid;\n  }\n\n  .d-flex-desktop-column_m5 {\n    flex-direction: column;\n    display: flex;\n  }\n\n  .d-flex-desktop-column-reverse_je {\n    flex-direction: column-reverse;\n    display: flex;\n  }\n\n  .d-flex-desktop-row_WJ {\n    flex-direction: row;\n    display: flex;\n  }\n\n  .d-flex-desktop-row-reverse_2g {\n    flex-direction: row-reverse;\n    display: flex;\n  }\n\n  .flex-desktop-grow-1_7- {\n    flex-grow: 1;\n  }\n\n  .flex-desktop-grow-2_KF {\n    flex-grow: 2;\n  }\n\n  .flex-desktop-grow-3_7E {\n    flex-grow: 3;\n  }\n\n  .flex-desktop-grow-4_-7 {\n    flex-grow: 4;\n  }\n\n  .flex-desktop-grow-5_YR {\n    flex-grow: 5;\n  }\n\n  .flex-desktop-nowrap_RO {\n    flex-wrap: nowrap;\n  }\n\n  .flex-desktop-wrap_Gk {\n    flex-wrap: wrap;\n  }\n\n  .flex-desktop-wrap-reverse_3J {\n    flex-wrap: wrap-reverse;\n  }\n\n  .flex-desktop-shrink-1_NS {\n    flex-shrink: 1;\n  }\n\n  .flex-desktop-shrink-2_uq {\n    flex-shrink: 2;\n  }\n\n  .flex-desktop-shrink-3_J2 {\n    flex-shrink: 3;\n  }\n\n  .flex-desktop-shrink-4_Nb {\n    flex-shrink: 4;\n  }\n\n  .flex-desktop-shrink-5_hv {\n    flex-shrink: 5;\n  }\n\n  .offset-desktop-auto_3O {\n    margin-left: auto;\n  }\n\n  .offset-desktop-1_Yu {\n    margin-left: 8.33333333%;\n  }\n\n  .offset-desktop-2_8R {\n    margin-left: 16.66666667%;\n  }\n\n  .offset-desktop-3_pd {\n    margin-left: 25%;\n  }\n\n  .offset-desktop-4_FW {\n    margin-left: 33.33333333%;\n  }\n\n  .offset-desktop-5_l- {\n    margin-left: 41.66666667%;\n  }\n\n  .offset-desktop-6_-1 {\n    margin-left: 50%;\n  }\n\n  .offset-desktop-7_ID {\n    margin-left: 58.33333333%;\n  }\n\n  .offset-desktop-8_Ya {\n    margin-left: 66.66666667%;\n  }\n\n  .offset-desktop-9_Rg {\n    margin-left: 75%;\n  }\n\n  .offset-desktop-10_Xm {\n    margin-left: 83.33333333%;\n  }\n\n  .offset-desktop-11_IK {\n    margin-left: 91.66666667%;\n  }\n\n  .offset-desktop-12_7Q {\n    margin-left: 100%;\n  }\n\n  .position-desktop-absolute_Ee {\n    position: absolute;\n  }\n\n  .position-desktop-fixed_jB {\n    position: fixed;\n  }\n\n  .position-desktop-relative_VK {\n    position: relative;\n  }\n\n  .position-desktop-static_Fa {\n    position: static;\n  }\n\n  .position-desktop-sticky_ak {\n    position: sticky;\n  }\n\n  .m-desktop-0_wE {\n    margin: calc(0 * 8px);\n  }\n\n  .m-desktop-0_125_6X {\n    margin: calc(0.125 * 8px);\n  }\n\n  .m-desktop-0_25_97 {\n    margin: calc(0.25 * 8px);\n  }\n\n  .m-desktop-0_5_Ye {\n    margin: calc(0.5 * 8px);\n  }\n\n  .m-desktop-1_1u {\n    margin: calc(1 * 8px);\n  }\n\n  .m-desktop-1_5_Cm {\n    margin: calc(1.5 * 8px);\n  }\n\n  .m-desktop-1_75_lp {\n    margin: calc(1.75 * 8px);\n  }\n\n  .m-desktop-2_jT {\n    margin: calc(2 * 8px);\n  }\n\n  .m-desktop-2_5_fs {\n    margin: calc(2.5 * 8px);\n  }\n\n  .m-desktop-3_kp {\n    margin: calc(3 * 8px);\n  }\n\n  .m-desktop-4_5j {\n    margin: calc(4 * 8px);\n  }\n\n  .m-desktop-5_Vv {\n    margin: calc(5 * 8px);\n  }\n\n  .m-desktop-6_17 {\n    margin: calc(6 * 8px);\n  }\n\n  .m-desktop-7_MW {\n    margin: calc(7 * 8px);\n  }\n\n  .m-desktop-8_S9 {\n    margin: calc(8 * 8px);\n  }\n\n  .m-desktop-9_gm {\n    margin: calc(9 * 8px);\n  }\n\n  .p-desktop-0_UJ {\n    padding: calc(0 * 8px);\n  }\n\n  .p-desktop-0_125_9V {\n    padding: calc(0.125 * 8px);\n  }\n\n  .p-desktop-0_25_-C {\n    padding: calc(0.25 * 8px);\n  }\n\n  .p-desktop-0_5_4i {\n    padding: calc(0.5 * 8px);\n  }\n\n  .p-desktop-1_mw {\n    padding: calc(1 * 8px);\n  }\n\n  .p-desktop-1_5_iM {\n    padding: calc(1.5 * 8px);\n  }\n\n  .p-desktop-1_75_E0 {\n    padding: calc(1.75 * 8px);\n  }\n\n  .p-desktop-2_ZZ {\n    padding: calc(2 * 8px);\n  }\n\n  .p-desktop-2_5_go {\n    padding: calc(2.5 * 8px);\n  }\n\n  .p-desktop-3_Kw {\n    padding: calc(3 * 8px);\n  }\n\n  .p-desktop-4_hU {\n    padding: calc(4 * 8px);\n  }\n\n  .p-desktop-5_Mx {\n    padding: calc(5 * 8px);\n  }\n\n  .p-desktop-6_VN {\n    padding: calc(6 * 8px);\n  }\n\n  .p-desktop-7_va {\n    padding: calc(7 * 8px);\n  }\n\n  .p-desktop-8_S- {\n    padding: calc(8 * 8px);\n  }\n\n  .p-desktop-9_ci {\n    padding: calc(9 * 8px);\n  }\n\n  .gap-desktop-0_6M {\n    gap: calc(0 * 8px);\n  }\n\n  .gap-desktop-0_125_ja {\n    gap: calc(0.125 * 8px);\n  }\n\n  .gap-desktop-0_25_wZ {\n    gap: calc(0.25 * 8px);\n  }\n\n  .gap-desktop-0_5_6V {\n    gap: calc(0.5 * 8px);\n  }\n\n  .gap-desktop-1_Sj {\n    gap: calc(1 * 8px);\n  }\n\n  .gap-desktop-1_5_vv {\n    gap: calc(1.5 * 8px);\n  }\n\n  .gap-desktop-1_75_hR {\n    gap: calc(1.75 * 8px);\n  }\n\n  .gap-desktop-2_Ya {\n    gap: calc(2 * 8px);\n  }\n\n  .gap-desktop-2_5_gG {\n    gap: calc(2.5 * 8px);\n  }\n\n  .gap-desktop-3_ni {\n    gap: calc(3 * 8px);\n  }\n\n  .gap-desktop-4_uI {\n    gap: calc(4 * 8px);\n  }\n\n  .gap-desktop-5_5w {\n    gap: calc(5 * 8px);\n  }\n\n  .gap-desktop-6_s2 {\n    gap: calc(6 * 8px);\n  }\n\n  .gap-desktop-7_H1 {\n    gap: calc(7 * 8px);\n  }\n\n  .gap-desktop-8_jj {\n    gap: calc(8 * 8px);\n  }\n\n  .gap-desktop-9_BB {\n    gap: calc(9 * 8px);\n  }\n\n  .mt-desktop-0_82 {\n    margin-top: calc(0 * 8px);\n  }\n\n  .mr-desktop-0_AW {\n    margin-right: calc(0 * 8px);\n  }\n\n  .mb-desktop-0_Qj {\n    margin-bottom: calc(0 * 8px);\n  }\n\n  .ml-desktop-0_W0 {\n    margin-left: calc(0 * 8px);\n  }\n\n  .mt-desktop-0_125_rL {\n    margin-top: calc(0.125 * 8px);\n  }\n\n  .mr-desktop-0_125_um {\n    margin-right: calc(0.125 * 8px);\n  }\n\n  .mb-desktop-0_125_rv {\n    margin-bottom: calc(0.125 * 8px);\n  }\n\n  .ml-desktop-0_125_zK {\n    margin-left: calc(0.125 * 8px);\n  }\n\n  .mt-desktop-0_25_T0 {\n    margin-top: calc(0.25 * 8px);\n  }\n\n  .mr-desktop-0_25_-N {\n    margin-right: calc(0.25 * 8px);\n  }\n\n  .mb-desktop-0_25_-6 {\n    margin-bottom: calc(0.25 * 8px);\n  }\n\n  .ml-desktop-0_25_y0 {\n    margin-left: calc(0.25 * 8px);\n  }\n\n  .mt-desktop-0_5_HC {\n    margin-top: calc(0.5 * 8px);\n  }\n\n  .mr-desktop-0_5_kt {\n    margin-right: calc(0.5 * 8px);\n  }\n\n  .mb-desktop-0_5_mx {\n    margin-bottom: calc(0.5 * 8px);\n  }\n\n  .ml-desktop-0_5_dD {\n    margin-left: calc(0.5 * 8px);\n  }\n\n  .mt-desktop-1_Ry {\n    margin-top: calc(1 * 8px);\n  }\n\n  .mr-desktop-1_vU {\n    margin-right: calc(1 * 8px);\n  }\n\n  .mb-desktop-1_SA {\n    margin-bottom: calc(1 * 8px);\n  }\n\n  .ml-desktop-1_aX {\n    margin-left: calc(1 * 8px);\n  }\n\n  .mt-desktop-1_5_53 {\n    margin-top: calc(1.5 * 8px);\n  }\n\n  .mr-desktop-1_5_dn {\n    margin-right: calc(1.5 * 8px);\n  }\n\n  .mb-desktop-1_5_sS {\n    margin-bottom: calc(1.5 * 8px);\n  }\n\n  .ml-desktop-1_5_-K {\n    margin-left: calc(1.5 * 8px);\n  }\n\n  .mt-desktop-1_75_4u {\n    margin-top: calc(1.75 * 8px);\n  }\n\n  .mr-desktop-1_75_II {\n    margin-right: calc(1.75 * 8px);\n  }\n\n  .mb-desktop-1_75_OY {\n    margin-bottom: calc(1.75 * 8px);\n  }\n\n  .ml-desktop-1_75_T8 {\n    margin-left: calc(1.75 * 8px);\n  }\n\n  .mt-desktop-2_qx {\n    margin-top: calc(2 * 8px);\n  }\n\n  .mr-desktop-2_dp {\n    margin-right: calc(2 * 8px);\n  }\n\n  .mb-desktop-2_-9 {\n    margin-bottom: calc(2 * 8px);\n  }\n\n  .ml-desktop-2_V4 {\n    margin-left: calc(2 * 8px);\n  }\n\n  .mt-desktop-2_5_1z {\n    margin-top: calc(2.5 * 8px);\n  }\n\n  .mr-desktop-2_5_tF {\n    margin-right: calc(2.5 * 8px);\n  }\n\n  .mb-desktop-2_5_-N {\n    margin-bottom: calc(2.5 * 8px);\n  }\n\n  .ml-desktop-2_5_yy {\n    margin-left: calc(2.5 * 8px);\n  }\n\n  .mt-desktop-3_QT {\n    margin-top: calc(3 * 8px);\n  }\n\n  .mr-desktop-3_ax {\n    margin-right: calc(3 * 8px);\n  }\n\n  .mb-desktop-3_OI {\n    margin-bottom: calc(3 * 8px);\n  }\n\n  .ml-desktop-3_3q {\n    margin-left: calc(3 * 8px);\n  }\n\n  .mt-desktop-4_Iu {\n    margin-top: calc(4 * 8px);\n  }\n\n  .mr-desktop-4_Ad {\n    margin-right: calc(4 * 8px);\n  }\n\n  .mb-desktop-4_8O {\n    margin-bottom: calc(4 * 8px);\n  }\n\n  .ml-desktop-4_Sv {\n    margin-left: calc(4 * 8px);\n  }\n\n  .mt-desktop-5_0Q {\n    margin-top: calc(5 * 8px);\n  }\n\n  .mr-desktop-5_Wj {\n    margin-right: calc(5 * 8px);\n  }\n\n  .mb-desktop-5_Km {\n    margin-bottom: calc(5 * 8px);\n  }\n\n  .ml-desktop-5_Az {\n    margin-left: calc(5 * 8px);\n  }\n\n  .mt-desktop-6_FT {\n    margin-top: calc(6 * 8px);\n  }\n\n  .mr-desktop-6_nZ {\n    margin-right: calc(6 * 8px);\n  }\n\n  .mb-desktop-6_9M {\n    margin-bottom: calc(6 * 8px);\n  }\n\n  .ml-desktop-6_Fg {\n    margin-left: calc(6 * 8px);\n  }\n\n  .mt-desktop-7_rl {\n    margin-top: calc(7 * 8px);\n  }\n\n  .mr-desktop-7_5t {\n    margin-right: calc(7 * 8px);\n  }\n\n  .mb-desktop-7_HO {\n    margin-bottom: calc(7 * 8px);\n  }\n\n  .ml-desktop-7_9j {\n    margin-left: calc(7 * 8px);\n  }\n\n  .mt-desktop-8_pg {\n    margin-top: calc(8 * 8px);\n  }\n\n  .mr-desktop-8_4F {\n    margin-right: calc(8 * 8px);\n  }\n\n  .mb-desktop-8_mk {\n    margin-bottom: calc(8 * 8px);\n  }\n\n  .ml-desktop-8_-r {\n    margin-left: calc(8 * 8px);\n  }\n\n  .mt-desktop-9_5m {\n    margin-top: calc(9 * 8px);\n  }\n\n  .mr-desktop-9_Oa {\n    margin-right: calc(9 * 8px);\n  }\n\n  .mb-desktop-9_uj {\n    margin-bottom: calc(9 * 8px);\n  }\n\n  .ml-desktop-9_O- {\n    margin-left: calc(9 * 8px);\n  }\n\n  .pt-desktop-0_7P {\n    padding-top: calc(0 * 8px);\n  }\n\n  .pr-desktop-0_FT {\n    padding-right: calc(0 * 8px);\n  }\n\n  .pb-desktop-0_Rf {\n    padding-bottom: calc(0 * 8px);\n  }\n\n  .pl-desktop-0_ks {\n    padding-left: calc(0 * 8px);\n  }\n\n  .pt-desktop-0_125_gi {\n    padding-top: calc(0.125 * 8px);\n  }\n\n  .pr-desktop-0_125_BX {\n    padding-right: calc(0.125 * 8px);\n  }\n\n  .pb-desktop-0_125_4k {\n    padding-bottom: calc(0.125 * 8px);\n  }\n\n  .pl-desktop-0_125_fG {\n    padding-left: calc(0.125 * 8px);\n  }\n\n  .pt-desktop-0_25_rD {\n    padding-top: calc(0.25 * 8px);\n  }\n\n  .pr-desktop-0_25_9I {\n    padding-right: calc(0.25 * 8px);\n  }\n\n  .pb-desktop-0_25_ky {\n    padding-bottom: calc(0.25 * 8px);\n  }\n\n  .pl-desktop-0_25_BB {\n    padding-left: calc(0.25 * 8px);\n  }\n\n  .pt-desktop-0_5_-n {\n    padding-top: calc(0.5 * 8px);\n  }\n\n  .pr-desktop-0_5_tH {\n    padding-right: calc(0.5 * 8px);\n  }\n\n  .pb-desktop-0_5_mj {\n    padding-bottom: calc(0.5 * 8px);\n  }\n\n  .pl-desktop-0_5_A0 {\n    padding-left: calc(0.5 * 8px);\n  }\n\n  .pt-desktop-1_qH {\n    padding-top: calc(1 * 8px);\n  }\n\n  .pr-desktop-1_Yo {\n    padding-right: calc(1 * 8px);\n  }\n\n  .pb-desktop-1_fZ {\n    padding-bottom: calc(1 * 8px);\n  }\n\n  .pl-desktop-1_O8 {\n    padding-left: calc(1 * 8px);\n  }\n\n  .pt-desktop-1_5_VY {\n    padding-top: calc(1.5 * 8px);\n  }\n\n  .pr-desktop-1_5_RK {\n    padding-right: calc(1.5 * 8px);\n  }\n\n  .pb-desktop-1_5_Id {\n    padding-bottom: calc(1.5 * 8px);\n  }\n\n  .pl-desktop-1_5_pq {\n    padding-left: calc(1.5 * 8px);\n  }\n\n  .pt-desktop-1_75_t- {\n    padding-top: calc(1.75 * 8px);\n  }\n\n  .pr-desktop-1_75_iT {\n    padding-right: calc(1.75 * 8px);\n  }\n\n  .pb-desktop-1_75_wJ {\n    padding-bottom: calc(1.75 * 8px);\n  }\n\n  .pl-desktop-1_75_Wu {\n    padding-left: calc(1.75 * 8px);\n  }\n\n  .pt-desktop-2_iU {\n    padding-top: calc(2 * 8px);\n  }\n\n  .pr-desktop-2_-n {\n    padding-right: calc(2 * 8px);\n  }\n\n  .pb-desktop-2_Aw {\n    padding-bottom: calc(2 * 8px);\n  }\n\n  .pl-desktop-2_y- {\n    padding-left: calc(2 * 8px);\n  }\n\n  .pt-desktop-2_5_VN {\n    padding-top: calc(2.5 * 8px);\n  }\n\n  .pr-desktop-2_5_go {\n    padding-right: calc(2.5 * 8px);\n  }\n\n  .pb-desktop-2_5_gD {\n    padding-bottom: calc(2.5 * 8px);\n  }\n\n  .pl-desktop-2_5_ON {\n    padding-left: calc(2.5 * 8px);\n  }\n\n  .pt-desktop-3_jJ {\n    padding-top: calc(3 * 8px);\n  }\n\n  .pr-desktop-3_JI {\n    padding-right: calc(3 * 8px);\n  }\n\n  .pb-desktop-3_wg {\n    padding-bottom: calc(3 * 8px);\n  }\n\n  .pl-desktop-3_Me {\n    padding-left: calc(3 * 8px);\n  }\n\n  .pt-desktop-4_64 {\n    padding-top: calc(4 * 8px);\n  }\n\n  .pr-desktop-4_bJ {\n    padding-right: calc(4 * 8px);\n  }\n\n  .pb-desktop-4_zH {\n    padding-bottom: calc(4 * 8px);\n  }\n\n  .pl-desktop-4_9m {\n    padding-left: calc(4 * 8px);\n  }\n\n  .pt-desktop-5_HQ {\n    padding-top: calc(5 * 8px);\n  }\n\n  .pr-desktop-5_GA {\n    padding-right: calc(5 * 8px);\n  }\n\n  .pb-desktop-5_v1 {\n    padding-bottom: calc(5 * 8px);\n  }\n\n  .pl-desktop-5_a8 {\n    padding-left: calc(5 * 8px);\n  }\n\n  .pt-desktop-6_an {\n    padding-top: calc(6 * 8px);\n  }\n\n  .pr-desktop-6_so {\n    padding-right: calc(6 * 8px);\n  }\n\n  .pb-desktop-6_Hq {\n    padding-bottom: calc(6 * 8px);\n  }\n\n  .pl-desktop-6_-F {\n    padding-left: calc(6 * 8px);\n  }\n\n  .pt-desktop-7_-u {\n    padding-top: calc(7 * 8px);\n  }\n\n  .pr-desktop-7_z5 {\n    padding-right: calc(7 * 8px);\n  }\n\n  .pb-desktop-7_qb {\n    padding-bottom: calc(7 * 8px);\n  }\n\n  .pl-desktop-7_fL {\n    padding-left: calc(7 * 8px);\n  }\n\n  .pt-desktop-8_Kv {\n    padding-top: calc(8 * 8px);\n  }\n\n  .pr-desktop-8_5B {\n    padding-right: calc(8 * 8px);\n  }\n\n  .pb-desktop-8_md {\n    padding-bottom: calc(8 * 8px);\n  }\n\n  .pl-desktop-8_-S {\n    padding-left: calc(8 * 8px);\n  }\n\n  .pt-desktop-9_9S {\n    padding-top: calc(9 * 8px);\n  }\n\n  .pr-desktop-9_kk {\n    padding-right: calc(9 * 8px);\n  }\n\n  .pb-desktop-9_8x {\n    padding-bottom: calc(9 * 8px);\n  }\n\n  .pl-desktop-9_Z2 {\n    padding-left: calc(9 * 8px);\n  }\n\n  .w-desktop-0_-N {\n    width: "0%";\n  }\n\n  .w-desktop-25_C9 {\n    width: "25%";\n  }\n\n  .w-desktop-50_l5 {\n    width: "50%";\n  }\n\n  .w-desktop-75_L3 {\n    width: "75%";\n  }\n\n  .w-desktop-100_P- {\n    width: "100%";\n  }\n\n  .vw-desktop-0_n- {\n    width: 0vw;\n  }\n\n  .vw-desktop-25_V2 {\n    width: 25vw;\n  }\n\n  .vw-desktop-50_u4 {\n    width: 50vw;\n  }\n\n  .vw-desktop-75_N5 {\n    width: 75vw;\n  }\n\n  .vw-desktop-100_9F {\n    width: 100vw;\n  }\n\n  .h-desktop-0_A8 {\n    height: "0%";\n  }\n\n  .h-desktop-25_7I {\n    height: "25%";\n  }\n\n  .h-desktop-50_bJ {\n    height: "50%";\n  }\n\n  .h-desktop-75_1C {\n    height: "75%";\n  }\n\n  .h-desktop-100_4F {\n    height: "100%";\n  }\n\n  .vh-desktop-0_Q1 {\n    height: 0vh;\n  }\n\n  .vh-desktop-25_31 {\n    height: 25vh;\n  }\n\n  .vh-desktop-50_Cf {\n    height: 50vh;\n  }\n\n  .vh-desktop-75_1- {\n    height: 75vh;\n  }\n\n  .vh-desktop-100_5S {\n    height: 100vh;\n  }\n\n  .mx-desktop-0_t9 {\n    margin-left: calc(0 * 8px);\n    margin-right: calc(0 * 8px);\n  }\n\n  .mx-desktop-0_125_iY {\n    margin-left: calc(0.125 * 8px);\n    margin-right: calc(0.125 * 8px);\n  }\n\n  .mx-desktop-0_25_FM {\n    margin-left: calc(0.25 * 8px);\n    margin-right: calc(0.25 * 8px);\n  }\n\n  .mx-desktop-0_5_We {\n    margin-left: calc(0.5 * 8px);\n    margin-right: calc(0.5 * 8px);\n  }\n\n  .mx-desktop-1_C- {\n    margin-left: calc(1 * 8px);\n    margin-right: calc(1 * 8px);\n  }\n\n  .mx-desktop-1_5_4m {\n    margin-left: calc(1.5 * 8px);\n    margin-right: calc(1.5 * 8px);\n  }\n\n  .mx-desktop-1_75_eE {\n    margin-left: calc(1.75 * 8px);\n    margin-right: calc(1.75 * 8px);\n  }\n\n  .mx-desktop-2_uk {\n    margin-left: calc(2 * 8px);\n    margin-right: calc(2 * 8px);\n  }\n\n  .mx-desktop-2_5_Af {\n    margin-left: calc(2.5 * 8px);\n    margin-right: calc(2.5 * 8px);\n  }\n\n  .mx-desktop-3_Qs {\n    margin-left: calc(3 * 8px);\n    margin-right: calc(3 * 8px);\n  }\n\n  .mx-desktop-4_2K {\n    margin-left: calc(4 * 8px);\n    margin-right: calc(4 * 8px);\n  }\n\n  .mx-desktop-5_uX {\n    margin-left: calc(5 * 8px);\n    margin-right: calc(5 * 8px);\n  }\n\n  .mx-desktop-6_TH {\n    margin-left: calc(6 * 8px);\n    margin-right: calc(6 * 8px);\n  }\n\n  .mx-desktop-7_24 {\n    margin-left: calc(7 * 8px);\n    margin-right: calc(7 * 8px);\n  }\n\n  .mx-desktop-8_n7 {\n    margin-left: calc(8 * 8px);\n    margin-right: calc(8 * 8px);\n  }\n\n  .mx-desktop-9_-S {\n    margin-left: calc(9 * 8px);\n    margin-right: calc(9 * 8px);\n  }\n\n  .my-desktop-0_uR {\n    margin-top: calc(0 * 8px);\n    margin-bottom: calc(0 * 8px);\n  }\n\n  .my-desktop-0_125_fD {\n    margin-top: calc(0.125 * 8px);\n    margin-bottom: calc(0.125 * 8px);\n  }\n\n  .my-desktop-0_25_51 {\n    margin-top: calc(0.25 * 8px);\n    margin-bottom: calc(0.25 * 8px);\n  }\n\n  .my-desktop-0_5_DJ {\n    margin-top: calc(0.5 * 8px);\n    margin-bottom: calc(0.5 * 8px);\n  }\n\n  .my-desktop-1_Xh {\n    margin-top: calc(1 * 8px);\n    margin-bottom: calc(1 * 8px);\n  }\n\n  .my-desktop-1_5_wu {\n    margin-top: calc(1.5 * 8px);\n    margin-bottom: calc(1.5 * 8px);\n  }\n\n  .my-desktop-1_75_3v {\n    margin-top: calc(1.75 * 8px);\n    margin-bottom: calc(1.75 * 8px);\n  }\n\n  .my-desktop-2_Ea {\n    margin-top: calc(2 * 8px);\n    margin-bottom: calc(2 * 8px);\n  }\n\n  .my-desktop-2_5_ta {\n    margin-top: calc(2.5 * 8px);\n    margin-bottom: calc(2.5 * 8px);\n  }\n\n  .my-desktop-3_XP {\n    margin-top: calc(3 * 8px);\n    margin-bottom: calc(3 * 8px);\n  }\n\n  .my-desktop-4_ym {\n    margin-top: calc(4 * 8px);\n    margin-bottom: calc(4 * 8px);\n  }\n\n  .my-desktop-5_Hs {\n    margin-top: calc(5 * 8px);\n    margin-bottom: calc(5 * 8px);\n  }\n\n  .my-desktop-6_8k {\n    margin-top: calc(6 * 8px);\n    margin-bottom: calc(6 * 8px);\n  }\n\n  .my-desktop-7_sd {\n    margin-top: calc(7 * 8px);\n    margin-bottom: calc(7 * 8px);\n  }\n\n  .my-desktop-8_AO {\n    margin-top: calc(8 * 8px);\n    margin-bottom: calc(8 * 8px);\n  }\n\n  .my-desktop-9_Bp {\n    margin-top: calc(9 * 8px);\n    margin-bottom: calc(9 * 8px);\n  }\n\n  .px-desktop-0_tb {\n    padding-left: calc(0 * 8px);\n    padding-right: calc(0 * 8px);\n  }\n\n  .px-desktop-0_125_oh {\n    padding-left: calc(0.125 * 8px);\n    padding-right: calc(0.125 * 8px);\n  }\n\n  .px-desktop-0_25_rz {\n    padding-left: calc(0.25 * 8px);\n    padding-right: calc(0.25 * 8px);\n  }\n\n  .px-desktop-0_5_qF {\n    padding-left: calc(0.5 * 8px);\n    padding-right: calc(0.5 * 8px);\n  }\n\n  .px-desktop-1_bU {\n    padding-left: calc(1 * 8px);\n    padding-right: calc(1 * 8px);\n  }\n\n  .px-desktop-1_5_-i {\n    padding-left: calc(1.5 * 8px);\n    padding-right: calc(1.5 * 8px);\n  }\n\n  .px-desktop-1_75_Up {\n    padding-left: calc(1.75 * 8px);\n    padding-right: calc(1.75 * 8px);\n  }\n\n  .px-desktop-2_W4 {\n    padding-left: calc(2 * 8px);\n    padding-right: calc(2 * 8px);\n  }\n\n  .px-desktop-2_5_m7 {\n    padding-left: calc(2.5 * 8px);\n    padding-right: calc(2.5 * 8px);\n  }\n\n  .px-desktop-3_Ir {\n    padding-left: calc(3 * 8px);\n    padding-right: calc(3 * 8px);\n  }\n\n  .px-desktop-4_-t {\n    padding-left: calc(4 * 8px);\n    padding-right: calc(4 * 8px);\n  }\n\n  .px-desktop-5_P8 {\n    padding-left: calc(5 * 8px);\n    padding-right: calc(5 * 8px);\n  }\n\n  .px-desktop-6_3y {\n    padding-left: calc(6 * 8px);\n    padding-right: calc(6 * 8px);\n  }\n\n  .px-desktop-7_E- {\n    padding-left: calc(7 * 8px);\n    padding-right: calc(7 * 8px);\n  }\n\n  .px-desktop-8_-4 {\n    padding-left: calc(8 * 8px);\n    padding-right: calc(8 * 8px);\n  }\n\n  .px-desktop-9_ab {\n    padding-left: calc(9 * 8px);\n    padding-right: calc(9 * 8px);\n  }\n\n  .py-desktop-0_O0 {\n    padding-top: calc(0 * 8px);\n    padding-bottom: calc(0 * 8px);\n  }\n\n  .py-desktop-0_125_YY {\n    padding-top: calc(0.125 * 8px);\n    padding-bottom: calc(0.125 * 8px);\n  }\n\n  .py-desktop-0_25_o9 {\n    padding-top: calc(0.25 * 8px);\n    padding-bottom: calc(0.25 * 8px);\n  }\n\n  .py-desktop-0_5_tS {\n    padding-top: calc(0.5 * 8px);\n    padding-bottom: calc(0.5 * 8px);\n  }\n\n  .py-desktop-1_d4 {\n    padding-top: calc(1 * 8px);\n    padding-bottom: calc(1 * 8px);\n  }\n\n  .py-desktop-1_5_Ac {\n    padding-top: calc(1.5 * 8px);\n    padding-bottom: calc(1.5 * 8px);\n  }\n\n  .py-desktop-1_75_UJ {\n    padding-top: calc(1.75 * 8px);\n    padding-bottom: calc(1.75 * 8px);\n  }\n\n  .py-desktop-2_fa {\n    padding-top: calc(2 * 8px);\n    padding-bottom: calc(2 * 8px);\n  }\n\n  .py-desktop-2_5_gR {\n    padding-top: calc(2.5 * 8px);\n    padding-bottom: calc(2.5 * 8px);\n  }\n\n  .py-desktop-3_0u {\n    padding-top: calc(3 * 8px);\n    padding-bottom: calc(3 * 8px);\n  }\n\n  .py-desktop-4_UX {\n    padding-top: calc(4 * 8px);\n    padding-bottom: calc(4 * 8px);\n  }\n\n  .py-desktop-5_aQ {\n    padding-top: calc(5 * 8px);\n    padding-bottom: calc(5 * 8px);\n  }\n\n  .py-desktop-6_qc {\n    padding-top: calc(6 * 8px);\n    padding-bottom: calc(6 * 8px);\n  }\n\n  .py-desktop-7_Xk {\n    padding-top: calc(7 * 8px);\n    padding-bottom: calc(7 * 8px);\n  }\n\n  .py-desktop-8_OX {\n    padding-top: calc(8 * 8px);\n    padding-bottom: calc(8 * 8px);\n  }\n\n  .py-desktop-9_4- {\n    padding-top: calc(9 * 8px);\n    padding-bottom: calc(9 * 8px);\n  }\n}\n@media (max-width: 1439px) {\n  .align-items-wide-baseline_0K {\n    align-items: baseline;\n  }\n\n  .align-items-wide-center_0c {\n    align-items: center;\n  }\n\n  .align-items-wide-end_Lw {\n    align-items: flex-end;\n  }\n\n  .align-items-wide-start_Cl {\n    align-items: flex-start;\n  }\n\n  .align-items-wide-stretch_FP {\n    align-items: stretch;\n  }\n\n  .align-content-wide-center_UR {\n    align-content: center;\n  }\n\n  .align-content-wide-end_sE {\n    align-content: flex-end;\n  }\n\n  .align-content-wide-start_TM {\n    align-content: flex-start;\n  }\n\n  .align-content-wide-around_E2 {\n    align-content: space-around;\n  }\n\n  .align-content-wide-between_jg {\n    align-content: space-between;\n  }\n\n  .align-content-wide-stretch_UH {\n    align-content: stretch;\n  }\n\n  .align-self-wide-baseline_eX {\n    align-self: baseline;\n  }\n\n  .align-self-wide-center_JB {\n    align-self: center;\n  }\n\n  .align-self-wide-end_E3 {\n    align-self: flex-end;\n  }\n\n  .align-self-wide-start_Gj {\n    align-self: flex-start;\n  }\n\n  .align-self-wide-stretch_-6 {\n    align-self: stretch;\n  }\n\n  .justify-content-wide-start_aI {\n    justify-content: flex-start;\n  }\n\n  .justify-content-wide-end_my {\n    justify-content: flex-end;\n  }\n\n  .justify-content-wide-center_wT {\n    justify-content: center;\n  }\n\n  .justify-content-wide-between_e5 {\n    justify-content: space-between;\n  }\n\n  .justify-content-wide-around_Eq {\n    justify-content: space-around;\n  }\n\n  .justify-content-wide-evenly_pe {\n    justify-content: space-evenly;\n  }\n\n  .text-align-wide-start_7s {\n    text-align: start;\n  }\n\n  .text-align-wide-end_lN {\n    text-align: end;\n  }\n\n  .text-align-wide-center_0o {\n    text-align: center;\n  }\n\n  .text-align-wide-justify_hr {\n    text-align: justify;\n  }\n\n  .col-wide-auto_n4 {\n    flex: 0 0 auto;\n    width: auto;\n  }\n\n  .col-wide-1_Aa {\n    flex: 0 0 auto;\n    width: 8.33333333%;\n  }\n\n  .col-wide-2_0- {\n    flex: 0 0 auto;\n    width: 16.66666667%;\n  }\n\n  .col-wide-3_z2 {\n    flex: 0 0 auto;\n    width: 25%;\n  }\n\n  .col-wide-4_Az {\n    flex: 0 0 auto;\n    width: 33.33333333%;\n  }\n\n  .col-wide-5_c- {\n    flex: 0 0 auto;\n    width: 41.66666667%;\n  }\n\n  .col-wide-6_nd {\n    flex: 0 0 auto;\n    width: 50%;\n  }\n\n  .col-wide-7_yM {\n    flex: 0 0 auto;\n    width: 58.33333333%;\n  }\n\n  .col-wide-8_YB {\n    flex: 0 0 auto;\n    width: 66.66666667%;\n  }\n\n  .col-wide-9_zV {\n    flex: 0 0 auto;\n    width: 75%;\n  }\n\n  .col-wide-10_S1 {\n    flex: 0 0 auto;\n    width: 83.33333333%;\n  }\n\n  .col-wide-11_AH {\n    flex: 0 0 auto;\n    width: 91.66666667%;\n  }\n\n  .col-wide-12_Ri {\n    flex: 0 0 auto;\n    width: 100%;\n  }\n\n  .d-wide-flex_AD {\n    display: flex;\n  }\n\n  .d-wide-block_9Q {\n    display: block;\n  }\n\n  .d-wide-grid_Qu {\n    display: grid;\n  }\n\n  .d-wide-inline_Fx {\n    display: inline;\n  }\n\n  .d-wide-inline-block_uV {\n    display: inline-block;\n  }\n\n  .d-wide-inline-flex_BG {\n    display: inline-flex;\n  }\n\n  .d-wide-inline-grid_N8 {\n    display: inline-grid;\n  }\n\n  .d-flex-wide-column_BT {\n    flex-direction: column;\n    display: flex;\n  }\n\n  .d-flex-wide-column-reverse_1s {\n    flex-direction: column-reverse;\n    display: flex;\n  }\n\n  .d-flex-wide-row_Rr {\n    flex-direction: row;\n    display: flex;\n  }\n\n  .d-flex-wide-row-reverse_1l {\n    flex-direction: row-reverse;\n    display: flex;\n  }\n\n  .flex-wide-grow-1_HB {\n    flex-grow: 1;\n  }\n\n  .flex-wide-grow-2_OG {\n    flex-grow: 2;\n  }\n\n  .flex-wide-grow-3_Pq {\n    flex-grow: 3;\n  }\n\n  .flex-wide-grow-4_WJ {\n    flex-grow: 4;\n  }\n\n  .flex-wide-grow-5_G7 {\n    flex-grow: 5;\n  }\n\n  .flex-wide-nowrap_Pf {\n    flex-wrap: nowrap;\n  }\n\n  .flex-wide-wrap_u8 {\n    flex-wrap: wrap;\n  }\n\n  .flex-wide-wrap-reverse_cX {\n    flex-wrap: wrap-reverse;\n  }\n\n  .flex-wide-shrink-1_us {\n    flex-shrink: 1;\n  }\n\n  .flex-wide-shrink-2_Bh {\n    flex-shrink: 2;\n  }\n\n  .flex-wide-shrink-3_WZ {\n    flex-shrink: 3;\n  }\n\n  .flex-wide-shrink-4_0U {\n    flex-shrink: 4;\n  }\n\n  .flex-wide-shrink-5_hL {\n    flex-shrink: 5;\n  }\n\n  .offset-wide-auto_O9 {\n    margin-left: auto;\n  }\n\n  .offset-wide-1_gZ {\n    margin-left: 8.33333333%;\n  }\n\n  .offset-wide-2_xR {\n    margin-left: 16.66666667%;\n  }\n\n  .offset-wide-3_Wp {\n    margin-left: 25%;\n  }\n\n  .offset-wide-4_hm {\n    margin-left: 33.33333333%;\n  }\n\n  .offset-wide-5_HT {\n    margin-left: 41.66666667%;\n  }\n\n  .offset-wide-6_kx {\n    margin-left: 50%;\n  }\n\n  .offset-wide-7_qk {\n    margin-left: 58.33333333%;\n  }\n\n  .offset-wide-8_V6 {\n    margin-left: 66.66666667%;\n  }\n\n  .offset-wide-9_E2 {\n    margin-left: 75%;\n  }\n\n  .offset-wide-10_Gb {\n    margin-left: 83.33333333%;\n  }\n\n  .offset-wide-11_ch {\n    margin-left: 91.66666667%;\n  }\n\n  .offset-wide-12_uo {\n    margin-left: 100%;\n  }\n\n  .position-wide-absolute_gz {\n    position: absolute;\n  }\n\n  .position-wide-fixed_Ir {\n    position: fixed;\n  }\n\n  .position-wide-relative_s3 {\n    position: relative;\n  }\n\n  .position-wide-static_V7 {\n    position: static;\n  }\n\n  .position-wide-sticky_AE {\n    position: sticky;\n  }\n\n  .m-wide-0_ZO {\n    margin: calc(0 * 8px);\n  }\n\n  .m-wide-0_125_ay {\n    margin: calc(0.125 * 8px);\n  }\n\n  .m-wide-0_25_xA {\n    margin: calc(0.25 * 8px);\n  }\n\n  .m-wide-0_5_Xp {\n    margin: calc(0.5 * 8px);\n  }\n\n  .m-wide-1_jX {\n    margin: calc(1 * 8px);\n  }\n\n  .m-wide-1_5_ca {\n    margin: calc(1.5 * 8px);\n  }\n\n  .m-wide-1_75_o4 {\n    margin: calc(1.75 * 8px);\n  }\n\n  .m-wide-2_On {\n    margin: calc(2 * 8px);\n  }\n\n  .m-wide-2_5_l- {\n    margin: calc(2.5 * 8px);\n  }\n\n  .m-wide-3_qs {\n    margin: calc(3 * 8px);\n  }\n\n  .m-wide-4_t2 {\n    margin: calc(4 * 8px);\n  }\n\n  .m-wide-5_Bi {\n    margin: calc(5 * 8px);\n  }\n\n  .m-wide-6_dC {\n    margin: calc(6 * 8px);\n  }\n\n  .m-wide-7_oG {\n    margin: calc(7 * 8px);\n  }\n\n  .m-wide-8_TO {\n    margin: calc(8 * 8px);\n  }\n\n  .m-wide-9_cf {\n    margin: calc(9 * 8px);\n  }\n\n  .p-wide-0_ZP {\n    padding: calc(0 * 8px);\n  }\n\n  .p-wide-0_125_hC {\n    padding: calc(0.125 * 8px);\n  }\n\n  .p-wide-0_25_oQ {\n    padding: calc(0.25 * 8px);\n  }\n\n  .p-wide-0_5_4L {\n    padding: calc(0.5 * 8px);\n  }\n\n  .p-wide-1_ug {\n    padding: calc(1 * 8px);\n  }\n\n  .p-wide-1_5_26 {\n    padding: calc(1.5 * 8px);\n  }\n\n  .p-wide-1_75_dI {\n    padding: calc(1.75 * 8px);\n  }\n\n  .p-wide-2_vx {\n    padding: calc(2 * 8px);\n  }\n\n  .p-wide-2_5_xe {\n    padding: calc(2.5 * 8px);\n  }\n\n  .p-wide-3_Ok {\n    padding: calc(3 * 8px);\n  }\n\n  .p-wide-4_Qn {\n    padding: calc(4 * 8px);\n  }\n\n  .p-wide-5_WE {\n    padding: calc(5 * 8px);\n  }\n\n  .p-wide-6_b9 {\n    padding: calc(6 * 8px);\n  }\n\n  .p-wide-7_o7 {\n    padding: calc(7 * 8px);\n  }\n\n  .p-wide-8_us {\n    padding: calc(8 * 8px);\n  }\n\n  .p-wide-9_Ya {\n    padding: calc(9 * 8px);\n  }\n\n  .gap-wide-0_PT {\n    gap: calc(0 * 8px);\n  }\n\n  .gap-wide-0_125_tT {\n    gap: calc(0.125 * 8px);\n  }\n\n  .gap-wide-0_25_F4 {\n    gap: calc(0.25 * 8px);\n  }\n\n  .gap-wide-0_5_l- {\n    gap: calc(0.5 * 8px);\n  }\n\n  .gap-wide-1_Bf {\n    gap: calc(1 * 8px);\n  }\n\n  .gap-wide-1_5_bh {\n    gap: calc(1.5 * 8px);\n  }\n\n  .gap-wide-1_75_e1 {\n    gap: calc(1.75 * 8px);\n  }\n\n  .gap-wide-2_2N {\n    gap: calc(2 * 8px);\n  }\n\n  .gap-wide-2_5_ot {\n    gap: calc(2.5 * 8px);\n  }\n\n  .gap-wide-3_7K {\n    gap: calc(3 * 8px);\n  }\n\n  .gap-wide-4_lm {\n    gap: calc(4 * 8px);\n  }\n\n  .gap-wide-5_ZF {\n    gap: calc(5 * 8px);\n  }\n\n  .gap-wide-6_qo {\n    gap: calc(6 * 8px);\n  }\n\n  .gap-wide-7_jD {\n    gap: calc(7 * 8px);\n  }\n\n  .gap-wide-8_eX {\n    gap: calc(8 * 8px);\n  }\n\n  .gap-wide-9_Dw {\n    gap: calc(9 * 8px);\n  }\n\n  .mt-wide-0_i- {\n    margin-top: calc(0 * 8px);\n  }\n\n  .mr-wide-0_Ex {\n    margin-right: calc(0 * 8px);\n  }\n\n  .mb-wide-0_uo {\n    margin-bottom: calc(0 * 8px);\n  }\n\n  .ml-wide-0_H8 {\n    margin-left: calc(0 * 8px);\n  }\n\n  .mt-wide-0_125_-D {\n    margin-top: calc(0.125 * 8px);\n  }\n\n  .mr-wide-0_125_Aq {\n    margin-right: calc(0.125 * 8px);\n  }\n\n  .mb-wide-0_125_Rh {\n    margin-bottom: calc(0.125 * 8px);\n  }\n\n  .ml-wide-0_125_VR {\n    margin-left: calc(0.125 * 8px);\n  }\n\n  .mt-wide-0_25_fz {\n    margin-top: calc(0.25 * 8px);\n  }\n\n  .mr-wide-0_25_f- {\n    margin-right: calc(0.25 * 8px);\n  }\n\n  .mb-wide-0_25_ai {\n    margin-bottom: calc(0.25 * 8px);\n  }\n\n  .ml-wide-0_25_vP {\n    margin-left: calc(0.25 * 8px);\n  }\n\n  .mt-wide-0_5_BY {\n    margin-top: calc(0.5 * 8px);\n  }\n\n  .mr-wide-0_5_pe {\n    margin-right: calc(0.5 * 8px);\n  }\n\n  .mb-wide-0_5_Sx {\n    margin-bottom: calc(0.5 * 8px);\n  }\n\n  .ml-wide-0_5_rC {\n    margin-left: calc(0.5 * 8px);\n  }\n\n  .mt-wide-1_05 {\n    margin-top: calc(1 * 8px);\n  }\n\n  .mr-wide-1_DQ {\n    margin-right: calc(1 * 8px);\n  }\n\n  .mb-wide-1_Cg {\n    margin-bottom: calc(1 * 8px);\n  }\n\n  .ml-wide-1_0k {\n    margin-left: calc(1 * 8px);\n  }\n\n  .mt-wide-1_5_sB {\n    margin-top: calc(1.5 * 8px);\n  }\n\n  .mr-wide-1_5_om {\n    margin-right: calc(1.5 * 8px);\n  }\n\n  .mb-wide-1_5_MS {\n    margin-bottom: calc(1.5 * 8px);\n  }\n\n  .ml-wide-1_5_4b {\n    margin-left: calc(1.5 * 8px);\n  }\n\n  .mt-wide-1_75_-K {\n    margin-top: calc(1.75 * 8px);\n  }\n\n  .mr-wide-1_75_P6 {\n    margin-right: calc(1.75 * 8px);\n  }\n\n  .mb-wide-1_75_zL {\n    margin-bottom: calc(1.75 * 8px);\n  }\n\n  .ml-wide-1_75_As {\n    margin-left: calc(1.75 * 8px);\n  }\n\n  .mt-wide-2_w- {\n    margin-top: calc(2 * 8px);\n  }\n\n  .mr-wide-2_ew {\n    margin-right: calc(2 * 8px);\n  }\n\n  .mb-wide-2_qz {\n    margin-bottom: calc(2 * 8px);\n  }\n\n  .ml-wide-2_f0 {\n    margin-left: calc(2 * 8px);\n  }\n\n  .mt-wide-2_5_ff {\n    margin-top: calc(2.5 * 8px);\n  }\n\n  .mr-wide-2_5_Kl {\n    margin-right: calc(2.5 * 8px);\n  }\n\n  .mb-wide-2_5_VD {\n    margin-bottom: calc(2.5 * 8px);\n  }\n\n  .ml-wide-2_5_j2 {\n    margin-left: calc(2.5 * 8px);\n  }\n\n  .mt-wide-3_Kd {\n    margin-top: calc(3 * 8px);\n  }\n\n  .mr-wide-3_nY {\n    margin-right: calc(3 * 8px);\n  }\n\n  .mb-wide-3_pu {\n    margin-bottom: calc(3 * 8px);\n  }\n\n  .ml-wide-3_Xe {\n    margin-left: calc(3 * 8px);\n  }\n\n  .mt-wide-4_0L {\n    margin-top: calc(4 * 8px);\n  }\n\n  .mr-wide-4_xH {\n    margin-right: calc(4 * 8px);\n  }\n\n  .mb-wide-4_qJ {\n    margin-bottom: calc(4 * 8px);\n  }\n\n  .ml-wide-4_gn {\n    margin-left: calc(4 * 8px);\n  }\n\n  .mt-wide-5_Fj {\n    margin-top: calc(5 * 8px);\n  }\n\n  .mr-wide-5_uO {\n    margin-right: calc(5 * 8px);\n  }\n\n  .mb-wide-5_yu {\n    margin-bottom: calc(5 * 8px);\n  }\n\n  .ml-wide-5_3C {\n    margin-left: calc(5 * 8px);\n  }\n\n  .mt-wide-6_jZ {\n    margin-top: calc(6 * 8px);\n  }\n\n  .mr-wide-6_s9 {\n    margin-right: calc(6 * 8px);\n  }\n\n  .mb-wide-6_1o {\n    margin-bottom: calc(6 * 8px);\n  }\n\n  .ml-wide-6_Me {\n    margin-left: calc(6 * 8px);\n  }\n\n  .mt-wide-7_6F {\n    margin-top: calc(7 * 8px);\n  }\n\n  .mr-wide-7_P- {\n    margin-right: calc(7 * 8px);\n  }\n\n  .mb-wide-7_cn {\n    margin-bottom: calc(7 * 8px);\n  }\n\n  .ml-wide-7_8D {\n    margin-left: calc(7 * 8px);\n  }\n\n  .mt-wide-8_Ak {\n    margin-top: calc(8 * 8px);\n  }\n\n  .mr-wide-8_3C {\n    margin-right: calc(8 * 8px);\n  }\n\n  .mb-wide-8_xh {\n    margin-bottom: calc(8 * 8px);\n  }\n\n  .ml-wide-8_a- {\n    margin-left: calc(8 * 8px);\n  }\n\n  .mt-wide-9_oN {\n    margin-top: calc(9 * 8px);\n  }\n\n  .mr-wide-9_4A {\n    margin-right: calc(9 * 8px);\n  }\n\n  .mb-wide-9_wU {\n    margin-bottom: calc(9 * 8px);\n  }\n\n  .ml-wide-9_5x {\n    margin-left: calc(9 * 8px);\n  }\n\n  .pt-wide-0_B2 {\n    padding-top: calc(0 * 8px);\n  }\n\n  .pr-wide-0_an {\n    padding-right: calc(0 * 8px);\n  }\n\n  .pb-wide-0_Dn {\n    padding-bottom: calc(0 * 8px);\n  }\n\n  .pl-wide-0_p4 {\n    padding-left: calc(0 * 8px);\n  }\n\n  .pt-wide-0_125_KJ {\n    padding-top: calc(0.125 * 8px);\n  }\n\n  .pr-wide-0_125_uE {\n    padding-right: calc(0.125 * 8px);\n  }\n\n  .pb-wide-0_125_yh {\n    padding-bottom: calc(0.125 * 8px);\n  }\n\n  .pl-wide-0_125_3A {\n    padding-left: calc(0.125 * 8px);\n  }\n\n  .pt-wide-0_25_xD {\n    padding-top: calc(0.25 * 8px);\n  }\n\n  .pr-wide-0_25_x9 {\n    padding-right: calc(0.25 * 8px);\n  }\n\n  .pb-wide-0_25_2P {\n    padding-bottom: calc(0.25 * 8px);\n  }\n\n  .pl-wide-0_25_cs {\n    padding-left: calc(0.25 * 8px);\n  }\n\n  .pt-wide-0_5_IK {\n    padding-top: calc(0.5 * 8px);\n  }\n\n  .pr-wide-0_5_v4 {\n    padding-right: calc(0.5 * 8px);\n  }\n\n  .pb-wide-0_5_5F {\n    padding-bottom: calc(0.5 * 8px);\n  }\n\n  .pl-wide-0_5_aR {\n    padding-left: calc(0.5 * 8px);\n  }\n\n  .pt-wide-1_16 {\n    padding-top: calc(1 * 8px);\n  }\n\n  .pr-wide-1_Xu {\n    padding-right: calc(1 * 8px);\n  }\n\n  .pb-wide-1_Cc {\n    padding-bottom: calc(1 * 8px);\n  }\n\n  .pl-wide-1_Fw {\n    padding-left: calc(1 * 8px);\n  }\n\n  .pt-wide-1_5_yp {\n    padding-top: calc(1.5 * 8px);\n  }\n\n  .pr-wide-1_5_52 {\n    padding-right: calc(1.5 * 8px);\n  }\n\n  .pb-wide-1_5_Tc {\n    padding-bottom: calc(1.5 * 8px);\n  }\n\n  .pl-wide-1_5_vE {\n    padding-left: calc(1.5 * 8px);\n  }\n\n  .pt-wide-1_75_HL {\n    padding-top: calc(1.75 * 8px);\n  }\n\n  .pr-wide-1_75_ei {\n    padding-right: calc(1.75 * 8px);\n  }\n\n  .pb-wide-1_75_s4 {\n    padding-bottom: calc(1.75 * 8px);\n  }\n\n  .pl-wide-1_75_yH {\n    padding-left: calc(1.75 * 8px);\n  }\n\n  .pt-wide-2_9I {\n    padding-top: calc(2 * 8px);\n  }\n\n  .pr-wide-2_D2 {\n    padding-right: calc(2 * 8px);\n  }\n\n  .pb-wide-2_z6 {\n    padding-bottom: calc(2 * 8px);\n  }\n\n  .pl-wide-2_n- {\n    padding-left: calc(2 * 8px);\n  }\n\n  .pt-wide-2_5_4h {\n    padding-top: calc(2.5 * 8px);\n  }\n\n  .pr-wide-2_5_N1 {\n    padding-right: calc(2.5 * 8px);\n  }\n\n  .pb-wide-2_5_Bm {\n    padding-bottom: calc(2.5 * 8px);\n  }\n\n  .pl-wide-2_5_Ga {\n    padding-left: calc(2.5 * 8px);\n  }\n\n  .pt-wide-3_Aj {\n    padding-top: calc(3 * 8px);\n  }\n\n  .pr-wide-3_Aq {\n    padding-right: calc(3 * 8px);\n  }\n\n  .pb-wide-3_6A {\n    padding-bottom: calc(3 * 8px);\n  }\n\n  .pl-wide-3_Lz {\n    padding-left: calc(3 * 8px);\n  }\n\n  .pt-wide-4_Fl {\n    padding-top: calc(4 * 8px);\n  }\n\n  .pr-wide-4_1B {\n    padding-right: calc(4 * 8px);\n  }\n\n  .pb-wide-4_Kx {\n    padding-bottom: calc(4 * 8px);\n  }\n\n  .pl-wide-4_Ps {\n    padding-left: calc(4 * 8px);\n  }\n\n  .pt-wide-5_Bv {\n    padding-top: calc(5 * 8px);\n  }\n\n  .pr-wide-5_SN {\n    padding-right: calc(5 * 8px);\n  }\n\n  .pb-wide-5_mx {\n    padding-bottom: calc(5 * 8px);\n  }\n\n  .pl-wide-5_1K {\n    padding-left: calc(5 * 8px);\n  }\n\n  .pt-wide-6_na {\n    padding-top: calc(6 * 8px);\n  }\n\n  .pr-wide-6_tp {\n    padding-right: calc(6 * 8px);\n  }\n\n  .pb-wide-6_Eb {\n    padding-bottom: calc(6 * 8px);\n  }\n\n  .pl-wide-6_ib {\n    padding-left: calc(6 * 8px);\n  }\n\n  .pt-wide-7_uY {\n    padding-top: calc(7 * 8px);\n  }\n\n  .pr-wide-7_-F {\n    padding-right: calc(7 * 8px);\n  }\n\n  .pb-wide-7_U9 {\n    padding-bottom: calc(7 * 8px);\n  }\n\n  .pl-wide-7_gl {\n    padding-left: calc(7 * 8px);\n  }\n\n  .pt-wide-8_Z8 {\n    padding-top: calc(8 * 8px);\n  }\n\n  .pr-wide-8_ei {\n    padding-right: calc(8 * 8px);\n  }\n\n  .pb-wide-8_we {\n    padding-bottom: calc(8 * 8px);\n  }\n\n  .pl-wide-8_Uy {\n    padding-left: calc(8 * 8px);\n  }\n\n  .pt-wide-9_-S {\n    padding-top: calc(9 * 8px);\n  }\n\n  .pr-wide-9_RJ {\n    padding-right: calc(9 * 8px);\n  }\n\n  .pb-wide-9_rX {\n    padding-bottom: calc(9 * 8px);\n  }\n\n  .pl-wide-9_Qm {\n    padding-left: calc(9 * 8px);\n  }\n\n  .w-wide-0_qm {\n    width: "0%";\n  }\n\n  .w-wide-25_Pw {\n    width: "25%";\n  }\n\n  .w-wide-50_ux {\n    width: "50%";\n  }\n\n  .w-wide-75_IL {\n    width: "75%";\n  }\n\n  .w-wide-100_A0 {\n    width: "100%";\n  }\n\n  .vw-wide-0_ju {\n    width: 0vw;\n  }\n\n  .vw-wide-25_wv {\n    width: 25vw;\n  }\n\n  .vw-wide-50_ii {\n    width: 50vw;\n  }\n\n  .vw-wide-75_wT {\n    width: 75vw;\n  }\n\n  .vw-wide-100_6F {\n    width: 100vw;\n  }\n\n  .h-wide-0_WO {\n    height: "0%";\n  }\n\n  .h-wide-25_7H {\n    height: "25%";\n  }\n\n  .h-wide-50_QH {\n    height: "50%";\n  }\n\n  .h-wide-75_ng {\n    height: "75%";\n  }\n\n  .h-wide-100_-B {\n    height: "100%";\n  }\n\n  .vh-wide-0_RT {\n    height: 0vh;\n  }\n\n  .vh-wide-25_P- {\n    height: 25vh;\n  }\n\n  .vh-wide-50_Nn {\n    height: 50vh;\n  }\n\n  .vh-wide-75_kx {\n    height: 75vh;\n  }\n\n  .vh-wide-100_v1 {\n    height: 100vh;\n  }\n\n  .mx-wide-0_m7 {\n    margin-left: calc(0 * 8px);\n    margin-right: calc(0 * 8px);\n  }\n\n  .mx-wide-0_125_Hj {\n    margin-left: calc(0.125 * 8px);\n    margin-right: calc(0.125 * 8px);\n  }\n\n  .mx-wide-0_25_ig {\n    margin-left: calc(0.25 * 8px);\n    margin-right: calc(0.25 * 8px);\n  }\n\n  .mx-wide-0_5_84 {\n    margin-left: calc(0.5 * 8px);\n    margin-right: calc(0.5 * 8px);\n  }\n\n  .mx-wide-1_-0 {\n    margin-left: calc(1 * 8px);\n    margin-right: calc(1 * 8px);\n  }\n\n  .mx-wide-1_5_S2 {\n    margin-left: calc(1.5 * 8px);\n    margin-right: calc(1.5 * 8px);\n  }\n\n  .mx-wide-1_75_L5 {\n    margin-left: calc(1.75 * 8px);\n    margin-right: calc(1.75 * 8px);\n  }\n\n  .mx-wide-2_ML {\n    margin-left: calc(2 * 8px);\n    margin-right: calc(2 * 8px);\n  }\n\n  .mx-wide-2_5_ZA {\n    margin-left: calc(2.5 * 8px);\n    margin-right: calc(2.5 * 8px);\n  }\n\n  .mx-wide-3_fa {\n    margin-left: calc(3 * 8px);\n    margin-right: calc(3 * 8px);\n  }\n\n  .mx-wide-4_M4 {\n    margin-left: calc(4 * 8px);\n    margin-right: calc(4 * 8px);\n  }\n\n  .mx-wide-5_3k {\n    margin-left: calc(5 * 8px);\n    margin-right: calc(5 * 8px);\n  }\n\n  .mx-wide-6_YM {\n    margin-left: calc(6 * 8px);\n    margin-right: calc(6 * 8px);\n  }\n\n  .mx-wide-7_Tj {\n    margin-left: calc(7 * 8px);\n    margin-right: calc(7 * 8px);\n  }\n\n  .mx-wide-8_NJ {\n    margin-left: calc(8 * 8px);\n    margin-right: calc(8 * 8px);\n  }\n\n  .mx-wide-9_wV {\n    margin-left: calc(9 * 8px);\n    margin-right: calc(9 * 8px);\n  }\n\n  .my-wide-0_Yi {\n    margin-top: calc(0 * 8px);\n    margin-bottom: calc(0 * 8px);\n  }\n\n  .my-wide-0_125_5z {\n    margin-top: calc(0.125 * 8px);\n    margin-bottom: calc(0.125 * 8px);\n  }\n\n  .my-wide-0_25_LS {\n    margin-top: calc(0.25 * 8px);\n    margin-bottom: calc(0.25 * 8px);\n  }\n\n  .my-wide-0_5_5n {\n    margin-top: calc(0.5 * 8px);\n    margin-bottom: calc(0.5 * 8px);\n  }\n\n  .my-wide-1_-y {\n    margin-top: calc(1 * 8px);\n    margin-bottom: calc(1 * 8px);\n  }\n\n  .my-wide-1_5_Mp {\n    margin-top: calc(1.5 * 8px);\n    margin-bottom: calc(1.5 * 8px);\n  }\n\n  .my-wide-1_75_mQ {\n    margin-top: calc(1.75 * 8px);\n    margin-bottom: calc(1.75 * 8px);\n  }\n\n  .my-wide-2_58 {\n    margin-top: calc(2 * 8px);\n    margin-bottom: calc(2 * 8px);\n  }\n\n  .my-wide-2_5_Dl {\n    margin-top: calc(2.5 * 8px);\n    margin-bottom: calc(2.5 * 8px);\n  }\n\n  .my-wide-3_lw {\n    margin-top: calc(3 * 8px);\n    margin-bottom: calc(3 * 8px);\n  }\n\n  .my-wide-4_ir {\n    margin-top: calc(4 * 8px);\n    margin-bottom: calc(4 * 8px);\n  }\n\n  .my-wide-5_83 {\n    margin-top: calc(5 * 8px);\n    margin-bottom: calc(5 * 8px);\n  }\n\n  .my-wide-6_y7 {\n    margin-top: calc(6 * 8px);\n    margin-bottom: calc(6 * 8px);\n  }\n\n  .my-wide-7_IY {\n    margin-top: calc(7 * 8px);\n    margin-bottom: calc(7 * 8px);\n  }\n\n  .my-wide-8_rZ {\n    margin-top: calc(8 * 8px);\n    margin-bottom: calc(8 * 8px);\n  }\n\n  .my-wide-9_an {\n    margin-top: calc(9 * 8px);\n    margin-bottom: calc(9 * 8px);\n  }\n\n  .px-wide-0_au {\n    padding-left: calc(0 * 8px);\n    padding-right: calc(0 * 8px);\n  }\n\n  .px-wide-0_125_Vz {\n    padding-left: calc(0.125 * 8px);\n    padding-right: calc(0.125 * 8px);\n  }\n\n  .px-wide-0_25_bo {\n    padding-left: calc(0.25 * 8px);\n    padding-right: calc(0.25 * 8px);\n  }\n\n  .px-wide-0_5_mv {\n    padding-left: calc(0.5 * 8px);\n    padding-right: calc(0.5 * 8px);\n  }\n\n  .px-wide-1_Yi {\n    padding-left: calc(1 * 8px);\n    padding-right: calc(1 * 8px);\n  }\n\n  .px-wide-1_5_pf {\n    padding-left: calc(1.5 * 8px);\n    padding-right: calc(1.5 * 8px);\n  }\n\n  .px-wide-1_75_HB {\n    padding-left: calc(1.75 * 8px);\n    padding-right: calc(1.75 * 8px);\n  }\n\n  .px-wide-2_0L {\n    padding-left: calc(2 * 8px);\n    padding-right: calc(2 * 8px);\n  }\n\n  .px-wide-2_5_Uo {\n    padding-left: calc(2.5 * 8px);\n    padding-right: calc(2.5 * 8px);\n  }\n\n  .px-wide-3_4C {\n    padding-left: calc(3 * 8px);\n    padding-right: calc(3 * 8px);\n  }\n\n  .px-wide-4_6J {\n    padding-left: calc(4 * 8px);\n    padding-right: calc(4 * 8px);\n  }\n\n  .px-wide-5_94 {\n    padding-left: calc(5 * 8px);\n    padding-right: calc(5 * 8px);\n  }\n\n  .px-wide-6_fn {\n    padding-left: calc(6 * 8px);\n    padding-right: calc(6 * 8px);\n  }\n\n  .px-wide-7_z8 {\n    padding-left: calc(7 * 8px);\n    padding-right: calc(7 * 8px);\n  }\n\n  .px-wide-8_zO {\n    padding-left: calc(8 * 8px);\n    padding-right: calc(8 * 8px);\n  }\n\n  .px-wide-9_tE {\n    padding-left: calc(9 * 8px);\n    padding-right: calc(9 * 8px);\n  }\n\n  .py-wide-0_-l {\n    padding-top: calc(0 * 8px);\n    padding-bottom: calc(0 * 8px);\n  }\n\n  .py-wide-0_125_Ei {\n    padding-top: calc(0.125 * 8px);\n    padding-bottom: calc(0.125 * 8px);\n  }\n\n  .py-wide-0_25_nR {\n    padding-top: calc(0.25 * 8px);\n    padding-bottom: calc(0.25 * 8px);\n  }\n\n  .py-wide-0_5_CR {\n    padding-top: calc(0.5 * 8px);\n    padding-bottom: calc(0.5 * 8px);\n  }\n\n  .py-wide-1_k8 {\n    padding-top: calc(1 * 8px);\n    padding-bottom: calc(1 * 8px);\n  }\n\n  .py-wide-1_5_-F {\n    padding-top: calc(1.5 * 8px);\n    padding-bottom: calc(1.5 * 8px);\n  }\n\n  .py-wide-1_75_K4 {\n    padding-top: calc(1.75 * 8px);\n    padding-bottom: calc(1.75 * 8px);\n  }\n\n  .py-wide-2_cq {\n    padding-top: calc(2 * 8px);\n    padding-bottom: calc(2 * 8px);\n  }\n\n  .py-wide-2_5_AC {\n    padding-top: calc(2.5 * 8px);\n    padding-bottom: calc(2.5 * 8px);\n  }\n\n  .py-wide-3_VC {\n    padding-top: calc(3 * 8px);\n    padding-bottom: calc(3 * 8px);\n  }\n\n  .py-wide-4_73 {\n    padding-top: calc(4 * 8px);\n    padding-bottom: calc(4 * 8px);\n  }\n\n  .py-wide-5_3u {\n    padding-top: calc(5 * 8px);\n    padding-bottom: calc(5 * 8px);\n  }\n\n  .py-wide-6_bT {\n    padding-top: calc(6 * 8px);\n    padding-bottom: calc(6 * 8px);\n  }\n\n  .py-wide-7_6B {\n    padding-top: calc(7 * 8px);\n    padding-bottom: calc(7 * 8px);\n  }\n\n  .py-wide-8_bJ {\n    padding-top: calc(8 * 8px);\n    padding-bottom: calc(8 * 8px);\n  }\n\n  .py-wide-9_tk {\n    padding-top: calc(9 * 8px);\n    padding-bottom: calc(9 * 8px);\n  }\n}\n.cursor-pointer_2M {\n  cursor: pointer;\n}\n\n.row_-X {\n  display: flex;\n  flex-wrap: wrap;\n}.container_eg {\n  width: 100%;\n  display: flex;\n  padding-top: 56px;\n  padding-left: 56px;\n  padding-bottom: 56px;\n  align-items: center;\n}\n@media (max-width: 1024px) {\n  .container_eg {\n    flex-direction: column;\n  }\n}\n.container_eg .summary_C2 {\n  padding-right: 56px;\n}\n.container_eg .carousel_5C {\n  width: 100%;\n  overflow: hidden;\n}.main-container_aZ {\n  max-width: 286px;\n  padding: 32px;\n}'));
+      document.head.appendChild(elementStyle);
+    }
+  } catch (e) {
+    console.error("vite-plugin-css-injected-by-js", e);
+  }
+})();
+import { R as React, A as Avatar, W as WidgetText, r as reactExports, T as TextTypes, c as classNames, F as FontWeights, S as StarRating, a as WidgetButton, b as Render, u as useHover, d as rcWindow, e as decodeStringFromHTMLAttribute, g as getAssetsBasePath, f as fetchTranslations, h as ReactDOM } from "../translations-UWlgrEGR.js";
+const container$1 = "container_jL";
+const carousel$2 = "carousel_gq";
+const containerInactive = "containerInactive_G2";
+const styles$6 = {
+  container: container$1,
+  carousel: carousel$2,
+  containerInactive
+};
+const mainContainer$1 = "main-container_uL";
+const btnContainerFullWidth = "btn-container-full-width_FM";
+const btnContainerSmall = "btn-container-small_L4";
+const gapFullWidth = "gap-full-width_GC";
+const gapSmall = "gap-small_qa";
+const linkContainer = "link-container_-F";
+const rating$1 = "rating_21";
+const textContainerGap = "text-container-gap_oG";
+const textContainerGapSmall = "text-container-gap-small_GC";
+const textsContainer = "texts-container_y5";
+const group = "group_OR";
+const avatarGroup = "avatar-group_Bw";
+const avatar = "avatar_Gr";
+const styles$5 = {
+  mainContainer: mainContainer$1,
+  btnContainerFullWidth,
+  btnContainerSmall,
+  gapFullWidth,
+  gapSmall,
+  linkContainer,
+  rating: rating$1,
+  textContainerGap,
+  textContainerGapSmall,
+  textsContainer,
+  group,
+  avatarGroup,
+  avatar
+};
+const AvatarPreload = (props) => {
+  const {
+    icons
+  } = props;
+  return React.createElement(React.Fragment, null, icons === null || icons === void 0 ? void 0 : icons.map((icon) => {
+    return React.createElement("span", {
+      key: icon,
+      style: {
+        display: "none"
+      }
+    }, React.createElement(Avatar, {
+      icon
+    }));
+  }));
+};
+function hexToRgb(color) {
+  color = color.slice(1);
+  const re = new RegExp(`.{1,${color.length >= 6 ? 2 : 1}}`, "g");
+  let colors = color.match(re);
+  if (colors && colors[0].length === 1) {
+    colors = colors.map((n) => n + n);
+  }
+  return colors ? `rgb${colors.length === 4 ? "a" : ""}(${colors.map((n, index) => {
+    return index < 3 ? parseInt(n, 16) : Math.round(parseInt(n, 16) / 255 * 1e3) / 1e3;
+  }).join(", ")})` : "";
+}
+const hexToRgba = (hexColor, alpha) => {
+  const rgb = hexToRgb(hexColor);
+  const rgba = rgb.replace("rgb", "rgba").replace(")", `,${alpha})`);
+  return rgba;
+};
+const ReputationWidgetText = (props) => {
+  return React.createElement(WidgetText, Object.assign({}, props, {
+    source: "reputation"
+  }));
+};
+const ReputationWidgetSummary = (props) => {
+  const {
+    textColor,
+    title,
+    ratingAverage,
+    reviewsSource,
+    reputationWidgetButtonProps,
+    elementBorderRadius,
+    reviewsCount,
+    variant = "full-width",
+    backgroundColor,
+    padding = 0,
+    borderRadius = 0,
+    alpha = 1,
+    resellerName,
+    isFreeUser,
+    sourceNameMap = {}
+  } = props;
+  const isFullWidth = reactExports.useMemo(() => variant === "full-width", [variant]);
+  const isLarge = reactExports.useMemo(() => variant === "large", [variant]);
+  const isSmall = reactExports.useMemo(() => variant === "small", [variant]);
+  const sourceText = reactExports.useMemo(() => {
+    if (reviewsSource.length > 2) {
+      return "";
+    }
+    return reviewsSource.map((source) => source === "google-business-profile" ? "Google" : source === "facebook" ? "Facebook" : sourceNameMap[source]).join(", ");
+  }, [reviewsSource]);
+  const classesBasedOnSize = reactExports.useMemo(() => {
+    let ratingGap = "";
+    let starIconSize = 24;
+    let titleSize = TextTypes.heading3;
+    let textStandard = void 0;
+    let textContainerGap2 = void 0;
+    let avatarSize = "medium-40";
+    let sourceTextSize = TextTypes.textIntro;
+    let btnSize = void 0;
+    let btnContainer = void 0;
+    let poweredByTextSize = void 0;
+    if (isFullWidth) {
+      titleSize = TextTypes.heading3;
+      ratingGap = styles$5.gapFullWidth;
+      textStandard = TextTypes.textIntro;
+      textContainerGap2 = styles$5.textContainerGap;
+      avatarSize = "medium-40";
+      sourceTextSize = TextTypes.textIntro;
+      btnSize = void 0;
+      btnContainer = styles$5.btnContainerFullWidth;
+      starIconSize = 24;
+      poweredByTextSize = void 0;
+    }
+    if (isLarge) {
+      ratingGap = styles$5.gapFullWidth;
+      titleSize = TextTypes.textIntro;
+      textStandard = TextTypes.textHelp;
+      textContainerGap2 = styles$5.textContainerGap;
+      avatarSize = "medium-40";
+      sourceTextSize = TextTypes.textIntro;
+      btnSize = void 0;
+      btnContainer = styles$5.btnContainerFullWidth;
+      starIconSize = 24;
+      poweredByTextSize = void 0;
+    }
+    if (isSmall) {
+      ratingGap = styles$5.gapSmall;
+      titleSize = TextTypes.textIntro;
+      textStandard = TextTypes.textHelp;
+      textContainerGap2 = styles$5.textContainerGapSmall;
+      avatarSize = "small";
+      sourceTextSize = TextTypes.textHelp;
+      btnSize = "small";
+      btnContainer = styles$5.btnContainerSmall;
+      starIconSize = 24;
+      poweredByTextSize = void 0;
+    }
+    return {
+      ratingGap,
+      titleSize,
+      textStandard,
+      textContainerGap: textContainerGap2,
+      avatarSize,
+      sourceTextSize,
+      btnSize,
+      btnContainer,
+      starIconSize,
+      poweredByTextSize
+    };
+  }, [variant]);
+  return React.createElement(React.Fragment, null, React.createElement("div", {
+    className: styles$5.mainContainer,
+    style: {
+      background: hexToRgba(backgroundColor, alpha),
+      padding,
+      borderRadius
+    }
+  }, React.createElement(AvatarPreload, {
+    icons: ["facebook", "google"]
+  }), React.createElement("div", {
+    className: classNames(styles$5.rating, classesBasedOnSize.ratingGap)
+  }, React.createElement(ReputationWidgetText, {
+    type: classesBasedOnSize.titleSize,
+    fontWeight: FontWeights.bold,
+    color: textColor,
+    textAlign: "center"
+  }, title), React.createElement(StarRating, {
+    size: classesBasedOnSize.starIconSize,
+    value: ratingAverage,
+    color: "#FFB114"
+  }), React.createElement("div", {
+    className: classNames(styles$5.textsContainer, classesBasedOnSize.textContainerGap)
+  }, React.createElement(ReputationWidgetText, {
+    type: classesBasedOnSize.textStandard,
+    replacements: {
+      rating_average: ratingAverage
+    },
+    color: textColor
+  }, React.createElement("b", null, "%rating_average%"), " Average"), React.createElement(ReputationWidgetText, {
+    color: textColor,
+    type: classesBasedOnSize.textStandard,
+    replacements: {
+      reviews_count: reviewsCount
+    }
+  }, "based on ", React.createElement("b", null, "%reviews_count%"), " reviews from"), React.createElement("div", {
+    className: styles$5.group
+  }, React.createElement("div", {
+    className: styles$5.avatarGroup
+  }, reviewsSource.map((source) => React.createElement("div", {
+    className: styles$5.avatar,
+    key: source
+  }, React.createElement(Avatar, {
+    size: classesBasedOnSize.avatarSize,
+    icon: source
+  })))), React.createElement(ReputationWidgetText, {
+    translate: false,
+    type: classesBasedOnSize.sourceTextSize,
+    color: textColor
+  }, sourceText)))), React.createElement("span", {
+    className: classesBasedOnSize.btnContainer
+  }, React.createElement(WidgetButton, Object.assign({}, reputationWidgetButtonProps, {
+    borderRadius: elementBorderRadius,
+    size: classesBasedOnSize.btnSize,
+    onClick: () => {
+      window.open(reputationWidgetButtonProps.reviewFormLink, "_blank");
+    }
+  }))), React.createElement(Render, {
+    if: isFreeUser && (resellerName === null || resellerName === void 0 ? void 0 : resellerName.toLowerCase()) === "rankingcoach"
+  }, React.createElement("span", {
+    className: styles$5.linkContainer
+  }, React.createElement(ReputationWidgetText, {
+    type: classesBasedOnSize.poweredByTextSize,
+    color: textColor,
+    replacements: {
+      product_name: resellerName
+    },
+    links: {
+      link1: {
+        target: "_blank",
+        href: (resellerName === null || resellerName === void 0 ? void 0 : resellerName.toLowerCase()) === "rankingcoach" ? "https://RankingCoach.ro" : "#",
+        text: ""
+      }
+    }
+  }, "Powered by <link1>%product_name%</link1>")))));
+};
+const reviewCard = "reviewCard_Vl";
+const header = "header_GD";
+const texts = "texts_MT";
+const name = "name_7z";
+const footer = "footer_fq";
+const rating = "rating_iA";
+const date = "date_c3";
+const styles$4 = {
+  reviewCard,
+  header,
+  texts,
+  name,
+  footer,
+  rating,
+  date
+};
+const ReputationWidgetDumbFullWidthReviewCard = (props) => {
+  const {
+    textColor,
+    borderRadius = 0,
+    variant = "full-width",
+    review
+  } = props;
+  const {
+    source,
+    sourceName,
+    authorName,
+    description,
+    rating: rating2,
+    publishedAt
+  } = review;
+  const isFullWidth = reactExports.useMemo(() => variant === "full-width", [variant]);
+  const isLarge = reactExports.useMemo(() => variant === "large", [variant]);
+  const isSmall = reactExports.useMemo(() => variant === "small", [variant]);
+  const classesBasedOnSize = reactExports.useMemo(() => {
+    let textSize = void 0;
+    if (isFullWidth) {
+      textSize = void 0;
+    }
+    if (isLarge) {
+      textSize = TextTypes.textHelp;
+    }
+    if (isSmall) {
+      textSize = TextTypes.textHelp;
+    }
+    return {
+      textSize
+    };
+  }, [variant]);
+  const icon = reactExports.useMemo(() => {
+    switch (source) {
+      case "google-business-profile":
+        return "google";
+      default:
+        return source;
+    }
+  }, [source]);
+  const platformName = reactExports.useMemo(() => {
+    switch (source) {
+      case "google-business-profile":
+        return "Google";
+      case "facebook":
+        return "Facebook";
+      default: {
+        return sourceName;
+      }
+    }
+  }, [source, sourceName]);
+  return React.createElement("div", {
+    className: styles$4.reviewCard,
+    style: {
+      borderRadius
+    }
+  }, React.createElement("div", {
+    className: styles$4.header
+  }, React.createElement(Avatar, {
+    icon,
+    size: "medium-40"
+  }), React.createElement("div", {
+    className: styles$4.texts
+  }, React.createElement(ReputationWidgetText, {
+    translate: false,
+    className: styles$4.name,
+    color: textColor,
+    fontWeight: FontWeights.bold
+  }, authorName !== null && authorName !== void 0 ? authorName : "Community reviewer"), React.createElement(ReputationWidgetText, {
+    variant: "lighter",
+    className: styles$4.name,
+    color: textColor,
+    replacements: {
+      source: platformName
+    }
+  }, "On %source%"))), React.createElement(ReputationWidgetText, {
+    type: classesBasedOnSize.textSize,
+    color: textColor,
+    translate: false,
+    maxLines: 4,
+    seeMore: {
+      seeMoreContent: "..."
+    }
+  }, description), React.createElement("div", {
+    className: styles$4.footer
+  }, React.createElement("div", {
+    className: styles$4.rating
+  }, React.createElement("div", {
+    style: {
+      paddingTop: 3.5
+    }
+  }, React.createElement(ReputationWidgetText, {
+    type: TextTypes.textHelp,
+    translate: false,
+    color: textColor
+  }, rating2)), React.createElement("div", null, React.createElement(StarRating, {
+    value: 5,
+    size: 16,
+    color: "#FFB114"
+  }))), React.createElement(ReputationWidgetText, {
+    variant: "lighter",
+    color: textColor,
+    className: styles$4.date,
+    translate: false
+  }, new Date(publishedAt !== null && publishedAt !== void 0 ? publishedAt : "").toISOString().split("T")[0])));
+};
+const carousel$1 = "carousel_wg";
+const scrollContainer = "scroll-container_dA";
+const carouselItem = "carouselItem_wD";
+const styles$3 = {
+  carousel: carousel$1,
+  scrollContainer,
+  carouselItem
+};
+const FadeCarouselAuto = (props) => {
+  const scrollRef = reactExports.useRef(null);
+  const {
+    items,
+    ItemType,
+    gap = 0,
+    speed = 0,
+    interval = 5
+  } = props;
+  const isTriggerHovered = useHover(scrollRef);
+  const beforeStyle = {
+    content: '""',
+    // position: "absolute",
+    // border: "1px solid red",
+    top: 0,
+    left: 0,
+    padding: 10,
+    height: "100%",
+    // width: "35%", // Adjust the width as needed
+    // background: `linear-gradient(to right, ${gradientColor}, rgba(245, 247, 249, 0))`,
+    maskImage: `linear-gradient(90deg, rgba(0,0,0,0) 5%, rgba(0,0,0,1) 25%)`,
+    // pointerEvents: "none", // Allows interactions with underlying content
+    zIndex: 2
+  };
+  reactExports.useEffect(() => {
+    const container2 = scrollRef.current;
+    let intervalId;
+    let lastTime = performance.now();
+    if (container2 && !isTriggerHovered) {
+      intervalId = setInterval(() => {
+        const currentTime = performance.now();
+        const timeDiff = currentTime - lastTime;
+        const distanceToScroll = speed * timeDiff / interval;
+        if (container2.scrollLeft >= container2.scrollWidth / 2) {
+          container2.scrollLeft = 0;
+        } else {
+          container2.scrollLeft += distanceToScroll;
+        }
+        lastTime = currentTime;
+      }, interval);
+    }
+    return () => clearInterval(intervalId);
+  }, [scrollRef.current, isTriggerHovered]);
+  return React.createElement("div", {
+    className: styles$3.carousel
+  }, React.createElement("div", {
+    className: classNames(styles$3.scrollContainer),
+    style: Object.assign({
+      display: "flex",
+      gap
+    }, beforeStyle),
+    ref: scrollRef
+  }, [...items, ...items].map((item, index) => React.createElement("div", {
+    key: index,
+    className: styles$3.carouselItem
+  }, React.createElement(ItemType, Object.assign({}, item))))));
+};
+const ReputationWidgetSettingsSize = {
+  FULL: "FULL",
+  LARGE: "LARGE",
+  SMALL: "SMALL"
+};
+const ReputationWidgetSettingsCornerRoundness = {
+  NONE: "NONE",
+  SMALL: "SMALL",
+  MEDIUM: "MEDIUM",
+  LARGE: "LARGE"
+};
+const ReputationWidgetReviewObjectType = {
+  App_Domain_Reputation_Entities_ReputationWidgets_ReputationWidgetReview: "App\\Domain\\Reputation\\Entities\\ReputationWidgets\\ReputationWidgetReview"
+};
+const dFlex$1 = "d-flex_LP";
+const dFlexColumn$1 = "d-flex-column_eP";
+const gap1$1 = "gap-1_fd";
+const styles$2 = {
+  dFlex: dFlex$1,
+  dFlexColumn: dFlexColumn$1,
+  gap1: gap1$1
+};
+const {
+  dFlex,
+  dFlexColumn,
+  gap1
+} = styles$2;
+const ReputationWidgetInactiveState = (props) => {
+  const {
+    textColor
+  } = props;
+  return React.createElement("div", {
+    className: classNames(dFlex, dFlexColumn, gap1)
+  }, React.createElement(ReputationWidgetText, {
+    color: textColor,
+    type: TextTypes.textIntro,
+    fontWeight: FontWeights.bold
+  }, "We’re working on it!"), React.createElement(ReputationWidgetText, {
+    color: textColor,
+    type: TextTypes.text
+  }, "Our reputation data is taking a break but will be back soon."));
+};
+const ReputationWidgetDumbLarge = (props) => {
+  var _a, _b;
+  const {
+    textColor,
+    reviewsSource,
+    reputationWidgetButtonProps,
+    elementBorderRadius,
+    backgroundColor,
+    alpha,
+    reviews,
+    reviewsAmount = 0,
+    averageRating = 5,
+    active,
+    resellerName,
+    isFreeUser,
+    sourceNameMap
+  } = props;
+  const borderRadiusValue = reactExports.useMemo(() => {
+    switch (elementBorderRadius) {
+      case ReputationWidgetSettingsCornerRoundness.LARGE:
+        return 16;
+      case ReputationWidgetSettingsCornerRoundness.MEDIUM:
+        return 8;
+      case ReputationWidgetSettingsCornerRoundness.SMALL:
+        return 4;
+      case ReputationWidgetSettingsCornerRoundness.NONE:
+        return 0;
+      default:
+        return 0;
+    }
+  }, [elementBorderRadius]);
+  const subItems = (_b = (_a = reviews === null || reviews === void 0 ? void 0 : reviews.elements) === null || _a === void 0 ? void 0 : _a.map((item, idx) => {
+    return {
+      review: item,
+      textColor,
+      borderRadius: borderRadiusValue
+    };
+  })) !== null && _b !== void 0 ? _b : [{
+    review: {
+      objectType: ReputationWidgetReviewObjectType.App_Domain_Reputation_Entities_ReputationWidgets_ReputationWidgetReview
+    },
+    textColor,
+    borderRadius: borderRadiusValue
+  }];
+  if (!active) {
+    return React.createElement("div", {
+      className: styles$6.containerInactive,
+      style: {
+        background: hexToRgba(backgroundColor, alpha),
+        borderRadius: borderRadiusValue
+      }
+    }, React.createElement(ReputationWidgetInactiveState, {
+      textColor
+    }));
+  }
+  return React.createElement("div", {
+    className: styles$6.container,
+    style: {
+      background: hexToRgba(backgroundColor, alpha),
+      borderRadius: borderRadiusValue
+    }
+  }, React.createElement(ReputationWidgetSummary, {
+    variant: "small",
+    padding: 32,
+    alpha: 0,
+    borderRadius: borderRadiusValue,
+    backgroundColor,
+    elementBorderRadius: borderRadiusValue,
+    reviewsSource,
+    textColor,
+    reputationWidgetButtonProps,
+    ratingAverage: averageRating,
+    reviewsCount: reviewsAmount,
+    title: !!averageRating && averageRating >= 4 ? "Excellent" : "Good",
+    resellerName,
+    isFreeUser,
+    sourceNameMap
+  }), React.createElement("div", {
+    className: styles$6.carousel
+  }, React.createElement(FadeCarouselAuto, {
+    gap: 16,
+    ItemType: ReputationWidgetDumbFullWidthReviewCard,
+    items: subItems,
+    speed: 1.2,
+    interval: 5
+  })));
+};
+const container = "container_eg";
+const summary = "summary_C2";
+const carousel = "carousel_5C";
+const styles$1 = {
+  container,
+  summary,
+  carousel
+};
+const ReputationWidgetDumbFullWidth = (props) => {
+  var _a, _b;
+  const {
+    textColor,
+    reviewsSource,
+    backgroundColor,
+    reputationWidgetButtonProps,
+    elementBorderRadius,
+    alpha = 1,
+    reviews,
+    reviewsAmount = 0,
+    averageRating = 5,
+    active,
+    resellerName,
+    isFreeUser,
+    sourceNameMap
+  } = props;
+  const borderRadiusValue = reactExports.useMemo(() => {
+    switch (elementBorderRadius) {
+      case ReputationWidgetSettingsCornerRoundness.LARGE:
+        return 16;
+      case ReputationWidgetSettingsCornerRoundness.MEDIUM:
+        return 8;
+      case ReputationWidgetSettingsCornerRoundness.SMALL:
+        return 4;
+      case ReputationWidgetSettingsCornerRoundness.NONE:
+        return 0;
+      default:
+        return 0;
+    }
+  }, [elementBorderRadius]);
+  const subItems = (_b = (_a = reviews === null || reviews === void 0 ? void 0 : reviews.elements) === null || _a === void 0 ? void 0 : _a.map((item, idx) => {
+    return {
+      review: item,
+      textColor,
+      borderRadius: borderRadiusValue
+    };
+  })) !== null && _b !== void 0 ? _b : [{
+    review: {
+      objectType: ReputationWidgetReviewObjectType.App_Domain_Reputation_Entities_ReputationWidgets_ReputationWidgetReview
+    },
+    textColor,
+    borderRadius: borderRadiusValue
+  }];
+  if (!active) {
+    return React.createElement("div", {
+      className: styles$1.container,
+      style: {
+        background: hexToRgba(backgroundColor, alpha)
+      }
+    }, React.createElement(ReputationWidgetInactiveState, {
+      textColor
+    }));
+  }
+  return React.createElement("div", {
+    className: styles$1.container,
+    style: {
+      background: hexToRgba(backgroundColor, alpha)
+    }
+  }, React.createElement("div", {
+    className: styles$1.summary
+  }, React.createElement(ReputationWidgetSummary, {
+    backgroundColor,
+    alpha: 0,
+    variant: "full-width",
+    reviewsSource,
+    textColor,
+    title: !!averageRating && averageRating >= 4 ? "Excellent" : "Good",
+    ratingAverage: averageRating,
+    reviewsCount: reviewsAmount,
+    reputationWidgetButtonProps,
+    elementBorderRadius: borderRadiusValue,
+    resellerName,
+    isFreeUser,
+    sourceNameMap
+  })), React.createElement("div", {
+    className: styles$1.carousel
+  }, React.createElement(FadeCarouselAuto, {
+    gap: 16,
+    ItemType: ReputationWidgetDumbFullWidthReviewCard,
+    items: subItems,
+    speed: 1.2,
+    interval: 5
+  })));
+};
+const mainContainer = "main-container_aZ";
+const styles = {
+  mainContainer
+};
+const ReputationWidgetDumbSmall = (props) => {
+  const {
+    textColor,
+    reviewsSource,
+    reputationWidgetButtonProps,
+    elementBorderRadius,
+    backgroundColor,
+    alpha,
+    reviewsAmount = 0,
+    averageRating = 5,
+    active,
+    resellerName,
+    isFreeUser,
+    sourceNameMap
+  } = props;
+  const borderRadiusValue = reactExports.useMemo(() => {
+    switch (elementBorderRadius) {
+      case ReputationWidgetSettingsCornerRoundness.LARGE:
+        return 16;
+      case ReputationWidgetSettingsCornerRoundness.MEDIUM:
+        return 8;
+      case ReputationWidgetSettingsCornerRoundness.SMALL:
+        return 4;
+      case ReputationWidgetSettingsCornerRoundness.NONE:
+        return 0;
+      default:
+        return 0;
+    }
+  }, [elementBorderRadius]);
+  if (!active) {
+    return React.createElement("div", {
+      className: styles.mainContainer,
+      style: {
+        background: hexToRgba(backgroundColor, alpha),
+        borderRadius: borderRadiusValue
+      }
+    }, React.createElement(ReputationWidgetInactiveState, {
+      textColor
+    }));
+  }
+  return React.createElement(ReputationWidgetSummary, {
+    variant: "small",
+    padding: 32,
+    alpha,
+    borderRadius: borderRadiusValue,
+    backgroundColor,
+    elementBorderRadius: borderRadiusValue,
+    reviewsSource,
+    textColor,
+    reputationWidgetButtonProps,
+    ratingAverage: averageRating,
+    reviewsCount: reviewsAmount,
+    title: !!averageRating && averageRating >= 4 ? "Excellent" : "Good",
+    resellerName,
+    isFreeUser,
+    sourceNameMap
+  });
+};
+const ReputationWidgetDumb = (props) => {
+  const {
+    size
+  } = props;
+  if (rcWindow.widgetTranslations) {
+    rcWindow.widgetTranslations.reputation = props.texts;
+  } else {
+    rcWindow.widgetTranslations = {
+      reputation: props.texts
+    };
+  }
+  switch (size) {
+    case ReputationWidgetSettingsSize.FULL:
+      const fwProps = props;
+      return React.createElement(ReputationWidgetDumbFullWidth, Object.assign({}, fwProps));
+    case ReputationWidgetSettingsSize.LARGE:
+      const largeProps = props;
+      return React.createElement(ReputationWidgetDumbLarge, Object.assign({}, largeProps));
+    case ReputationWidgetSettingsSize.SMALL:
+      const smallProps = props;
+      return React.createElement(ReputationWidgetDumbSmall, Object.assign({}, smallProps));
+    default:
+      return null;
+  }
+};
+const getPropsReputationPublicWidget = (container2) => {
+  var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
+  container2 = container2 !== null && container2 !== void 0 ? container2 : document.getElementById("reputation-widget-container");
+  rcWindow.container = container2;
+  if (!container2) return null;
+  const reviewsSourceAttribute = container2.getAttribute("reviews-source");
+  const reviewsSource = reviewsSourceAttribute === "google-business-profile" ? ["google-business-profile"] : reviewsSourceAttribute === "facebook" ? ["facebook"] : reviewsSourceAttribute === "both" ? ["google-business-profile", "facebook"] : reviewsSourceAttribute === null ? [] : JSON.parse(decodeStringFromHTMLAttribute(reviewsSourceAttribute));
+  const sourceNameMapAttribute = container2.getAttribute("source-name-map");
+  const sourceNameMap = sourceNameMapAttribute ? JSON.parse(decodeStringFromHTMLAttribute(sourceNameMapAttribute)) : void 0;
+  const props = {
+    textColor: (_a = container2.getAttribute("text-color")) !== null && _a !== void 0 ? _a : "",
+    reviewsSource,
+    sourceNameMap,
+    reviewsRating: (_b = container2.getAttribute("reviews-rating")) !== null && _b !== void 0 ? _b : void 0,
+    backgroundColor: (_c = container2.getAttribute("background-color")) !== null && _c !== void 0 ? _c : "",
+    elementBorderRadius: (_d = container2.getAttribute("element-border-radius")) !== null && _d !== void 0 ? _d : void 0,
+    reputationWidgetButtonProps: {
+      textColor: (_e = container2.getAttribute("button-text-color")) !== null && _e !== void 0 ? _e : "",
+      buttonText: (_f = container2.getAttribute("button-text")) !== null && _f !== void 0 ? _f : "",
+      textHoverColor: (_g = container2.getAttribute("button-hover-text-color")) !== null && _g !== void 0 ? _g : "",
+      backgroundHoverColor: (_h = container2.getAttribute("button-hover-background-color")) !== null && _h !== void 0 ? _h : "",
+      backgroundColor: (_j = container2.getAttribute("button-background-color")) !== null && _j !== void 0 ? _j : "",
+      reviewFormLink: (_k = container2.getAttribute("review-form-link")) !== null && _k !== void 0 ? _k : "",
+      translationSource: "reputation"
+    },
+    alpha: parseFloat((_l = container2.getAttribute("opacity")) !== null && _l !== void 0 ? _l : ""),
+    size: (_m = container2.getAttribute("size")) !== null && _m !== void 0 ? _m : void 0,
+    languageCode: (_o = container2.getAttribute("widget-language")) !== null && _o !== void 0 ? _o : void 0
+  };
+  return props;
+};
+const getReputationWidgetDefaultTexts = () => {
+  return {
+    Excellent: "Excellent",
+    Good: "Good",
+    "On %source%": "On %source%",
+    "Leave a review": "Leave a review",
+    "Please leave a review": "Please leave a review",
+    "<b>%rating_average%</b> Average": "<b>%rating_average%</b> Average",
+    "based on <b>%reviews_count%</b> reviews from": "based on <b>%reviews_count%</b> reviews from",
+    "Powered by <link1>%product_name%</link1>": "Powered by <link1>%product_name%</link1>",
+    "We’re working on it!": "We’re working on it!",
+    "Our reputation data is taking a break but will be back soon.": "Our reputation data is taking a break but will be back soon."
+  };
+};
+var __awaiter = function(thisArg, _arguments, P, generator) {
+  function adopt(value) {
+    return value instanceof P ? value : new P(function(resolve) {
+      resolve(value);
+    });
+  }
+  return new (P || (P = Promise))(function(resolve, reject) {
+    function fulfilled(value) {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+    function rejected(value) {
+      try {
+        step(generator["throw"](value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+    function step(result) {
+      result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+    }
+    step((generator = generator.apply(thisArg, _arguments || [])).next());
+  });
+};
+class ReputationWidgetElement extends HTMLElement {
+  connectedCallback() {
+    const container2 = document.createElement("div");
+    this.appendChild(container2);
+    const props = getPropsReputationPublicWidget(this);
+    if (!props) {
+      return null;
+    }
+    const defaultTexts = getReputationWidgetDefaultTexts();
+    props.texts = defaultTexts;
+    const env_url = getAssetsBasePath();
+    const fetchReputationWidgetData = () => __awaiter(this, void 0, void 0, function* () {
+      var _a, _b, _c, _d, _e, _f, _g;
+      try {
+        const isValidReputationWidgetReviewRatings = (value) => {
+          return value === "4" || value === "5" || value === "both";
+        };
+        const widgetId = this.getAttribute("widget-id");
+        const queryParams = new URLSearchParams();
+        if (props.reviewsSource.length > 0) {
+          queryParams.append("source", props.reviewsSource.join(","));
+        }
+        if (isValidReputationWidgetReviewRatings(props.reviewsRating)) {
+          queryParams.append("ratings", props.reviewsRating === "both" ? "4,5" : props.reviewsRating);
+        }
+        const response = yield fetch(`${env_url}/app/api/public/reviewsWidget/${widgetId}?${queryParams.toString()}`, {
+          method: "GET"
+        });
+        if (!response.ok) {
+          console.log("Error fetching data from API:", response.statusText);
+          throw new Error("Failed to fetch data");
+        }
+        const data = yield response.json();
+        const reputationWidget = data === null || data === void 0 ? void 0 : data.reputationWidget;
+        props.active = (reputationWidget === null || reputationWidget === void 0 ? void 0 : reputationWidget.reviews) ? true : false;
+        if (props.active) {
+          props.averageRating = Math.round(((_a = reputationWidget === null || reputationWidget === void 0 ? void 0 : reputationWidget.averageRating) !== null && _a !== void 0 ? _a : 0) * 100) / 100;
+          props.reviewsAmount = reputationWidget === null || reputationWidget === void 0 ? void 0 : reputationWidget.reviewsAmount;
+          props.reviews = reputationWidget === null || reputationWidget === void 0 ? void 0 : reputationWidget.reviews;
+          props.resellerName = (_b = reputationWidget === null || reputationWidget === void 0 ? void 0 : reputationWidget.resellerName) !== null && _b !== void 0 ? _b : "rankingCoach";
+          props.isFreeUser = reputationWidget === null || reputationWidget === void 0 ? void 0 : reputationWidget.isFreeAccount;
+          const reputationWidgetSettings = (_c = data === null || data === void 0 ? void 0 : data.reputationWidget) === null || _c === void 0 ? void 0 : _c.settings;
+          const setIfEmpty = (value, fallback) => value !== "" && value !== void 0 ? value : fallback;
+          const setIfInvalid = (value, fallback) => !Number.isNaN(value) && value >= 0 && value <= 1 ? parseFloat(value) : fallback;
+          props.textColor = setIfEmpty(props.textColor, reputationWidgetSettings.widgetTextColor);
+          props.backgroundColor = setIfEmpty(props.backgroundColor, reputationWidgetSettings.widgetBackgroundColor);
+          props.elementBorderRadius = (_d = props.elementBorderRadius) !== null && _d !== void 0 ? _d : reputationWidgetSettings.cornerRoundness;
+          props.alpha = setIfInvalid(props.alpha, reputationWidgetSettings.backgroundOpacity / 100);
+          props.size = (_e = props.size) !== null && _e !== void 0 ? _e : reputationWidgetSettings.size;
+          props.languageCode = (_f = props.languageCode) !== null && _f !== void 0 ? _f : reputationWidgetSettings.languageCode;
+          const buttonProps = props.reputationWidgetButtonProps;
+          buttonProps.textColor = setIfEmpty(buttonProps.textColor, reputationWidgetSettings === null || reputationWidgetSettings === void 0 ? void 0 : reputationWidgetSettings.buttonTextColor);
+          buttonProps.buttonText = setIfEmpty(buttonProps.buttonText, reputationWidgetSettings === null || reputationWidgetSettings === void 0 ? void 0 : reputationWidgetSettings.buttonText);
+          buttonProps.textHoverColor = setIfEmpty(buttonProps.textHoverColor, reputationWidgetSettings === null || reputationWidgetSettings === void 0 ? void 0 : reputationWidgetSettings.buttonTextHoverColor);
+          buttonProps.backgroundHoverColor = setIfEmpty(buttonProps.backgroundHoverColor, reputationWidgetSettings === null || reputationWidgetSettings === void 0 ? void 0 : reputationWidgetSettings.buttonBackgroundHoverColor);
+          buttonProps.borderRadius = (_g = buttonProps.borderRadius) !== null && _g !== void 0 ? _g : reputationWidgetSettings === null || reputationWidgetSettings === void 0 ? void 0 : reputationWidgetSettings.cornerRoundness;
+          buttonProps.backgroundColor = setIfEmpty(buttonProps.backgroundColor, reputationWidgetSettings === null || reputationWidgetSettings === void 0 ? void 0 : reputationWidgetSettings.buttonBackgroundColor);
+          buttonProps.reviewFormLink = setIfEmpty(buttonProps.reviewFormLink, reputationWidget === null || reputationWidget === void 0 ? void 0 : reputationWidget.reviewFormLink);
+        }
+        const translations = yield fetchTranslations(["Excellent", "Good", "On %source%", "Leave a review", "Please leave a review", "<b>%rating_average%</b> Average", "based on <b>%reviews_count%</b> reviews from", "Powered by <link1>%product_name%</link1>", "We’re working on it!", "Our reputation data is taking a break but will be back soon."], props.languageCode);
+        props.texts = Object.assign(Object.assign({}, props.texts), translations);
+        ReactDOM.render(React.createElement(ReputationWidgetDumb, Object.assign({}, props)), container2);
+      } catch (error) {
+        console.error("Failed to fetch showcase reviews widget data", error);
+      }
+    });
+    fetchReputationWidgetData();
+  }
+}
+class ReputationWidgetElementLegacy extends ReputationWidgetElement {
+}
+customElements.define("reputation-widget", ReputationWidgetElement);
+customElements.define("review-widget", ReputationWidgetElementLegacy);
+//# sourceMappingURL=ReputationWidget.Cq0j8ksO.js.map

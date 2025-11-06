@@ -1,0 +1,35 @@
+/* Essential styles for AK Tech page */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.aktexts {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.aktexts-inner {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.aktexts-inner p {
+    margin: 0.5em 0;
+    padding: 0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .aktexts {
+        padding: 10px;
+    }
+    
+    .aktexts-inner {
+        padding: 15px;
+    }
+}

@@ -1,0 +1,122 @@
+@font-face {
+    font-family: 'Raider Crusader Outline';
+    src: url('fonts/RaiderCrusaderOutline.eot');
+    src: url('fonts/RaiderCrusaderOutline.eot?#iefix') format('embedded-opentype'),
+        url('fonts/RaiderCrusaderOutline.woff2') format('woff2'),
+        url('fonts/RaiderCrusaderOutline.woff') format('woff'),
+        url('fonts/RaiderCrusaderOutline.ttf') format('truetype'),
+        url('fonts/RaiderCrusaderOutline.svg#RaiderCrusaderOutline') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.single-product .product .wpb_column .vc_column-inner .wpb_wrapper .sku_section{display:flex;align-items: center;}
+.single-product .product .wpb_column .vc_column-inner .wpb_wrapper .sku_section .wpb_column:nth-child(1){order:1;width:auto;}
+.single-product .product .wpb_column .vc_column-inner .wpb_wrapper .sku_section .wpb_column:nth-child(2){order:2;}
+.single-product .product .wpb_column .vc_column-inner .wpb_wrapper .sku_section .wpb_column .product_meta{margin-top:0px;margin-bottom:0px;line-height:12px;display:flex;align-items: center;}
+.single-product .product .wpb_column .vc_column-inner .wpb_wrapper .sku_section .wpb_column .product_meta .cat{padding-left:30px;}
+.single-product .product .wpb_column .vc_column-inner .wpb_wrapper .sku_section .wpb_column .product_meta br{display:none;}
+.single-product .product .wpb_column .vc_column-inner .wpb_wrapper .sku_section .wpb_column .posted_in.cat{margin-top:0px;}
+.single-product .product .wpb_column .vc_column-inner .wpb_wrapper .sku_section .wpb_column .posted_in.cat a{margin-top:0px;padding:.5rem;line-height:.8rem;}
+.single-product .product .wpb_column .vc_column-inner .wpb_wrapper .separatore_bottom_sku{margin-bottom:20px !important;}
+.single-product .product .wpb_column .vc_column-inner .wpb_wrapper .separatore_bottom_sku{height:20px !important;}
+
+.single-product .wpb_wrapper .vc_inner:nth-child(6){display:flex;align-items: center;}
+.single-product .wpb_wrapper .vc_inner:nth-child(6) .wpb_column:nth-child(1){order:1;width:auto;}
+.single-product .wpb_wrapper .vc_inner:nth-child(6) .wpb_column:nth-child(2){order:2;}
+.single-product .wpb_wrapper .vc_inner:nth-child(6) .wpb_column .product_meta{margin-top:0px;margin-bottom:0px;line-height:12px;display:flex;align-items: center;}
+.single-product .wpb_wrapper .vc_inner:nth-child(6) .wpb_column .product_meta .cat{padding-left:30px;}
+.single-product .wpb_wrapper .vc_inner:nth-child(6) .wpb_column .product_meta br{display:none;}
+.single-product .wpb_wrapper .vc_inner:nth-child(6) .wpb_column .posted_in.lg\:mt-2{margin-top:0px;}
+.single-product .wpb_wrapper .vc_inner:nth-child(6) .wpb_column .posted_in.cat a{margin-top:0px;padding:.5rem;line-height:.8rem;}
+.single-product .wpb_wrapper .vc_separator:nth-child(5){margin-bottom:20px;}
+.single-product .wpb_wrapper .vc_empty_space:nth-child(7){height:20px !important;}
+
+.woocommerce ul.products li.product .price{flex-direction: column;align-items: flex-start !important;margin-bottom:0em;height:auto !important;width:100%;}
+.woocommerce .products .product del span bdi{position:relative !important;bottom:0px !important;display:block;}
+.woocommerce .products .product .price del{line-height:1.5rem;}
+.woocommerce .products .product .price ins{line-height:1.5rem;}
+.woocommerce ul.products li.product .woocommerce-price-suffix{margin-left:0px;margin-bottom:5px;}
+.woocommerce .products .product .woocommerce-Price-amount{line-height:1.25rem;}
+.woocommerce ul.products li.product .percentuale-sconto{position: absolute;right:0px;bottom: 1rem;padding: 0px 14px;font-family: 'Raider Crusader Outline';color:#ff0000;font-size:4vh;line-height:4vh;transform:rotate(-10deg)}
+.woocommerce ul.products li.product .woocommerce-loop-product__title{font-size:.8rem;padding-bottom:70px !important;}
+.home .woocommerce ul.products li.product a.woocommerce-loop-product__link{display:flex;flex-direction: column;justify-content: space-between;height:100%;}
+.home .woocommerce ul.products li.product .size-woocommerce_thumbnail{height:15vh !important;width:auto !important;}
+
+#carousel-wrapper .swiper-slide .md\:text-base{font-size:.8rem;}
+
+#query-griglia .text-sm{font-size:.8rem;}
+
+/* out-of-stock */
+.vc_column-inner .out-of-stock{width:100%;height:60px;display:flex !important;align-items:center;justify-content:center;background-color:#fff !important;border:1px solid var(--wc-red);color:var(--wc-red) !important;}
+
+/* BANNER FIXED */
+.banner-fixed {
+      width: 100%;
+      height: 30px;
+      background-color: #FFFF00;
+      color: #000;
+      font-weight: bold;
+      font-size: 16px;
+      overflow: hidden;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+    }
+
+    .scroller {
+      display: flex;
+      white-space: nowrap;
+      will-change: transform;
+    }
+
+    .scroller span {
+      padding-right: 50px;
+    }
+
+/* AK LUB */
+.product .aklub-bg{
+  width:100% !important;
+  left:0px !important;
+}
+.product .aklub-bg.vc_row.vc_column-gap-35 {
+  margin-left: 0px !important;
+    margin-right: -15px !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+}
+
+/* slider home */
+@media screen and (max-width: 768px) {
+    .swiper-slide{
+        height:34% !important;
+    }
+    .main-featured-all-product-category .vc_row-fluid{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .main-featured-all-product-category .vc_row-fluid .home-category-img{order:1;}
+    .home .woocommerce ul.products li.product .woocommerce-loop-product__title{padding-bottom:0px !important;margin-bottom:.5rem !important;height:4rem;overflow:hidden;}
+    .home .woocommerce ul.products li.product .size-woocommerce_thumbnail{height:15vh !important;width:auto !important;}
+    .home .woocommerce ul.products li.product a.woocommerce-loop-product__link{display:flex;}
+}
+
+
+@media all and (max-width: 576px) {
+
+  .vc_custom_1737104996738 .vc_custom_1699863319426 {
+
+    margin-top: -20px!important;
+
+  }
+
+
+  #empty-space-after-slider {
+
+    display: none;
+
+  }
+
+}

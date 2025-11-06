@@ -1,0 +1,35 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const outOfStockElement = document.querySelector("p.stock.out-of-stock");
+    if (outOfStockElement && outOfStockElement.textContent.includes("No longer available for pre-ordering")) {
+        outOfStockElement.textContent = "Al momento non è possibile ordinare questo prodotto";
+    }
+    /*const scroller = document.getElementById('scroller');
+    let speed = .5; // pixel per frame
+
+    function animateScroll() {
+      scroller.style.transform = `translateX(${offset}px)`;
+      offset -= speed;
+
+      const firstChild = scroller.children[0];
+      if (firstChild.getBoundingClientRect().right < 0) {
+        scroller.appendChild(firstChild); // sposta alla fine
+        offset += firstChild.offsetWidth + 50; // riallinea l'offset
+      }
+
+      requestAnimationFrame(animateScroll);
+    }
+
+    // Inizializzazione
+    let offset = 0;
+
+    // Clona abbastanza elementi per coprire lo schermo all’avvio
+    while (scroller.scrollWidth < window.innerWidth * 2) {
+      for (let i = 0; i < scroller.children.length; i++) {
+        const clone = scroller.children[i].cloneNode(true);
+        scroller.appendChild(clone);
+      }
+    }*/
+
+    //animateScroll();
+    
+});

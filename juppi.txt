@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munka oldalunk</title>
+    <meta name="description" content="Ezen az oldalon kell dolgoznia mindenkinek. A másik kettő csak arra van, hogy onnan másolgassuk ki a dolgokat, és ne kelljen azért a honlapra felmenni.">
+    <meta name="author" content="
+    Sedlák Ákos,
+    Pankovics Áron, Szabó Zsombor, Ignáth Benjámin, 
+    Tóbiás Szabolcs, Kristály Máté, Lukács Levente Péter,
+    Zámbó Krisztofer, Orosz Patrik, Jarecsni Regő 
+    ">
+    <!--
+        Manager, helper: Sedlák Ákos
+        
+        Header: Szabó, Pankovics, Ignáth 
+        Main: Tóbiás, Kristály, Lukács
+        Footer: Zámbó, Orosz, Jarecsni
+    -->
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <script>
+        let asd = "none"
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("asd").addEventListener("click", () => {
+            if (asd == "block") {
+                document.getElementById("asd2").style.display = "none";
+                asd = "none";
+            } else{
+                document.getElementById("asd2").style.display = "block";
+                asd = "block";
+            }
+            })
+        });
+    </script>
+</body>
+</html>
