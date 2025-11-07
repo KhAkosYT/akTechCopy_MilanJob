@@ -29,7 +29,6 @@ body {
 /* ===== HEADER ===== */
 header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 15px 50px;
   background-color: #0a0a0a;
@@ -49,34 +48,94 @@ header img:hover {
 }
 
 /* ===== NAVIGATION ===== */
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-}
 
-nav ul li a {
-  color: var(--text-color);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
-}
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
 
-nav ul li a:hover {
-  color: var(--accent-color);
-  border-bottom: 2px solid var(--accent-color);
-}
+    nav ul li {
+      position: relative;
+    }
 
-nav ul li ul {
-  display: none;
-  position: absolute;
-  background: #111;
-  padding: 10px;
-  border-radius: 6px;
-}
+    nav a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
 
-nav ul li:hover ul {
-  display: block;
+    nav a:hover {
+      background: #444;
+    }
+
+   nav ul ul {
+      display: none;
+      position: absolute;
+      background: #333;
+      top: 100%;
+      left: 0;
+      min-width: 180px;
+      z-index: 1000;
+      flex-direction: column;
+    }
+
+    nav ul ul li {
+      width: 100%;
+    }
+
+    nav ul li:hover > ul {
+      display: flex;
+    }
+
+    /* --- Többszintű dropdown (jobbra nyíló) --- */
+    nav ul ul ul {
+      top: 0;
+      left: 100%;
+    }
+
+    /* --- Stílus a belső menükre --- */
+    nav ul ul a {
+      padding: 10px 15px;
+      background: #333;
+      color: #eee;
+    }
+
+    nav ul ul a:hover {
+      background: #555;
+    }
+
+ .mobile-menu {
+      display: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #222;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+    }
+
+    #dgwt-wcas-search-input {
+  width: 25vw;
+  height: 50px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
 }
 
 /* ===== HERO / SLIDER ===== */
