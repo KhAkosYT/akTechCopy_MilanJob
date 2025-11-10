@@ -235,24 +235,58 @@ nav ul ul a:hover {
     margin-bottom: 2rem;
 }
 
-
+/* === GRID ALAP === */
 .features-grid, .products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.8rem;
 }
+
+/* === FEATURE KÁRTYÁK === */
 .feature, .product-card {
-    background: #fff;
-    border-radius: 18px;
-    padding: 1.4rem;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
-    border: 1px solid #f3f3f3;
-    transition: all 0.25s ease;
+  background: #fff;
+  border-radius: 18px;
+  padding: 1.4rem;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f3f3f3;
+  transition: all 0.25s ease;
 }
+
 .feature:hover, .product-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(255, 138, 61, 0.4);
+  transform: translateY(-4px);
+  border-color: rgba(255, 138, 61, 0.4);
 }
+
+/* === FEATURE SZEKCIÓ === */
+.feature {
+  text-align: center;
+}
+
+/* === PRODUCT KÁRTYÁK (kép jobb oldalon) === */
+.product-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.product-info {
+  flex: 1;
+  text-align: left;
+}
+
+.product-img {
+  flex-shrink: 0;
+  width: 120px;
+}
+
+.product-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
 
 
 footer {
@@ -276,4 +310,14 @@ footer {
         align-items: flex-start;
         padding-top: 100px;
     }
+
+      .product-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .product-card .product-img {
+    width: 100%;
+    margin-top: 10px;
+  }
 }
