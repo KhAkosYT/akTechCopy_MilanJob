@@ -1,0 +1,84 @@
+Game Theory Analysis for AI-Risk Problem:
+
+Since both players play optimally:
+- Tommaso moves first and distributes N soldiers across 3 territories
+- Filippo sees Tommaso's distribution and responds optimally with M soldiers
+- Each territory gives 1 point to the player with >= soldiers there
+- Need 2+ points to win (out of 3 territories)
+
+Key Insight:
+- Filippo has perfect information and responds optimally
+- Tommaso needs to find a distribution that maximizes his minimum guaranteed score
+
+Let's think about Tommaso's strategy:
+- If Tommaso puts [a, b, c] soldiers (where a+b+c = N)
+- Filippo will respond to minimize Tommaso's points (maximize his own)
+
+For Filippo to win a territory with 'x' soldiers, he needs to put at least 'x' soldiers there.
+
+Critical observation:
+- If Tommaso spreads evenly [N/3, N/3, N/3], Filippo needs to beat/match this
+- If Filippo has more soldiers (M > N), he can likely win
+- If they're equal (M = N), it depends on divisibility
+- If Tommaso has more (N > M), he might be able to secure territories
+
+Let me think about the optimal strategy:
+- Tommaso should distribute as evenly as possible to force Filippo to spread thin
+- Best distribution for Tommaso: as balanced as possible
+
+Mathematical analysis:
+- If Tommaso distributes [a, b, c] with a >= b >= c
+- Filippo will try to win 2 territories with minimum soldiers
+- Filippo will target the 2 smallest territories (b and c)
+
+Optimal Tommaso strategy: distribute evenly [⌈N/3⌉, ⌈N/3⌉, ⌊N/3⌋] or similar
+This forces Filippo to need at least 2*⌈N/3⌉ soldiers to win 2 territories
+
+Key formula:
+- Tommaso distributes evenly: each territory gets roughly N/3
+- To win 2 territories, Filippo needs roughly 2*N/3 soldiers
+- If M >= 2*⌈N/3⌉, Filippo can win
+- If M < 2*⌈N/3⌉, Filippo cannot win 2 territories
+
+Let's refine:
+- Tommaso's optimal: [⌊N/3⌋+1, ⌊N/3⌋+1, ⌊N/3⌋] if N%3 >= 1
+- Or variations based on N mod 3
+
+Actually, simpler approach:
+- If Tommaso puts roughly N/3 on each territory
+- Filippo needs to match/beat 2 territories to win
+- Filippo needs M >= 2*(N/3 + 1) to guarantee winning 2 territories
+
+Let me reconsider with ceiling:
+- Tommaso optimal: distribute to make smallest 2 territories as large as possible
+- This means: [⌈N/3⌉, ⌈N/3⌉, N - 2*⌈N/3⌉]
+- Filippo needs to beat the 2 smallest: needs M > 2*⌈N/3⌉ to win
+
+Wait, let me verify with examples:
+Example 1: N=3, M=3
+- Tommaso: [1,1,1]
+- Filippo needs 2 soldiers to match 2 territories, has 3 total
+- Filippo can do [2,1,0] or [1,1,1] - gets 2 points or 3 points
+- Result: Draw (both get 2 points with [1,1,1] vs [1,2,0])
+
+Example 2: N=7, M=6
+- Tommaso: [3,2,2] or similar
+- Filippo needs to win 2 territories
+- If Tommaso does [3,2,2], Filippo can do [0,3,3] to win 2 territories
+- Result: Filippo wins
+
+Pattern emerging:
+- If M > N, Filippo likely wins
+- If M = N, likely draw
+- If M < N, Tommaso might win
+
+More precise:
+- Tommaso distributes evenly: smallest territory has ⌊N/3⌋
+- To win 2 territories with ⌊N/3⌋ each, Filippo needs 2*⌊N/3⌋ + 2
+- Actually, to win (not tie), needs 2*(⌊N/3⌋ + 1)
+
+Let me think differently:
+- Tommaso's best strategy: [⌈N/3⌉, ⌈N/3⌉, ⌊N/3⌋]
+- Filippo to win 2 territories needs: 2*⌈N/3⌉ soldiers minimum
+- If M >= 2*⌈N/3⌉: Filippo wins
+- If M < 2*⌈N/3⌉: Need to check if Tommaso can win or draw
