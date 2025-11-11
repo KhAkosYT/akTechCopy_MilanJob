@@ -1,0 +1,1084 @@
+
+
+:root {
+    --primary: #ff8a3d;
+    --primary-light: #ffb26a;
+    --dark: #0b0b0b;
+    --light: #ffffff;
+    --text: #222222;
+    --muted: #777777;
+    --max-width: 1200px;
+
+    --accent: #fff; /* orange */
+    --footer-dark:#000;
+    --muted:#666;
+    --max-width:1150px;
+    --gap:36px;
+    --font-sans: "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.6;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: #0a0a0a;
+  border-bottom: 2px solid var(--accent-color);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+header img {
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+header img:hover {
+  transform: scale(1.05);
+}
+
+/* LOGO konténer */
+#site-logo-inner {
+  margin-right: auto;
+}
+
+#mb-logo{display: none;}
+
+/* ===== NAVIGATION ===== */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+.fo-menu {
+  margin: 0 1.5vw;
+  display: flex;
+}
+nav ul li {
+  position: relative;
+}
+nav a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+nav a:hover {
+  background: #444;
+}
+nav ul ul {
+  display: none;
+  position: absolute;
+  background: #333;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  z-index: 1000;
+  flex-direction: column;
+}
+nav ul ul li {
+  width: 100%;
+}
+nav ul li:hover > ul {
+  display: flex;
+}
+/* Többszintű dropdown (jobbra nyíló) */
+nav ul ul ul {
+  top: 0;
+  left: 100%;
+}
+/* Stílus a belső menükre */
+nav ul ul a {
+  padding: 10px 15px;
+  background: #333;
+  color: #eee;
+}
+nav ul ul a:hover {
+  background: #555;
+}
+
+/* Hamburger ikon mobilra */
+.mobile-menu {
+  display: none;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+  margin-left: auto;
+}
+
+/* Keresőmező */
+#dgwt-wcas-search-input {
+  width: 25vw;
+  height: 50px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin-left: 20px;
+}
+
+/* =========================
+   MOBIL NÉZET BEÁLLÍTÁSOK
+========================= */
+@media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+        justify-content: center;
+        position: relative;
+      }
+      nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #0a0a0a;
+        border-top: 2px solid var(--accent-color);
+      }
+      #navList {
+        display: none;
+        flex-direction: column;
+        background: #222;
+      }
+
+      #navList.show {
+        display: flex;
+      }
+      
+      .mobile-menu {
+        display: block;
+      }
+
+      #mb-logo{display: block;}
+      #dp-logo{display: none;}
+
+      #dgwt-wcas-search-input {
+        width: 30vw;
+        margin-left: 10px 0;
+      }
+
+      
+
+      nav ul ul {
+        position: static;
+        flex-direction: column;
+        background: #222;
+        display: flex;
+        width: 100%;
+      }
+}
+
+
+.hero {
+    min-height: 100vh;
+    padding: 0 6%;
+    padding-top: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    background: radial-gradient(circle at top left, var(--primary-light), var(--primary));
+    color: var(--light);
+}
+.hero-content {
+    max-width: 560px;
+}
+.hero h1 {
+    font-size: clamp(2.4rem, 4vw, 3.2rem);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+.hero p {
+    margin-bottom: 1.6rem;
+    opacity: 0.9;
+}
+.btn {
+    padding: 0.85rem 1.8rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+.btn-primary {
+    background: var(--dark);
+    color: var(--light);
+}
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+}
+.btn-outline {
+    margin-left: 0.6rem;
+    background: transparent;
+    color: var(--light);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+.btn-outline:hover {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+
+.slideshow {
+    position: relative;
+    width: 300px;
+    height: 520px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+    border: 4px solid rgba(255, 255, 255, 0.9);
+}
+.slideshow img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.slideshow img.active {
+    opacity: 1;
+}
+
+
+.section {
+    padding: 4rem 6%;
+}
+.section-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+    color: var(--dark);
+}
+.section-subtitle {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+}
+
+/* === GRID ALAP === */
+.features-grid, .products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.8rem;
+}
+
+/* === FEATURE KÁRTYÁK === */
+.feature, .product-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 1.4rem;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f3f3f3;
+  transition: all 0.25s ease;
+}
+
+.feature:hover, .product-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 138, 61, 0.4);
+}
+
+/* === FEATURE SZEKCIÓ === */
+.feature {
+  text-align: center;
+}
+
+/* === PRODUCT KÁRTYÁK (kép jobb oldalon) === */
+.product-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.product-info {
+  flex: 1;
+  text-align: left;
+}
+
+.product-img {
+  flex-shrink: 0;
+  width: 120px;
+}
+
+.product-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.brand-img {
+    width: 5vw;
+}
+
+/* === FOOTER SZEGMENS === */
+@font-face {
+  font-family: 'Avenir LT Std';
+  src: url('../fonts/AvenirLTStd-45-Book.woff2') format('woff2'),
+       url('../fonts/AvenirLTStd-45-Book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir LT Std';
+  src: url('../fonts/AvenirLTStd-65-Medium.woff2') format('woff2'),
+       url('../fonts/AvenirLTStd-65-Medium.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir LT Std';
+  src: url('../fonts/AvenirLTStd-95-Black.woff2') format('woff2'),
+       url('../fonts/AvenirLTStd-95-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* set CSS variable and defaults to use Avenir */
+:root{
+  --accent:#fff;
+  --footer-dark:#131313;
+  --muted:#666;
+  --max-width:1150px;
+  --gap:36px;
+  --font-sans: "Avenir LT Std", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* base - use book (400) */
+c {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: white;
+  background-color: #131313;
+}
+
+/* headings - medium (600) */
+.elementor-column h3.elementor-heading-title,
+h1,h2,h3,h4,h5 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+/* large hero / newsletter title - black (900) */
+#footer .elementor-element-c7bffbf .elementor-heading-title {
+  font-family: var(--font-sans);
+  font-weight: 900;
+}
+
+/* smaller UI / labels that need lighter look can keep 400 or 600 as required */
+
+/* Essential styles for AK Tech page */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #131313;
+}
+
+.aktexts {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.aktexts-inner {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.aktexts-inner p {
+    margin: 0.5em 0;
+    padding: 0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .aktexts {
+        padding: 10px;
+    }
+    
+    .aktexts-inner {
+        padding: 15px;
+    }
+}
+
+/* Footer styles inspired by the screenshot */
+
+
+
+#footer{
+  font-family:var(--font-sans);
+  color:#222;
+}
+
+/* --- Top newsletter (dark) --- */
+#footer .elementor-section.elementor-element-82a45d0 {
+  background: #131313;                /* solid black */
+  color: #fff;
+  padding: 64px 56px 56px;        /* roomy top + left padding like screenshot */
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle diagonal stripe area on the right (keeps existing but darker) */
+#footer .elementor-section.elementor-element-82a45d0::after {
+  content: "";
+  position: absolute;
+  right: -6%;
+  top: 0;
+  width: 54%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255,255,255,0.02) 0 2px,
+    transparent 2px 40px
+  );
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Big, thin white heading aligned left */
+#footer .elementor-element-c7bffbf .elementor-heading-title {
+  color: #fff;
+  font-size: 56px;
+  line-height: 1.02;
+  font-weight: 300;
+  margin: 0 0 24px;
+  letter-spacing: -0.5px;
+}
+
+/* subheading / description */
+#footer .elementor-element-a8ccb53 .elementor-heading-title {
+  color: rgba(255,255,255,0.85);
+  max-width: 800px;
+  margin: 0 0 28px;
+  font-size: 16px;
+}
+
+/* newsletter form container: white bordered box with small submit button */
+.oew-newsletter-form-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+/* email input + button group inside visible white rectangle */
+.oew-newsletter-form-wrap .email-wrap {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.95);
+  padding: 6px;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+/* input: remove its own border, inherit white text and placeholder, stretch */
+.oew-newsletter-form-wrap input[type="email"]{
+  border: none;
+  background: transparent;
+  color: #fff;
+  padding: 6px 10px;
+  min-width: 300px;
+  outline: none;
+  font-size: 14px;
+}
+
+/* placeholder color */
+.oew-newsletter-form-wrap input[type="email"]::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+/* small submit button that visually sits inside right side of the bordered box */
+.oew-newsletter-form-button{
+  background: #fff;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  margin-left: 8px;
+  font-weight:700;
+  text-transform:uppercase;
+  cursor: pointer;
+  font-size:13px;
+  box-shadow:none;
+  height:32px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* keep newsletter form compact on smaller screens */
+@media (max-width:900px){
+  #footer .elementor-element-c7bffbf .elementor-heading-title { font-size:44px; }
+  .oew-newsletter-form-wrap input[type="email"]{ min-width:220px; }
+}
+@media (max-width:700px){
+  #footer .elementor-element-c7bffbf .elementor-heading-title { font-size:32px; }
+  .oew-newsletter-form-wrap { flex-direction: column; align-items: flex-start; gap:12px; }
+  .oew-newsletter-form-wrap .email-wrap { width:100%; }
+  .oew-newsletter-form-wrap input[type="email"]{ width:100%; min-width:0; }
+  .oew-newsletter-form-button{ margin-left:0; }
+}
+
+/* ensure focus state is visible (accessibility) */
+.oew-newsletter-form-wrap input[type="email"]:focus {
+  box-shadow: none;
+}
+
+/* --- Main footer columns (white area) --- */
+#footer .elementor-section.elementor-element-752d058{
+  background:#131313;
+  padding:40px 20px 56px;
+  color:#fff;
+}
+
+/* layout container */
+#footer .elementor-container{
+  max-width:var(--max-width);
+  margin:0 auto;
+  display:flex;
+  gap:var(--gap);
+  align-items:flex-start;
+  flex-wrap:wrap;
+  padding:0 16px;
+  /* increase horizontal padding to create the left space seen in the screenshot */
+  padding: 0 48px;
+}
+
+/* each column approx 20% */
+#footer .elementor-column{
+  flex: 1 1 calc(20% - (var(--gap) * 0.2));
+  min-width:170px;
+}
+
+/* left column special: logo + policies + social icons */
+.elementor-widget-image img{ max-width:140px; height:auto; display:block; margin-bottom:12px; }
+
+/* Iubenda / policy links */
+.elementor-widget-container a { color: #444; text-decoration:none; display:inline-block; margin:6px 0; }
+.elementor-widget-container a:hover{ text-decoration:underline; }
+
+/* social icons (circular orange) */
+.elementor-social-icons-wrapper{ margin-top:10px; display:flex; gap:8px; flex-wrap:wrap; }
+.elementor-social-icons-wrapper a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:var(--accent);
+  color:#fff;
+  text-decoration:none;
+  transition: transform .14s ease, box-shadow .14s ease;
+}
+.elementor-social-icons-wrapper a svg{ width:18px; height:18px; fill:currentColor; }
+
+/* hover effect */
+.elementor-social-icons-wrapper a:hover{ transform:translateY(-3px); box-shadow:0 6px 18px rgba(0,0,0,0.12); }
+
+/* column headings (orange) */
+.elementor-column h3.elementor-heading-title{
+  margin: 0 0 22px;    /* slightly larger space below headings */
+  color:var(--accent);
+  font-size:18px;
+  font-weight:600;
+}
+
+/* List items: larger vertical spacing and relaxed line-height for clearer separation */
+.elementor-icon-list-items{ padding:0; margin:0; list-style:none; }
+.elementor-icon-list-items li{ margin:12px 0; } /* was 6px -> now 12px */
+.elementor-icon-list-items a{
+  color:#fff;
+  font-size:15px;      /* slightly larger for readability */
+  line-height:1.9;     /* more vertical space inside multi-line items */
+  text-decoration:none;
+}
+
+/* contact and other small blocks: matching line-height */
+.elementor-widget-heading .elementor-heading-title {
+  color:#fff;
+  font-size:14px;
+  line-height:1.9;     /* increased for consistent vertical spacing */
+}
+
+/* make sure left column content uses same spacing */
+#footer .elementor-column:first-child .elementor-widget-container{
+  gap:12px;
+}
+
+/* adjust overall columns gap so horizontal spacing matches screenshot (1) */
+#footer .elementor-container{
+  gap:48px; /* was 36px -- increases horizontal breathing space between columns */
+}
+
+/* reduce horizontal gap between footer columns and tighten list spacing */
+#footer .elementor-container{
+  gap: 24px;               /* reduce from 48px to 24px */
+  padding: 0 48px;         /* keep page padding */
+}
+
+/* headings slightly closer to their lists */
+.elementor-column h3.elementor-heading-title{
+  margin: 0 0 14px;        /* smaller heading -> list gap */
+}
+
+/* tighten vertical spacing for list items (About / Vianova etc.) */
+.elementor-icon-list-items li{
+  margin: 4px 0;      /* much smaller vertical gap */
+  line-height: 1.45;
+}
+.elementor-icon-list-items a{
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* make left column slightly narrower so mid columns move left */
+#footer .elementor-column:first-child{
+  flex: 0 0 14%;
+  min-width:120px;
+}
+
+/* push Contact column to the far right and tighten its padding/text */
+#footer .elementor-column.elementor-element-afa6052{
+  order: 5;
+  margin-left: auto;    /* pushes it to the right in the flex row */
+  padding-left: 8px;
+  padding-right: 8px;
+  box-sizing: border-box;
+}
+.elementor-element-afa6052 .elementor-heading-title{
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+  color:#fff;
+}
+
+/* reduce spacing between policy buttons */
+.elementor-element-f884be3,
+.elementor-element-7a14b51,
+.elementor-element-0138f34 {
+  gap: 8px;
+  margin-top: 6px;
+}
+.elementor-element-f884be3 a,
+.elementor-element-7a14b51 a,
+.elementor-element-0138f34 a {
+  padding:6px 8px;
+  font-size:13px;
+}
+
+/* shrink social icon circles a bit */
+.elementor-social-icons-wrapper a{
+  width:34px;
+  height:34px;
+}
+.elementor-social-icons-wrapper{ gap:10px; }
+
+/* responsive tweaks keep proportions on smaller screens */
+@media (max-width:980px){
+  :root{ --gap: 12px; }
+  #footer .elementor-column:first-child{ flex: 0 0 20%; }
+}
+@media (max-width:640px){
+  #footer .elementor-container{ padding: 0 16px; gap:12px; }
+  .elementor-icon-list-items li{ margin:6px 0; line-height:1.5; }
+  .elementor-element-afa6052 { margin-left:0; order:0; }
+}
+
+/* ensure Contact column stays last and aligned */
+#footer .elementor-column.elementor-element-afa6052 { order: 5; align-self:flex-start; }
+
+/* responsive: keep slightly reduced gap on medium screens */
+@media (max-width:980px){
+  #footer .elementor-container{ gap:20px; }
+  .elementor-icon-list-items li{ margin:8px 0; }
+}
+@media (max-width:640px){
+  #footer .elementor-container{ gap:14px; padding:0 18px; }
+  .elementor-icon-list-items li{ margin:6px 0; line-height:1.5; }
+}
+
+/* --- Footer bottom / copyright --- */
+#footer-bottom{
+  background:#131313;
+  border-top:1px solid rgba(0,0,0,0.04);
+  padding:14px 0 28px;
+}
+#footer-bottom-inner{ max-width:var(--max-width); margin:0 auto; padding:0 16px; display:flex; align-items:center; justify-content:center; }
+#copyright{
+  color:var(--muted);
+  font-size:12px;
+  text-align:center;
+  color: #fff;
+}
+#copyright a{ color:var(--muted); text-decoration:none; font-weight:600; color: #fff; }
+#copyright a:hover{ color:var(--accent); }
+
+/* responsive: stack columns on small screens */
+@media (max-width:980px){
+  #footer .elementor-column{ flex: 1 1 45%; }
+}
+@media (max-width:640px){
+  #footer .elementor-column{ flex: 1 1 100%; }
+  #footer .elementor-container{ gap:18px; }
+  #footer .elementor-section.elementor-element-82a45d0::after{ display:none; }
+}
+
+/* Adjust container and left column so logo/media match screenshots */
+#footer .elementor-container{
+  /* increase horizontal padding to create the left space seen in the screenshot */
+  padding: 0 48px;
+}
+
+/* make left column narrower and keep content left-aligned */
+#footer .elementor-column:first-child{
+  flex: 0 0 18%;
+  min-width: 160px;
+  text-align: left;
+  padding-left: 6px;
+  box-sizing: border-box;
+}
+
+/* larger logo, positioned under the left column padding */
+.elementor-widget-image img{
+  max-width: 160px;   /* slightly bigger than before */
+  height: auto;
+  display: block;
+  margin: 6px 0 18px; /* top, right/left auto handled by column padding */
+  transform: none;
+}
+
+/* policy links stacked and aligned under the logo */
+.elementor-element-f884be3 a,
+.elementor-element-7a14b51 a,
+.elementor-element-0138f34 a {
+  display: inline-block;
+  margin: 8px 0 8px 6px;
+}
+
+/* social icons: bigger orange circles, left aligned beneath the policy buttons */
+.elementor-social-icons-wrapper{
+  margin-top: 18px;
+  margin-left: 6px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.elementor-social-icons-wrapper a{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff; /* dark icon inside circle like screenshot */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .12s ease;
+}
+.elementor-social-icons-wrapper a svg{
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* responsive tweaks keep layout tidy on smaller screens */
+@media (max-width:980px){
+  #footer .elementor-column:first-child{ flex: 0 0 28%; }
+}
+@media (max-width:640px){
+  #footer .elementor-container{ padding: 0 18px; }
+  .elementor-widget-image img{ max-width:140px; margin-left:0; }
+  .elementor-social-icons-wrapper{ margin-left:0; gap:10px; }
+}
+
+/* Position fixes: hide accessible label text, stack policy buttons, align logo + media */
+.elementor-screen-only{
+  /* visually hide but keep for screen-readers */
+  position:absolute!important;
+  width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+
+/* ensure left column content is stacked and left-aligned */
+#footer .elementor-column:first-child .elementor-widget-container{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+/* logo: no auto-centering, use left column padding for spacing */
+.elementor-widget-image { text-align:left; }
+.elementor-widget-image img { margin:6px 0 18px 0; }
+
+/* policy links (Iubenda/terms) — force block and left alignment */
+.elementor-element-f884be3,
+.elementor-element-7a14b51,
+.elementor-element-0138f34 {
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.elementor-element-f884be3 a,
+.elementor-element-7a14b51 a,
+.elementor-element-0138f34 a {
+  display:inline-block;
+  margin:8px 0;
+  padding:6px 10px;
+}
+
+/* social icons: hide text, make evenly spaced circular buttons under policies */
+.elementor-social-icons-wrapper {
+  margin-top:18px;
+  margin-left:0;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.elementor-social-icons-wrapper .elementor-grid-item{ display:inline-block; }
+.elementor-social-icons-wrapper a{
+  width:40px;height:40px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--accent);color:#222;text-decoration:none;position:relative;
+  overflow:visible;
+}
+/* ensure any leftover readable text inside anchors not visible */
+.elementor-social-icons-wrapper a .elementor-screen-only{ display:none; }
+
+/* small-screen tweak: remove extra left margin so columns stack nicely */
+@media (max-width:640px){
+  #footer .elementor-column:first-child .elementor-widget-container{ align-items:flex-start; }
+  .elementor-widget-image img{ margin-left:0; }
+  .elementor-social-icons-wrapper{ margin-left:0; gap:12px; }
+}
+
+/* Policy buttons spacing: stack buttons with consistent gap and match screenshot */
+.elementor-element-f884be3,
+.elementor-element-7a14b51,
+.elementor-element-0138f34 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;               /* consistent vertical gap between policy buttons */
+  margin-top: 8px;
+}
+
+/* ensure each policy button has pill look and proper padding */
+.elementor-element-f884be3 a,
+.elementor-element-7a14b51 a,
+.elementor-element-0138f34 a {
+  display:inline-block;
+  background:#4b4b4b;
+  color:#fff;
+  padding:7px 10px;
+  border-radius:6px;
+  font-size:13px;
+  text-decoration:none;
+}
+
+/* make sure contact column aligns correctly (left text) and spacing matches other columns */
+.elementor-element-afa6052 .elementor-widget-container,
+.elementor-element-afa6052 .elementor-widget-wrap {
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:10px;
+}
+
+/* tighten vertical spacing for contact text to match screenshot */
+.elementor-element-afa6052 .elementor-heading-title {
+  line-height:1.6;
+  font-size:14px;
+  color:#fff;
+}
+
+/* Move Contact column to the right and adjust spacing */
+#footer .elementor-column{ order: 0; }
+
+/* explicit orders so layout is predictable */
+#footer .elementor-column.elementor-element-f936649 { order: 1; } /* left logo column */
+#footer .elementor-column.elementor-element-3c308b4 { order: 2; } /* Ak Informatica */
+#footer .elementor-column.elementor-element-ef22f36 { order: 3; } /* Link Utili */
+#footer .elementor-column.elementor-element-62d9546 { order: 4; } /* Digital Marketing */
+#footer .elementor-column.elementor-element-afa6052 { order: 5; } /* Contact -> moved last */
+
+/* ensure contact column is right-aligned visually and has consistent padding */
+.elementor-column.elementor-element-afa6052{
+  padding-left: 12px;
+  padding-right: 12px;
+  box-sizing: border-box;
+  align-self: flex-start;
+}
+
+/* Tighten vertical spacing inside the Contact column */
+.elementor-element-afa6052 .elementor-heading-title {
+  margin: 0 0 8px;    /* reduce space after headings */
+  line-height: 1.45;  /* slightly tighter than other columns */
+  font-size: 14px;
+  color: #fff;
+}
+
+/* links and email style inside Contact */
+.elementor-element-afa6052 a {
+  color: #fff;
+  text-decoration: none;
+}
+.elementor-element-afa6052 a:hover { text-decoration: underline; }
+
+/* make contact text blocks slightly closer together */
+.elementor-element-afa6052 .elementor-widget-wrap,
+.elementor-element-afa6052 .elementor-widget-container {
+  gap: 6px;
+}
+
+/* reduce list spacing only for contact column items (keeps other columns unchanged) */
+.elementor-element-afa6052 .elementor-heading-title,
+.elementor-element-afa6052 p {
+  margin-bottom: 6px;
+}
+
+/* If you want the Contact column to hug the far right with extra space between middle columns and Contact:
+   uncomment next rule. Use only if current flex gap doesn't produce desired spacing. */
+/*
+#footer .elementor-column.elementor-element-62d9546 {
+  margin-right: auto;
+}
+*/
+
+/* Keep mobile stacking consistent */
+@media (max-width:980px){
+  #footer .elementor-column{ order: 0; } /* disable forced ordering on small screens for natural stacking */
+}
+@media (max-width:640px){
+  .elementor-element-afa6052 { padding-left: 0; padding-right: 0; }
+  .elementor-element-afa6052 .elementor-heading-title { line-height:1.6; }
+}
+
+/* tighter footer spacing and smaller text (override) */
+:root{
+  --gap: 16px; /* smaller horizontal gap between columns */
+}
+
+/* tighten container gap */
+#footer .elementor-container{
+  gap: var(--gap);
+  padding: 0 40px;
+}
+
+/* smaller column headings and less space below */
+.elementor-column h3.elementor-heading-title{
+  font-size: 16px;
+  margin: 0 0 10px;
+}
+
+/* tighten list spacing (About / Vianova etc.) */
+.elementor-icon-list-items li{
+  margin: 4px 0;      /* much smaller vertical gap */
+  line-height: 1.45;
+}
+.elementor-icon-list-items a{
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* make left column slightly narrower so mid columns move left */
+#footer .elementor-column:first-child{
+  flex: 0 0 14%;
+  min-width:120px;
+}
+
+/* push Contact column to the far right and tighten its padding/text */
+#footer .elementor-column.elementor-element-afa6052{
+  order: 5;
+  margin-left: auto;    /* pushes it to the right in the flex row */
+  padding-left: 8px;
+  padding-right: 8px;
+  box-sizing: border-box;
+}
+.elementor-element-afa6052 .elementor-heading-title{
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+  color:#fff;
+}
+
+/* reduce spacing between policy buttons */
+.elementor-element-f884be3,
+.elementor-element-7a14b51,
+.elementor-element-0138f34 {
+  gap: 8px;
+  margin-top: 6px;
+}
+.elementor-element-f884be3 a,
+.elementor-element-7a14b51 a,
+.elementor-element-0138f34 a {
+  padding:6px 8px;
+  font-size:13px;
+}
+
+/* shrink social icon circles a bit */
+.elementor-social-icons-wrapper a{
+  width:34px;
+  height:34px;
+}
+.elementor-social-icons-wrapper{ gap:10px; }
+
+/* responsive tweaks keep proportions on smaller screens */
+@media (max-width:980px){
+  :root{ --gap: 12px; }
+  #footer .elementor-column:first-child{ flex: 0 0 20%; }
+}
+@media (max-width:640px){
+  #footer .elementor-container{ padding: 0 16px; gap:12px; }
+  .elementor-icon-list-items li{ margin:6px 0; line-height:1.5; }
+  .elementor-element-afa6052 { margin-left:0; order:0; }
+} 
+
+
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 100px;
+    }
+
+      .product-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .product-card .product-img {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+
