@@ -164,6 +164,18 @@ main section:first-of-type p {
   text-shadow: 0 0 10px rgba(0,0,0,0.8);
 }
 
+/* ===== CAROUSEL COLOR CHANGE ===== */
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(238, 106, 106, 0.3); /* semi-transparent black */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(0%) brightness(0); /* makes the white arrows black */
+  transition: filter 0.3s ease;
+}
+
 /* ===== CONTENT SECTIONS ===== */
 section {
   padding: 80px 10%;
