@@ -4,6 +4,7 @@ Kepek, Szinek maradnak az eredetin. Font: Avenir LTDS STD 45 book 65 medium 95 b
 
 Feladat leiras:
 
+	---messenger group chat: Ákos Sedlák asked---
 	"
 	So lets make this clear. We have to create a new AK Tech site. 
 	Copy every image elements colors text everything from Computer 	Discover site? 

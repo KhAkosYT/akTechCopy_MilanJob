@@ -1,1 +1,0 @@
-if(window.console&&typeof console.warn==='function'){console.warn('Autoblocking not enabled')}
